@@ -40,7 +40,6 @@ public class Huvudfonster extends javax.swing.JFrame {
         pfLosen = new javax.swing.JPasswordField();
         lblEpost = new javax.swing.JLabel();
         lblLosen = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -61,8 +60,6 @@ public class Huvudfonster extends javax.swing.JFrame {
 
         lblLosen.setText("Ange ditt lösenord:");
 
-        jLabel1.setText("Hejhej");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,17 +74,11 @@ public class Huvudfonster extends javax.swing.JFrame {
                         .addComponent(pfLosen, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblLosen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(136, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(121, 121, 121))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(75, 75, 75)
                 .addComponent(lblEpost)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfEpost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,7 +122,6 @@ public class Huvudfonster extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoggaIn;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblLosen;
