@@ -14,13 +14,13 @@ import oru.inf.InfException;
  *
  * @author hanna
  */
-public class Huvudfonster extends javax.swing.JFrame {
+public class Inloggning extends javax.swing.JFrame {
    
     private InfDB idb;
     /**
      * Creates new form Huvudfonster
      */
-    public Huvudfonster(InfDB idb) {
+    public Inloggning(InfDB idb) {
         initComponents();
         this.idb = idb;
     }     
@@ -105,7 +105,7 @@ public class Huvudfonster extends javax.swing.JFrame {
             String losenord = new String(losenordChar);
                     
             if(losenord.equals(losen)){             
-            new Inlogg().setVisible(true);
+            new HuvudMenyAgent().setVisible(true);
             }
             else if (losen == null ) {
                 JOptionPane.showMessageDialog(null, "Fel epost!");
@@ -115,7 +115,7 @@ public class Huvudfonster extends javax.swing.JFrame {
             }
         }
         catch (InfException ex) {
-            Logger.getLogger(Huvudfonster.class.getName()).log(Level.SEVERE, null, ex);           
+            Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);           
         }
     }//GEN-LAST:event_btnLoggaInActionPerformed
 

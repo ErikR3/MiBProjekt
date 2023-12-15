@@ -21,8 +21,8 @@ public class Start {
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
         } catch (InfException ex) {
-            Logger.getLogger(Huvudfonster.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new Huvudfonster(idb).setVisible(true);
+        new Inloggning(idb).setVisible(true);
     }
 }
