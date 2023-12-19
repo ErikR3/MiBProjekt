@@ -39,4 +39,14 @@ public class Validering {
         }
         return resultat;
     }
+    
+    public static boolean isRatt(String i)
+    {
+        boolean resultat = true;
+        if(i.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Inmatningen är fel!");
+            resultat = false;
+        }
+        return resultat;
+    }
 }
