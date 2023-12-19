@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-import java.sql.ResultSet;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
