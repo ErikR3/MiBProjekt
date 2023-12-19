@@ -32,14 +32,12 @@
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="regiNyUtrustning" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnUtrustning" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnRegi" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="TaBortUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnRaderaUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnVisaAktivUtrustning" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRegistreraNyUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="191" max="32767" attributes="0"/>
+              <EmptySpace pref="235" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,16 +49,12 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="visaUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnUtrustning" min="-2" pref="23" max="-2" attributes="0"/>
+              <Component id="btnVisaAktivUtrustning" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="regiNyUtrustning" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnRegi" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="TaBortUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnRaderaUtrustning" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="67" max="32767" attributes="0"/>
+              <Component id="btnRegistreraNyUtrustning" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="143" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,38 +70,25 @@
         <Property name="text" type="java.lang.String" value="Visa min aktiva utrustning"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnUtrustning">
+    <Component class="javax.swing.JButton" name="btnVisaAktivUtrustning">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visa"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUtrustningActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisaAktivUtrustningActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="regiNyUtrustning">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registera ny utrusnung"/>
+        <Property name="text" type="java.lang.String" value="Registrera Ny Utrustning"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnRegi">
+    <Component class="javax.swing.JButton" name="btnRegistreraNyUtrustning">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visa"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegiActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="TaBortUtrustning">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ta bort all utrusning ur systemet"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnRaderaUtrustning">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Radera"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRaderaUtrustningActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistreraNyUtrustningActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
