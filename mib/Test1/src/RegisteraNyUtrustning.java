@@ -85,6 +85,9 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLäggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLäggTillActionPerformed
+        //catch var inuti try, därför fick du röd text där
+        //catch kommer inte heller att kunna fånga InfException för ingen fråga ställs
+        //till databasen vad jag ser
         try {
             String utrustningNamn = txtLäggTill.getText();
             boolean finnsRedan = false;
@@ -96,20 +99,22 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
                     break;
                 }
             }
+            
+            
             if (!finnsRedan){
                 Utrustning nyUtrustning = new Utrustning(utrustning);
                 utrustningLista.add(nyUtrustning);
                 JOptionPane.showMessageDialog(null,"Ny utrustning har lagts till");
             } else {
                 JOptionPane.showMessageDialog(null,"Utrustningen finns redan i systemet");    
-            }
+            }}
              catch (InfException ex) {
             Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
             }
                 
             
                    
-        }
+        
     }//GEN-LAST:event_btnLäggTillActionPerformed
 
     private void txtLäggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLäggTillActionPerformed
@@ -157,3 +162,4 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     private javax.swing.JTextField txtLäggTill;
     // End of variables declaration//GEN-END:variables
 
+}
