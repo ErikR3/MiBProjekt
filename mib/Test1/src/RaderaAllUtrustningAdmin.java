@@ -5,6 +5,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -86,8 +87,25 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
     //Denna kanpp kommer endast Admin åt via sin inloggning. Klickar man på knappen
     //kommer all utrustning som finns i systemet att raderas. 
     private void btnRaderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaActionPerformed
-      
-        //try {
+            
+            String utrustningNamn = txtRaderaUtrustning.getText();
+            boolean radera = false;
+            try{
+                if (Validering.textFaltHarVarde(txtRaderaUtrustning)) {
+                    String raderaUtrustning = ("DELETE FROM Utrustning WHERE Benamning = '"+ utrustningNamn + "'");
+                    idb.delete(raderaUtrustning);
+                  
+                    if (!radera) {
+                        JOptionPane.showMessageDialog(null, "Utrustningen har blivit borttagen från systemet.");
+                    } else { 
+                        JOptionPane.showMessageDialog(null, "Utrustningen hittades inte i systemet.");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Felaktigt raderingsvillkor, försök igen");
+                    }
+            } catch (InfException ex) {
+                ex.printStackTrace();  
+            }
             // du skirver in en utrustning, sen tycker du på radera. 
             // då ska utrustningen försvinna från systemet. 
       //  }
@@ -96,10 +114,41 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
     private void txtRaderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRaderaUtrustningActionPerformed
         // TODO add your handling code here:
         // if txtRaderaUtrustning = null, ge felmeddelande 
-       
-     
     }//GEN-LAST:event_txtRaderaUtrustningActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(RegisteraNyUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(RegisteraNyUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(RegisteraNyUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(RegisteraNyUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        //java.awt.EventQueue.invokeLater(new Runnable() {
+        //    public void run() {
+        //        new RegisteraNyUtrustning().setVisible(true);
+        //    }
+        //});
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRadera;
