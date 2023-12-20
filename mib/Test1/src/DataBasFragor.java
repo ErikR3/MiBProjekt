@@ -74,16 +74,15 @@ public class DataBasFragor {
         }
         
         public static String[] getKolumnNamn(String tabellNamn){
-            int i = 0;
             String[] kolumnnamn = null;
-            HashMap<String, String> agent1 = new HashMap<>();
+            HashMap<String, String> agent = new HashMap<>();
             try{
-                agent1 = idb.fetchRow("SELECT * FROM " + tabellNamn);   
+                agent = idb.fetchRow("SELECT * FROM " + tabellNamn);   
             } catch(InfException e){
                 e.printStackTrace();
             }
             
-            String[] kolumnamn = agent1.keySet().toArray(new String[0]);
+            String[] kolumnamn = agent.keySet().toArray(new String[0]);
             
             return kolumnnamn;
             
