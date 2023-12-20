@@ -23,9 +23,9 @@ public class VisaAktivUtrustning extends javax.swing.JFrame {
         this.idb = idb;
     }
     
-    try {
+  //  try {
         
-}
+//}
 
     
     /**
