@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -97,7 +96,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
                // }
            // }
             
-            idb.insert(txtLäggTill.toString());
+           
             
             if (!finnsRedan){
                 String id = idb.getAutoIncrement("utrustning", "Utrustnings_ID");
