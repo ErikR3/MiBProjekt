@@ -54,10 +54,7 @@
         <Property name="text" type="java.lang.String" value="Registera ny utrustning"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNamn">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNamnActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="txtL&#xe4;ggTill">
     </Component>
     <Component class="javax.swing.JButton" name="btnL&#xe4;ggTill">
       <Properties>

@@ -83,9 +83,29 @@ public class DataBasFragor {
             }
             
             kolumnnamn = agent.keySet().toArray(new String[0]);
-            
+            for(String s : kolumnnamn){
+                JOptionPane.showMessageDialog(null, s);
+            }
             
             return kolumnnamn;
             
+        }
+        
+        public static Object[][] getRadVarde(String tabellNamn){
+            int index = 0;
+            Object[][] info = null;
+            Object[] info1 = null;
+            ArrayList<HashMap<String, String>> allaVarden = new ArrayList<>();
+            try{
+                allaVarden = idb.fetchRows(dataEntitet(index));
+            } catch(InfException e){
+                e.printStackTrace();
+            }
+            
+            for(HashMap<String, String> HM : allaVarden){
+                
+            }
+            
+            return info;
         }
 }
