@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.Vector;
@@ -21,7 +22,6 @@ public class TabellKlass extends JFrame {
         
         //Behövs för att man ska kunna se den
         JScrollPane x = new JScrollPane(tabell);
-        
         add(x);
         
         //Kallar på skapaTabell metoden(kom inte på bättre namn)(samma med dataRader)
@@ -50,7 +50,7 @@ public class TabellKlass extends JFrame {
     //Jag ska vara helt ärlig, det här kodblocket förstår jag knappt mig på själv
     private DefaultTableModel skapaTabell(int kolumnAntal, String[] kolumnensNamn) 
     {   
-       //Först instansierar jag en Vector, lagrar kolumnnamnen(strängar)
+       //Först instansierar jag en ArrayList, lagrar kolumnnamnen(strängar)
        Vector<String> forKolumn = new Vector<>();
        
        //Här itererar jag igenom alla kolumners namn för att lägga till i vectorn
