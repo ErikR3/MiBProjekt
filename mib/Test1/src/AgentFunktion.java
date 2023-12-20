@@ -10,8 +10,11 @@
 public class AgentFunktion {
     
     
-    public static void registreraNyAgent()
+    public static void registreraNyAgent(String namn, String telefon, String datum,String epost,String losenord,String omrade)
     {
+        String fraga = "Insert into agent (Namn,Telefon,Anstallningsdatum,Administrator,Epost,Losenord,Omrade) ";
+        String values = "Values ('" + namn + "','" + telefon + "','" + datum + "','N','" + epost + "','" + losenord + "','" + omrade + ",)";
+        String sql = fraga + values;
         
     }
     
