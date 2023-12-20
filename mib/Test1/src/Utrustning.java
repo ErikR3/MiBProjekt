@@ -1,3 +1,9 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -5,18 +11,21 @@
 
 /**
  *
- * @author erikr
- */
+ * @author sarajosefinahansson
+ */  
 public class Utrustning extends javax.swing.JFrame {
 
+    private InfDB idb;
+    
     /**
      * Creates new form Utrustning
      */
-    public Utrustning() {
+    public Utrustning(InfDB idb) {
         initComponents();
+        this.idb = idb;
     }
-
-    
+        
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,87 +35,93 @@ public class Utrustning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        utrusning = new javax.swing.JLabel();
+        visaUtrustning = new javax.swing.JLabel();
+        btnVisaAktivUtrustning = new javax.swing.JButton();
+        regiNyUtrustning = new javax.swing.JLabel();
+        btnRegistreraNyUtrustning = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Utrustning");
+        utrusning.setText("Utrustning");
 
-        jLabel2.setText("Visa min aktiva utrustning");
+        visaUtrustning.setText("Visa min aktiva utrustning");
 
-        jButton1.setText("jButton1");
+        btnVisaAktivUtrustning.setText("Visa");
+        btnVisaAktivUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisaAktivUtrustningActionPerformed(evt);
+            }
+        });
+
+        regiNyUtrustning.setText("Registrera Ny Utrustning");
+
+        btnRegistreraNyUtrustning.setText("Visa");
+        btnRegistreraNyUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistreraNyUtrustningActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(visaUtrustning)
+                    .addComponent(utrusning)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jButton1)))
-                .addContainerGap(199, Short.MAX_VALUE))
+                            .addComponent(regiNyUtrustning)
+                            .addComponent(btnVisaAktivUtrustning)
+                            .addComponent(btnRegistreraNyUtrustning))))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel1)
+                .addComponent(utrusning)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(29, 29, 29)
-                .addComponent(jButton1)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addComponent(visaUtrustning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVisaAktivUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(regiNyUtrustning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegistreraNyUtrustning)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Utrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Utrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Utrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Utrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    //Denna knapp visar aktiv utrustning som agenter har just nu. 
+    private void btnVisaAktivUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaAktivUtrustningActionPerformed
+        new VisaAktivUtrustning(idb).setVisible(true);
+    }//GEN-LAST:event_btnVisaAktivUtrustningActionPerformed
+//    Via denna knapp kan man registera ny utrustning.
+//    Man blir slussad till ett formulär som ger användaren möjlighet att
+//    skriva in ny utrustning.  
+    
+    private void btnRegistreraNyUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraNyUtrustningActionPerformed
+        new RegisteraNyUtrustning(idb).setVisible(true);
+    }//GEN-LAST:event_btnRegistreraNyUtrustningActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Utrustning().setVisible(true);
-            }
-        });
-    }
+    
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnRegistreraNyUtrustning;
+    private javax.swing.JButton btnVisaAktivUtrustning;
+    private javax.swing.JLabel regiNyUtrustning;
+    private javax.swing.JLabel utrusning;
+    private javax.swing.JLabel visaUtrustning;
     // End of variables declaration//GEN-END:variables
+
+   
+   
 }

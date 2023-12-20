@@ -1,4 +1,5 @@
 
+import javax.swing.SwingUtilities;
 import oru.inf.InfDB;
 
 /*
@@ -168,6 +169,13 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        
+        
+        
+        
+        
+    
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -176,6 +184,8 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgent;
