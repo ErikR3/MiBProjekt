@@ -87,14 +87,12 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
     //kommer all utrustning som finns i systemet att raderas. 
     private void btnRaderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaActionPerformed
       
-        try {
+        //try {
             // du skirver in en utrustning, sen tycker du på radera. 
             // då ska utrustningen försvinna från systemet. 
-        }
+      //  }
     }//GEN-LAST:event_btnRaderaActionPerformed
-    catch {
-        
-    }
+   //// }
     private void txtRaderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRaderaUtrustningActionPerformed
         // TODO add your handling code here:
         // if txtRaderaUtrustning = null, ge felmeddelande 

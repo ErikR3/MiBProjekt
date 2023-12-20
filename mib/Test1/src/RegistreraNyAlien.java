@@ -207,7 +207,7 @@ public class RegistreraNyAlien extends javax.swing.JFrame {
     private void btnRegistreraNyAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraNyAlienActionPerformed
         try {  
             //Kontrollera så ingen ruta är tom, annars felmeddelande "Alla fält måste vara ifyllda!"
-            Validering.textFaltHarVarde(tfNamn);
+            
             //Lagra all inskriven info
             String id = idb.getAutoIncrement("alien", "Alien_ID");
             String namn = tfNamn.getText();
