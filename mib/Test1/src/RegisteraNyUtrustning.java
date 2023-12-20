@@ -100,7 +100,8 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
                 }
             }
             
-            idb.insert(txtLäggTill.toString());
+            String id = idb.getAutoIncrement("utrustning", "Utrustnings_ID");
+            idb.insert("insert into utrustning (Utrustnings_ID, Benamning)");
             
             if (!finnsRedan){
                 Utrustning nyUtrustning = new Utrustning(utrustning);
