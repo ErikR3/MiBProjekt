@@ -1,3 +1,6 @@
+
+import oru.inf.InfDB;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -9,6 +12,13 @@
  */
 public class AgentFunktion {
     
+    private InfDB idb;
+    
+    public AgentFunktion(InfDB idb) {
+        
+        this.idb = idb;
+    }
+            
     
     public static void registreraNyAgent(String namn, String telefon, String datum,String epost,String losenord,String omrade)
     {

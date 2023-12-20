@@ -140,7 +140,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgentActionPerformed
-        // TODO add your handling code here:
+      new Agent(idb).setVisible(true);
     }//GEN-LAST:event_btnAgentActionPerformed
 
     private void btnUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUtrustningActionPerformed
