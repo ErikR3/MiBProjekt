@@ -1,3 +1,9 @@
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,11 +15,18 @@
  */
 public class AlienAlt extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form AlienAlt
      */
     public AlienAlt() {
         initComponents();
+        try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
@@ -26,28 +39,67 @@ public class AlienAlt extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        lblRegistreraAlien = new javax.swing.JLabel();
+        btnRegistreraAlien = new javax.swing.JButton();
+        btnListaAlien = new javax.swing.JButton();
+        btnSokEnAlien = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        btnTaBortAlien = new javax.swing.JButton();
+        lblAdminFunktion = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Aliens");
+        jLabel1.setText("Vad vill du veta om aliens?");
 
-        jLabel2.setText("Registrera Alien");
+        lblRegistreraAlien.setText("Registrera ny Alien");
 
-        jButton1.setText("jButton1");
+        btnRegistreraAlien.setText("Registrera ny alien");
+        btnRegistreraAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistreraAlienActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setText("Lista Aliens");
+        btnListaAlien.setText("Lista aliens via område");
 
-        jButton2.setText("jButton2");
+        btnSokEnAlien.setText("Sök efter en enskild alien");
+        btnSokEnAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSokEnAlienActionPerformed(evt);
+            }
+        });
 
-        jLabel4.setText("Sök enskild alien");
+        jLabel2.setText("Vill du ändra något om en alien?");
 
-        jButton3.setText("jButton3");
+        jButton1.setText("Ändra namn");
+
+        jButton2.setText("Ändra telefonnummer");
+
+        jButton3.setText("Ändra område");
+
+        jButton4.setText("Ändra ansvarig agent");
+
+        jButton5.setText("Ändra ras");
+
+        jButton6.setText("Lista aliens registrerade över en viss tidsperiod");
+
+        btnTaBortAlien.setText("Ta bort en alien ur systemet");
+        btnTaBortAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTaBortAlienActionPerformed(evt);
+            }
+        });
+
+        lblAdminFunktion.setText("Administratörfunktion");
+
+        jButton8.setText("Lista aliens av en viss ras");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,37 +108,93 @@ public class AlienAlt extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jLabel4)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel3)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addContainerGap(293, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRegistreraAlien)
+                            .addComponent(btnRegistreraAlien))
+                        .addGap(83, 83, 83)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAdminFunktion)
+                            .addComponent(btnTaBortAlien))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(btnListaAlien)
+                            .addComponent(jButton6)
+                            .addComponent(btnSokEnAlien)
+                            .addComponent(jButton8))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1)
+                                    .addComponent(jButton3)
+                                    .addComponent(jButton2)
+                                    .addComponent(jButton4)
+                                    .addComponent(jButton5))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btnListaAlien))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(btnSokEnAlien))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addComponent(jButton4)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRegistreraAlien)
+                    .addComponent(lblAdminFunktion))
+                .addGap(3, 3, 3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistreraAlien)
+                    .addComponent(btnTaBortAlien))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    //Knapp för att registrera en ny alien
+    private void btnRegistreraAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraAlienActionPerformed
+        new RegistreraNyAlien(idb).setVisible(true);
+        
+    }//GEN-LAST:event_btnRegistreraAlienActionPerformed
+
+    //Öppnar en JFrame där en admin kan ta bort en redan existerande alien.
+    private void btnTaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAlienActionPerformed
+
+        //Kontrollerar om den inloggade agenten är admin
+        //LÄGG EN KONTROLL HÄR OM NÅGON ÄR ADMIN
+        //öppnar en ny "TaBortAlien" JFrame
+        new TaBortAlien(idb).setVisible(true);
+    }//GEN-LAST:event_btnTaBortAlienActionPerformed
+
+    private void btnSokEnAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokEnAlienActionPerformed
+        // TODO add your handling code here:
+        new SokEfterEnAlien(idb).setVisible(true);
+    }//GEN-LAST:event_btnSokEnAlienActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,12 +232,20 @@ public class AlienAlt extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnListaAlien;
+    private javax.swing.JButton btnRegistreraAlien;
+    private javax.swing.JButton btnSokEnAlien;
+    private javax.swing.JButton btnTaBortAlien;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblAdminFunktion;
+    private javax.swing.JLabel lblRegistreraAlien;
     // End of variables declaration//GEN-END:variables
 }

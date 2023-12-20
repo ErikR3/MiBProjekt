@@ -39,4 +39,15 @@ public class Validering {
         }
         return resultat;
     }
+    
+    //Metod för att kolla ifall något går fel när man försöker instansiera en lista
+    public static boolean isRatt(String i)
+    {
+        boolean resultat = true;
+        if(i.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Inmatningen är fel!");
+            resultat = false;
+        }
+        return resultat;
+    }
 }
