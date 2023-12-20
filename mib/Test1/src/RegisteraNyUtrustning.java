@@ -100,6 +100,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
                 }
             }
             
+            idb.insert(txtLäggTill.toString());
             
             if (!finnsRedan){
                 Utrustning nyUtrustning = new Utrustning(utrustning);

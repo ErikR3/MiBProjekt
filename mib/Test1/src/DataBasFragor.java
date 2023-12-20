@@ -82,7 +82,8 @@ public class DataBasFragor {
                 e.printStackTrace();
             }
             
-            String[] kolumnamn = agent.keySet().toArray(new String[0]);
+            kolumnnamn = agent.keySet().toArray(new String[0]);
+            
             
             return kolumnnamn;
             
