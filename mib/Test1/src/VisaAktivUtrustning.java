@@ -45,6 +45,7 @@ public class VisaAktivUtrustning extends javax.swing.JFrame {
 
         lblRubrik.setText("Här visas din aktiva utrustning");
 
+        txtUtrustningVisas.setEditable(false);
         txtUtrustningVisas.setColumns(20);
         txtUtrustningVisas.setRows(5);
         jScrollPane2.setViewportView(txtUtrustningVisas);
