@@ -106,8 +106,10 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             idb.insert(txtLäggTill.toString());
             
             if (!finnsRedan){
-                Utrustning nyUtrustning = new Utrustning(utrustning);
-                utrustningLista.add(nyUtrustning);
+                String id = idb.getAutoIncrement("utrustning", "Utrustnings_ID");
+                String nyUtrustning = id+",'"+utrustningNamn+"'";
+                String LaggTillFraga = "insert into utrustning (Utrustnings_ID, Benamning) values ("+nyUtrustning+")";
+                idb.insert(LaggTillFraga);
                 JOptionPane.showMessageDialog(null,"Ny utrustning har lagts till");
             } else {
                 JOptionPane.showMessageDialog(null,"Utrustningen finns redan i systemet");    
