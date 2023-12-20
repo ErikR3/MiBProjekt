@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -92,6 +93,8 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             String utrustningNamn = txtLäggTill.getText();
             boolean finnsRedan = false;
             
+            String fraga = "select Utrustnings_ID, Benamning from Utrustning";
+            ArrayList<HashMap<String, String>> txtLaggTill = idb.fetchRows(fraga);
             
             for (Utrustning befintligUtrustning: utrustningLista){
                 if (befintligUtrustning.getName().equals(utrustningNamn)){
