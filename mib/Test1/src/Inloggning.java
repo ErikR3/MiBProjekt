@@ -105,7 +105,7 @@ public class Inloggning extends javax.swing.JFrame {
             String losenord = new String(losenordChar);
                     
             if(losenord.equals(losen)){             
-            new HuvudMenyAgent().setVisible(true);
+            new HuvudMenyAgent(idb).setVisible(true);
             }
             else if (losen == null ) {
                 JOptionPane.showMessageDialog(null, "Fel epost!");

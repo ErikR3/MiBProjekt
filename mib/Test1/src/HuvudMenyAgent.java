@@ -13,11 +13,13 @@ import oru.inf.InfDB;
  */
 public class HuvudMenyAgent extends javax.swing.JFrame {
 
+    private InfDB idb;
     /**
      * Creates new form Inlogg
      */
-    public HuvudMenyAgent() {
+    public HuvudMenyAgent(InfDB idb) {
         initComponents();
+        this.idb = idb;
  
     }
 
@@ -64,7 +66,12 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
 
         btnPlanet.setText("jButton3");
 
-        btnUtrustning.setText("jButton4");
+        btnUtrustning.setText("Gå till utrustning");
+        btnUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUtrustningActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Område/plats");
 
@@ -97,7 +104,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(btnOmrådePlats)
                             .addComponent(jLabel5))))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,57 +143,14 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgentActionPerformed
 
-    /**
+    private void btnUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUtrustningActionPerformed
+        // TODO add your handling code here:
+        new Utrustning(idb).setVisible(true);
+    }//GEN-LAST:event_btnUtrustningActionPerformed
+    
+        /**
      * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HuvudMenyAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HuvudMenyAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HuvudMenyAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HuvudMenyAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-        
-        
-        
-        
-    
-        
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HuvudMenyAgent().setVisible(true);
-            }
-        });
-    }
-    
-    
-
+     */   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgent;
     private javax.swing.JButton btnAlien;

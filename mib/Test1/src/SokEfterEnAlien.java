@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
@@ -42,7 +43,6 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         tfNummer = new javax.swing.JTextField();
         tfDatum = new javax.swing.JTextField();
         tfAgent = new javax.swing.JTextField();
-        tfPlats = new javax.swing.JTextField();
         tfRas = new javax.swing.JTextField();
         lblNamn = new javax.swing.JLabel();
         lblNummer = new javax.swing.JLabel();
@@ -50,6 +50,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         lblPlats = new javax.swing.JLabel();
         lblAgent = new javax.swing.JLabel();
         lblRas = new javax.swing.JLabel();
+        cbPlats = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -84,8 +85,6 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
 
         tfAgent.setEditable(false);
 
-        tfPlats.setEditable(false);
-
         tfRas.setEditable(false);
 
         lblNamn.setText("Namn:");
@@ -99,6 +98,8 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         lblAgent.setText("Ansvarig agent:");
 
         lblRas.setText("Ras:");
+
+        cbPlats.setEditable(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,10 +130,10 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                                     .addComponent(lblAgent)
                                     .addComponent(lblRas))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfRas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfPlats)
-                                    .addComponent(tfAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tfAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +163,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                     .addComponent(lblNamn)
                     .addComponent(tfNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPlats)
-                    .addComponent(tfPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNummer)
@@ -190,6 +191,18 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnAvbrytActionPerformed
 
+        //Fyller combobox med platser
+    private void FyllPlats() {
+    try {
+            String fraga ="select Benamning from plats";
+            ArrayList<String> namnLista = idb.fetchColumn(fraga);
+            for (String namn :namnLista){
+                cbPlats.addItem(namn);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(RegistreraNyAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void btnSokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokActionPerformed
         try {
             // Hämta epost
@@ -205,8 +218,9 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
             tfNamn.setText(namn);
             tfNummer.setText(nummer);
             tfDatum.setText(datum);
-            tfPlats.setText(plats);
-            tfAgent.setText(agent);
+            //fyll boxarna
+            //Fyllplats();
+                    
             
         } catch (InfException ex) {
             Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
@@ -215,6 +229,20 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
 
     private void btnAndraInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraInfoActionPerformed
         // TODO add your handling code here:
+        String knappText = btnAndraInfo.getText();
+        String valdText = "Ändra information";
+        if (knappText.equals(valdText)) {      
+            btnAndraInfo.setText("Spara ändringar");
+            tfNamn.setEditable(true);
+            tfNummer.setEditable(true);
+            tfDatum.setEditable(true);       
+        }
+        else {
+            btnAndraInfo.setText(valdText);
+            tfNamn.setEditable(false);
+            tfNummer.setEditable(false);
+            tfDatum.setEditable(false); 
+        }
     }//GEN-LAST:event_btnAndraInfoActionPerformed
 
 
@@ -223,6 +251,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
     private javax.swing.JButton btnAndraInfo;
     private javax.swing.JButton btnAvbryt;
     private javax.swing.JButton btnSok;
+    private javax.swing.JComboBox<String> cbPlats;
     private javax.swing.JLabel lblAgent;
     private javax.swing.JLabel lblAngeEpost;
     private javax.swing.JLabel lblDatum;
@@ -235,7 +264,6 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
     private javax.swing.JTextField tfEpost;
     private javax.swing.JTextField tfNamn;
     private javax.swing.JTextField tfNummer;
-    private javax.swing.JTextField tfPlats;
     private javax.swing.JTextField tfRas;
     // End of variables declaration//GEN-END:variables
 }

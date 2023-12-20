@@ -44,12 +44,6 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
 
         lblLäggTill.setText("Registera ny utrustning");
 
-        txtLäggTill.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLäggTillActionPerformed(evt);
-            }
-        });
-
         btnLäggTill.setText("Lägg till");
         btnLäggTill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,20 +86,23 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             String utrustningNamn = txtLäggTill.getText();
             boolean finnsRedan = false;
             
+            //String fraga = "select Utrustnings_ID, Benamning from Utrustning";
             
-            for (Utrustning befintligUtrustning: utrustningLista){
-                if (befintligUtrustning.getName().equals(utrustningNamn)){
-                    finnsRedan = true;
-                    break;
-                }
-            }
             
-            String id = idb.getAutoIncrement("utrustning", "Utrustnings_ID");
-            idb.insert("insert into utrustning (Utrustnings_ID, Benamning)");
+            //for (Utrustning befintligUtrustning: utrustningLista){
+                //if (befintligUtrustning.getName().equals(utrustningNamn)){
+                    //finnsRedan = true;
+                   // break;
+               // }
+           // }
+            
+           
             
             if (!finnsRedan){
-                Utrustning nyUtrustning = new Utrustning(utrustning);
-                utrustningLista.add(nyUtrustning);
+                String id = idb.getAutoIncrement("utrustning", "Utrustnings_ID");
+                String nyUtrustning = id+",'"+utrustningNamn+"'";
+                String LaggTillFraga = "insert into utrustning (Utrustnings_ID, Benamning) values ("+nyUtrustning+")";
+                idb.insert(LaggTillFraga);
                 JOptionPane.showMessageDialog(null,"Ny utrustning har lagts till");
             } else {
                 JOptionPane.showMessageDialog(null,"Utrustningen finns redan i systemet");    
@@ -114,14 +111,8 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
             }
                 
-            
-                   
         
     }//GEN-LAST:event_btnLäggTillActionPerformed
-
-    private void txtLäggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLäggTillActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLäggTillActionPerformed
 
     /**
      * @param args the command line arguments
