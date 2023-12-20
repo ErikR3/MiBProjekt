@@ -45,12 +45,6 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
 
         lblLäggTill.setText("Registera ny utrustning");
 
-        txtLäggTill.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLäggTillActionPerformed(evt);
-            }
-        });
-
         btnLäggTill.setText("Lägg till");
         btnLäggTill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,15 +87,15 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             String utrustningNamn = txtLäggTill.getText();
             boolean finnsRedan = false;
             
-            String fraga = "select Utrustnings_ID, Benamning from Utrustning";
-            ArrayList<HashMap<String, String>> txtLaggTill = idb.fetchRows(fraga);
+            //String fraga = "select Utrustnings_ID, Benamning from Utrustning";
             
-            for (Utrustning befintligUtrustning: utrustningLista){
-                if (befintligUtrustning.getName().equals(utrustningNamn)){
-                    finnsRedan = true;
-                    break;
-                }
-            }
+            
+            //for (Utrustning befintligUtrustning: utrustningLista){
+                //if (befintligUtrustning.getName().equals(utrustningNamn)){
+                    //finnsRedan = true;
+                   // break;
+               // }
+           // }
             
             idb.insert(txtLäggTill.toString());
             
@@ -118,14 +112,8 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
             }
                 
-            
-                   
         
     }//GEN-LAST:event_btnLäggTillActionPerformed
-
-    private void txtLäggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLäggTillActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLäggTillActionPerformed
 
     /**
      * @param args the command line arguments
