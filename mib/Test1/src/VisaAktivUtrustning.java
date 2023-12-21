@@ -23,9 +23,16 @@ public class VisaAktivUtrustning extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
     }
-    try {
-        
-    }   
+    // Validering till databsen för att hitta rätt agent
+    // från valderingen ska det synas vilken agent som är inloggad
+    // koden ska sedan ge vilken utrustning som agenten har tagit ut för stunden. 
+    // en lista ska gås genom för att hitta rätt utrustning (for each) för rätt agentID
+    // visa rätt utrustning. 
+    // vid sökning av agent använd epost då denna ska användas som nyckel. 
+    // lek med sql för att få fram rätt fråga 
+    
+       
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
