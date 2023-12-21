@@ -103,9 +103,17 @@ public class DataBasFragor {
             return allaVarden;
         }
         
-        public static int[] getAntalAliens()
+        
+        //select COUNT(DISTINCT Ansvarig_Agent) from alien
+        public static ArrayList<String> getAntalAliens()
         {
-            
+            ArrayList<String> raknadeAliens = null;
+            try{
+            raknadeAliens = idb.fetchColumn("select count(distinct Ansvarig_Agent) from alien");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            return raknadeAliens;
         }
         
 }
