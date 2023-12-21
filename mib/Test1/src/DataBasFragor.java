@@ -103,5 +103,9 @@ public class DataBasFragor {
             return allaVarden;
         }
         
+        public static int[] getAntalAliens()
+        {
+            
+        }
         
 }

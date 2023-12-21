@@ -101,7 +101,6 @@ public class Inloggning extends javax.swing.JFrame {
             String epost = tfEpost.getText();
             String fraga = "select losenord from agent where Epost = '" + epost + "'";
             String losen = idb.fetchSingle(fraga);
-            boolean admin = false;
             
             char[] losenordChar = pfLosen.getPassword();
             String losenord = new String(losenordChar);
@@ -110,7 +109,7 @@ public class Inloggning extends javax.swing.JFrame {
             new HuvudMenyAgent(idb).setVisible(true);
             Validering.setAgentInloggning(idb.fetchSingle("Select Agent_ID from agent where Epost like " + epost));
                 if(idb.fetchSingle("Select Administrator from agent where Epost like " + epost) == "J"){
-                    admin = true;
+                    Validering.setAdminStatus(true);
                 }
             }
             else if (losen == null ) {
