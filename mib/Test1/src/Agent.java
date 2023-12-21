@@ -52,7 +52,7 @@ public class Agent extends javax.swing.JFrame {
 
         jLabel2.setText("Registrera agent");
 
-        jButton2.setText("        ");
+        jButton2.setText("Visa");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
