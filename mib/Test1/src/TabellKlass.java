@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.Vector;
@@ -32,25 +33,19 @@ public class TabellKlass extends JFrame {
         //Den här kodraden gör så att tabellen ser ut värdena i serUtSahar anger
         tabell.setModel(serUtSahar);
         
-        
-        //Bara för att pröva att instansiera in några objekt
-        Object[] rad1 = {"Alice", 25, "Stockholm"};
-        Object[] rad2 = {"Henrik", 35, "Örebro"};
-        Object[] rad3 = {"Charlie", 22, "Malmö"};
+        //Object[] rad1 = {"Erik", 20, "Stockholm"};
         
         //Den här instansierar objekten i en till objekt array
         //Så rad1, rad2, rad3 och deras värden är själva objekt men nu även deras objekt en del av en array
         //(jag är för trött för att förklara det här så man förstår)
-        laggTillInfo(new Object[][]{rad1, rad2, rad3});
+        //laggTillInfo(new Object[][]{rad1, rad2, rad3});
         
         //visa
         setVisible(true);
     }
-    
-    //Jag ska vara helt ärlig, det här kodblocket förstår jag knappt mig på själv
     private DefaultTableModel skapaTabell(int kolumnAntal, String[] kolumnensNamn) 
     {   
-       //Först instansierar jag en ArrayList, lagrar kolumnnamnen(strängar)
+       //Först instansierar jag en Vector, lagrar kolumnnamnen(strängar)
        Vector<String> forKolumn = new Vector<>();
        
        //Här itererar jag igenom alla kolumners namn för att lägga till i vectorn
@@ -65,15 +60,15 @@ public class TabellKlass extends JFrame {
        return new DefaultTableModel(dataVector, forKolumn);
     }
     
-    //Används mest för tillfället, kommer troligtvis göra mig av med den
     //Lägger till värden inom tabellen
-    private void laggTillInfo(Object[][] rader){
+    private void laggTillInfo(ArrayList<HashMap<String, String>> rader){
+        Object[] radVärden = null;
         //Vi returnerar tabellen som är instansierad nu
     DefaultTableModel nyTabell = (DefaultTableModel) tabell.getModel();
         
-    //Denna loop itererar igenom raderna och lägger till raden inuti rad objektet
-    for (Object[] rad : rader){
-        nyTabell.addRow(rad);
+    //Denna loop itererar igenom raderna och lägger till raden inuti arrayen radvärden
+    for(HashMap<String, String> hm : rader){
+        hm.keySet().toArray(radVärden);
     }
 }
     //Kort kod för att påbörja instansieringen av en tabell

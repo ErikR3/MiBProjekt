@@ -37,18 +37,12 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     private void initComponents() {
 
         lblLäggTill = new javax.swing.JLabel();
-        txtNamn = new javax.swing.JTextField();
+        txtLaggTill = new javax.swing.JTextField();
         btnLäggTill = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblLäggTill.setText("Registera ny utrustning");
-
-        txtNamn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamnActionPerformed(evt);
-            }
-        });
 
         btnLäggTill.setText("Lägg till");
         btnLäggTill.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +59,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnLäggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLäggTill))
                 .addContainerGap(221, Short.MAX_VALUE))
         );
@@ -75,7 +69,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(lblLäggTill)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLäggTill)
                 .addContainerGap(190, Short.MAX_VALUE))
@@ -89,7 +83,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
         //catch kommer inte heller att kunna fånga InfException för ingen fråga ställs
         //till databasen vad jag ser
         try {
-            String utrustningNamn = txtNamn.getText();
+            String utrustningNamn = txtLaggTill.getText();
             boolean finnsRedan = false;
             
             //String fraga = "select Utrustnings_ID, Benamning from Utrustning";
@@ -154,7 +148,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLäggTill;
     private javax.swing.JLabel lblLäggTill;
-    private javax.swing.JTextField txtNamn;
+    private javax.swing.JTextField txtLaggTill;
     // End of variables declaration//GEN-END:variables
 
 }

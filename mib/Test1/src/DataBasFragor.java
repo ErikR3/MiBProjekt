@@ -91,10 +91,8 @@ public class DataBasFragor {
             
         }
         
-        public static Object[][] getRadVarde(String tabellNamn){
+        public static ArrayList<HashMap<String, String>> getRadVarde(String tabellNamn){
             int index = 0;
-            Object[][] info = null;
-            Object[] info1 = null;
             ArrayList<HashMap<String, String>> allaVarden = new ArrayList<>();
             try{
                 allaVarden = idb.fetchRows(dataEntitet(index));
@@ -102,10 +100,12 @@ public class DataBasFragor {
                 e.printStackTrace();
             }
             
-            for(HashMap<String, String> HM : allaVarden){
-                
-            }
-            
-            return info;
+            return allaVarden;
         }
+        
+        public static int[] getAntalAliens()
+        {
+            
+        }
+        
 }

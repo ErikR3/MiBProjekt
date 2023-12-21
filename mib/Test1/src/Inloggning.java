@@ -1,4 +1,5 @@
 
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -106,6 +107,10 @@ public class Inloggning extends javax.swing.JFrame {
                     
             if(losenord.equals(losen)){             
             new HuvudMenyAgent(idb).setVisible(true);
+            Validering.setAgentInloggning(idb.fetchSingle("Select Agent_ID from agent where Epost like " + epost));
+                if(idb.fetchSingle("Select Administrator from agent where Epost like " + epost) == "J"){
+                    Validering.setAdminStatus(true);
+                }
             }
             else if (losen == null ) {
                 JOptionPane.showMessageDialog(null, "Fel epost!");

@@ -63,9 +63,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtRaderaUtrustning">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRaderaUtrustningActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
