@@ -12,6 +12,9 @@ import oru.inf.InfException;
  * @author hanna
  */
 public class Validering {
+    
+    private static String AgentID;
+    private static boolean adminStatus;
 
     //Metod för att kontrollera om ett textfält är tomt
     public static boolean textFaltHarVarde(JTextField rutaAttKolla) {
@@ -49,5 +52,23 @@ public class Validering {
             resultat = false;
         }
         return resultat;
+    }
+    
+    public static void setAgentInloggning(String index)
+    {
+        AgentID = index;
+    }
+    
+    public static String getAgentInloggning()
+    {
+        return AgentID;
+    }
+    
+    public static void setAdminStatus(boolean index){
+        adminStatus = index;
+    }
+    
+    public static boolean getAdminStatus(){
+        return adminStatus;
     }
 }

@@ -91,10 +91,8 @@ public class DataBasFragor {
             
         }
         
-        public static Object[][] getRadVarde(String tabellNamn){
+        public static ArrayList<HashMap<String, String>> getRadVarde(String tabellNamn){
             int index = 0;
-            Object[][] info = null;
-            Object[] info1 = null;
             ArrayList<HashMap<String, String>> allaVarden = new ArrayList<>();
             try{
                 allaVarden = idb.fetchRows(dataEntitet(index));
@@ -102,10 +100,20 @@ public class DataBasFragor {
                 e.printStackTrace();
             }
             
-            for(HashMap<String, String> HM : allaVarden){
-                
-            }
-            
-            return info;
+            return allaVarden;
         }
+        
+        
+        //select COUNT(DISTINCT Ansvarig_Agent) from alien
+        public static ArrayList<String> getAntalAliens()
+        {
+            ArrayList<String> raknadeAliens = null;
+            try{
+            raknadeAliens = idb.fetchColumn("select count(distinct Ansvarig_Agent) from alien");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            return raknadeAliens;
+        }
+        
 }

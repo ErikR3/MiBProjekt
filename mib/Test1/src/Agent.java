@@ -1,5 +1,6 @@
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -51,7 +52,7 @@ public class Agent extends javax.swing.JFrame {
 
         jLabel2.setText("Registrera agent");
 
-        jButton2.setText("        ");
+        jButton2.setText("Visa");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -91,7 +92,12 @@ public class Agent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       new RegistreraAgent(idb).setVisible(true);
+      if (Validering.getAdminStatus()) {
+        new RegistreraAgent(idb).setVisible(true);
+      }
+      else {
+          JOptionPane.showMessageDialog(rootPane, "Ej systemadmin");
+      }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
