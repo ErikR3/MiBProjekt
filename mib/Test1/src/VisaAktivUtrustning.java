@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,12 +23,9 @@ public class VisaAktivUtrustning extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
     }
-    
-  //  try {
+    try {
         
-//}
-
-    
+    }   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,17 +36,37 @@ public class VisaAktivUtrustning extends javax.swing.JFrame {
     private void initComponents() {
 
         lblRubrik = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtUtrustningVisas = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAktivUtrustning = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblRubrik.setText("Här visas din aktiva utrustning");
 
-        txtUtrustningVisas.setEditable(false);
-        txtUtrustningVisas.setColumns(20);
-        txtUtrustningVisas.setRows(5);
-        jScrollPane2.setViewportView(txtUtrustningVisas);
+        tblAktivUtrustning.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Benämning", "Utrustning"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblAktivUtrustning);
+        if (tblAktivUtrustning.getColumnModel().getColumnCount() > 0) {
+            tblAktivUtrustning.getColumnModel().getColumn(0).setResizable(false);
+            tblAktivUtrustning.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,18 +78,18 @@ public class VisaAktivUtrustning extends javax.swing.JFrame {
                         .addGap(95, 95, 95)
                         .addComponent(lblRubrik))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(108, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(lblRubrik)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         pack();
@@ -81,8 +99,8 @@ public class VisaAktivUtrustning extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblRubrik;
-    private javax.swing.JTextArea txtUtrustningVisas;
+    private javax.swing.JTable tblAktivUtrustning;
     // End of variables declaration//GEN-END:variables
 }

@@ -51,12 +51,6 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
             }
         });
 
-        txtRaderaUtrustning.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRaderaUtrustningActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,12 +111,8 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
             // då ska utrustningen försvinna från systemet. 
       //  }
     }//GEN-LAST:event_btnRaderaActionPerformed
-   //// }
-    private void txtRaderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRaderaUtrustningActionPerformed
-        // TODO add your handling code here:
-        // if txtRaderaUtrustning = null, ge felmeddelande 
-    }//GEN-LAST:event_txtRaderaUtrustningActionPerformed
-    /**
+
+   /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
