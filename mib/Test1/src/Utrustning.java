@@ -43,7 +43,7 @@ public class Utrustning extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnRaderaUtrustning = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         utrusning.setText("Utrustning");
 

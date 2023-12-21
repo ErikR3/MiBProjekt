@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -39,7 +40,7 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
         btnRadera = new javax.swing.JButton();
         txtRaderaUtrustning = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         iblUtrustningRaderaAdmin.setText("Radera utrustning från systemet");
 
@@ -89,22 +90,28 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
     private void btnRaderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaActionPerformed
             
             String utrustningNamn = txtRaderaUtrustning.getText();
-            boolean radera = false;
+            boolean hittad = false;
             try{
+                ArrayList<String> utrustning = idb.fetchColumn("SELECT Benamning FROM Utrustning");
+                
                 if (Validering.textFaltHarVarde(txtRaderaUtrustning)) {
-                    String raderaUtrustning = ("DELETE FROM Utrustning WHERE Benamning = '"+ utrustningNamn + "'");
+                    for (String namn : utrustning) {      
+                        if (utrustningNamn.equals(namn)) {
+                            hittad = true;
+                        }
+                    }                              
+                    if (hittad) {
+                        String raderaUtrustning = ("DELETE FROM Utrustning WHERE Benamning = '"+ utrustningNamn + "'");
                     idb.delete(raderaUtrustning);
-                  
-                    if (!radera) {
                         JOptionPane.showMessageDialog(null, "Utrustningen har blivit borttagen från systemet.");
-                    } else { 
+                    } else if (!hittad) { 
                         JOptionPane.showMessageDialog(null, "Utrustningen hittades inte i systemet.");
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Felaktigt raderingsvillkor, försök igen");
+                }else {
+                    JOptionPane.showMessageDialog(null, "Inmatningsrutan är tom!");
                     }
             } catch (InfException ex) {
-                ex.printStackTrace();  
+                Logger.getLogger(RaderaAllUtrustningAdmin.class.getName()).log(Level.SEVERE, null, ex);  
             }
             // du skirver in en utrustning, sen tycker du på radera. 
             // då ska utrustningen försvinna från systemet. 

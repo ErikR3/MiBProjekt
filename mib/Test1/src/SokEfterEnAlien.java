@@ -193,8 +193,9 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
 
         //Fyller combobox med platser
     private void FyllPlats() {
+        cbPlats.removeAllItems();
     try {
-            String fraga ="select Benamning from plats";
+            String fraga ="select Benamning from plats ";
             ArrayList<String> namnLista = idb.fetchColumn(fraga);
             for (String namn :namnLista){
                 cbPlats.addItem(namn);
@@ -203,6 +204,20 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
             Logger.getLogger(RegistreraNyAlien.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+         //Fyller combobox med plats för en specifik alien
+    private void FyllPlatsForAlien(String epost) {
+            cbPlats.removeAllItems();
+            try {
+            String fraga ="select Benamning from plats join alien on plats=Plats_ID where epost = '"+epost+"'";
+            String namn = idb.fetchSingle(fraga);
+                cbPlats.addItem(namn);
+            }
+         catch (InfException ex) {
+            Logger.getLogger(RegistreraNyAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void btnSokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokActionPerformed
         try {
             // Hämta epost
@@ -219,7 +234,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
             tfNummer.setText(nummer);
             tfDatum.setText(datum);
             //fyll boxarna
-            //Fyllplats();
+            FyllPlatsForAlien(epost);
                     
             
         } catch (InfException ex) {
@@ -235,13 +250,15 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
             btnAndraInfo.setText("Spara ändringar");
             tfNamn.setEditable(true);
             tfNummer.setEditable(true);
-            tfDatum.setEditable(true);       
+            tfDatum.setEditable(true);   
+            FyllPlats();
         }
         else {
             btnAndraInfo.setText(valdText);
             tfNamn.setEditable(false);
             tfNummer.setEditable(false);
-            tfDatum.setEditable(false); 
+            tfDatum.setEditable(false);
+            
         }
     }//GEN-LAST:event_btnAndraInfoActionPerformed
 
