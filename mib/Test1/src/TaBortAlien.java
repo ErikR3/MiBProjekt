@@ -131,6 +131,8 @@ public class TaBortAlien extends javax.swing.JFrame {
         String valdEpost = tfSoktEpost.getText();
         //skapar en fråga
         String fraga = "delete from alien where epost = '" + valdEpost + "'";
+        //Ta först bort från rastabeller!!
+        
         //tar bort en alien
         idb.delete(fraga);
         } catch(InfException ex){
