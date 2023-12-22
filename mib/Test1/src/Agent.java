@@ -92,7 +92,8 @@ public class Agent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      if (Validering.getAdminStatus() == true) {
+      JOptionPane.showMessageDialog(rootPane, Validering.getAdminStatus());
+        if (Validering.getAdminStatus() == true) {
         new RegistreraAgent(idb).setVisible(true);
       }
       else {
