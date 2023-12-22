@@ -93,9 +93,8 @@ public class Agent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
-      JOptionPane.showMessageDialog(rootPane, Validering.getAdminStatus());
-        if (Validering.getAdminStatus() == true) {
-        new RegistreraAgent(idb).setVisible(true);
+       if (Validering.getAdminStatus() == true) {
+          new RegistreraAgent(idb).setVisible(true);
       }
       else {
           JOptionPane.showMessageDialog(rootPane, "Ej systemadmin");

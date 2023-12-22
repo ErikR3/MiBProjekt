@@ -1,5 +1,9 @@
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -28,23 +32,89 @@ public class BytLosenord extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pfGamla = new javax.swing.JPasswordField();
+        pfNya = new javax.swing.JPasswordField();
+        lblGamla = new javax.swing.JLabel();
+        lblNya = new javax.swing.JLabel();
+        btnBytLosen = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        pfGamla.setText("jPasswordField1");
+
+        pfNya.setText("jPasswordField2");
+
+        lblGamla.setText("Ditt gamla lösenord");
+
+        lblNya.setText("Ditt nya lösenord");
+
+        btnBytLosen.setText("Byt lösenord");
+        btnBytLosen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBytLosenActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBytLosen)
+                    .addComponent(lblNya)
+                    .addComponent(lblGamla)
+                    .addComponent(pfNya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pfGamla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(lblGamla)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pfGamla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(lblNya)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pfNya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(btnBytLosen)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBytLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLosenActionPerformed
+       try {
+        char[] gamlaLosenChar = pfGamla.getPassword();
+        String gamlaLosen = new String(gamlaLosenChar);
+        char[] nyaLosenChar = pfNya.getPassword();
+        String nyaLosen = new String(nyaLosenChar);
+        String sqlHamta = idb.fetchSingle("select Losenord from agent where Agent_ID = " + Validering.getAgentInloggning());
+        
+        if (gamlaLosen.equals(sqlHamta)){
+            idb.update("update agent set Losenord = '" + nyaLosen + "' where Agent_ID = " + Validering.getAgentInloggning());
+            JOptionPane.showMessageDialog(rootPane, "Ditt lösenord är nu bytt!");
+        }
+        else {
+            JOptionPane.showMessageDialog(rootPane, "Lösenordet du angivit stämmer ej överens med ditt gamla");
+        }
+       }
+       catch (InfException ex) {
+           Logger.getLogger(BytLosenord.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_btnBytLosenActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBytLosen;
+    private javax.swing.JLabel lblGamla;
+    private javax.swing.JLabel lblNya;
+    private javax.swing.JPasswordField pfGamla;
+    private javax.swing.JPasswordField pfNya;
     // End of variables declaration//GEN-END:variables
 }
