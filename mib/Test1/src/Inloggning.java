@@ -107,8 +107,8 @@ public class Inloggning extends javax.swing.JFrame {
                     
             if(losenord.equals(losen)){             
             new HuvudMenyAgent(idb).setVisible(true);
-            Validering.setAgentInloggning(idb.fetchSingle("Select Agent_ID from agent where Epost like " + epost));
-                if(idb.fetchSingle("Select Administrator from agent where Epost like " + epost) == "J"){
+            Validering.setAgentInloggning(idb.fetchSingle("Select Agent_ID from agent where Epost like '" + epost + "'"));
+                if(idb.fetchSingle("Select Administrator from agent where Epost like '" + epost + "'") == "J"){
                     Validering.setAdminStatus(true);
                 }
             }
