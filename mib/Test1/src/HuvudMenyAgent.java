@@ -80,6 +80,11 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         jLabel6.setText("Konto");
 
         btnKonto.setText("jButton6");
+        btnKonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKontoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,6 +152,10 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Utrustning(idb).setVisible(true);
     }//GEN-LAST:event_btnUtrustningActionPerformed
+
+    private void btnKontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKontoActionPerformed
+        new BytLosenord(idb).setVisible(true);
+    }//GEN-LAST:event_btnKontoActionPerformed
     
         /**
      * @param args the command line arguments
