@@ -87,7 +87,10 @@ public class BytLosenord extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+// 
+//      Kontrollerar att användare kan sitt lösenord med hjälp av valideringsklassen
+////    och updaterar databasen med dett nya lösenordet
+            
     private void btnBytLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLosenActionPerformed
        try {
         char[] gamlaLosenChar = pfGamla.getPassword();
