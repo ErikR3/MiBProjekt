@@ -249,17 +249,15 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
             String namn = idb.fetchSingle("select namn from alien where epost = '" + epost + "'");
             String nummer = idb.fetchSingle("select telefon from alien where epost = '" + epost + "'");
             String datum = idb.fetchSingle("select registreringsdatum from alien where epost = '" + epost + "'");
-            String plats = idb.fetchSingle("select benamning from plats join alien on plats.Plats_ID = alien.plats where alien.Epost = '"+epost+"'");
-            String agent = idb.fetchSingle("select agent.Namn from agent join alien on agent.Agent_ID = alien.Ansvarig_Agent where alien.Epost = '"+epost+"'");
             
             //printa info i rutorna
             tfNamn.setText(namn);
             tfNummer.setText(nummer);
             tfDatum.setText(datum);
-            //fyll boxarna
+            
+            //kallar på metod för att fylla boxarna
             FyllAgentForAlien(epost);
-            FyllPlatsForAlien(epost);
-                    
+            FyllPlatsForAlien(epost);              
             
         } catch (InfException ex) {
             Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
@@ -286,13 +284,21 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 String namn = tfNamn.getText();
                 String nummer = tfNummer.getText();
                 String datum = tfDatum.getText();
+                String plats = cbPlats.getSelectedItem().toString();
+                String agent = cbAnsvarigAgent.getSelectedItem().toString();
                 
-                //lagra ny info
+                //Hämta ID för plats & agent
+                String platsID = idb.fetchSingle("SELECT plats_ID FROM plats where benamning = '"+plats+"'");
+                String agentID = idb.fetchSingle("SELECT alien_ID FROM agent where agent.namn = '"+agent+"'");    
+                
+                //lagra ny info till databasen
                 idb.update("update alien set namn='"+namn+"' where epost='"+epost+"'");
                 idb.update("update alien set telefon='"+nummer+"' where epost='"+epost+"'");
                 idb.update("update alien set registreringsdatum='"+datum+"' where epost='"+epost+"'");
+                idb.update("update alien set plats = "+platsID+" where epost='"+epost+"'");
+                idb.update("update alien set ansvarig_agent = "+agentID+" where epost='"+epost+"'");
                 
-                //Ändra tillbaka till oförändringsbart
+                //Ändra tillbaka till oförändringsbart och fyller boxarna med ett värde igen
                 btnAndraInfo.setText(valdText);
                 tfNamn.setEditable(false);
                 tfNummer.setEditable(false);
