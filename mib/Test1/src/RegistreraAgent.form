@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JSeparator" name="jSeparator1">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -29,9 +33,9 @@
                   <Component id="lblNamn" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblTelefonnummer" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAnstallningnummer" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAnstallningsnummer" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                   <Component id="txtNamn" min="-2" pref="71" max="-2" attributes="0"/>
                   <Component id="txtTelefonnummer" min="-2" pref="71" max="-2" attributes="0"/>
+                  <Component id="txtAnstallningsnummer" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -89,7 +93,7 @@
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="btnRegistrera" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

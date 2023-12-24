@@ -42,6 +42,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
         lblNamn = new javax.swing.JLabel();
         lblTelefonnummer = new javax.swing.JLabel();
         lblAnstallningnummer = new javax.swing.JLabel();
@@ -87,9 +88,9 @@ public class RegistreraAgent extends javax.swing.JFrame {
                     .addComponent(lblNamn)
                     .addComponent(lblTelefonnummer)
                     .addComponent(lblAnstallningnummer)
-                    .addComponent(txtAnstallningsnummer, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefonnummer, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefonnummer, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAnstallningsnummer, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegistrera)
@@ -134,14 +135,18 @@ public class RegistreraAgent extends javax.swing.JFrame {
                     .addComponent(cbOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(btnRegistrera)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+//    Skapar en ny rad i agent tabellen och stoppar in informationen från textfälten
+//    Alla nya agenter startar utan adminstatus
+    
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
       try {
+       
         String id = idb.getAutoIncrement("agent", "Agent_ID");
         String namn = txtNamn.getText();
         String telefon = txtTelefonnummer.getText();
@@ -171,6 +176,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrera;
     private javax.swing.JComboBox<String> cbOmrade;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblAnstallningnummer;
     private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblLosenord;
