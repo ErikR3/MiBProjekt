@@ -42,13 +42,11 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         btnAvbryt = new javax.swing.JButton();
         tfNummer = new javax.swing.JTextField();
         tfDatum = new javax.swing.JTextField();
-        tfRas = new javax.swing.JTextField();
         lblNamn = new javax.swing.JLabel();
         lblNummer = new javax.swing.JLabel();
         lblDatum = new javax.swing.JLabel();
         lblPlats = new javax.swing.JLabel();
         lblAgent = new javax.swing.JLabel();
-        lblRas = new javax.swing.JLabel();
         cbPlats = new javax.swing.JComboBox<>();
         cbAnsvarigAgent = new javax.swing.JComboBox<>();
 
@@ -83,8 +81,6 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
 
         tfDatum.setEditable(false);
 
-        tfRas.setEditable(false);
-
         lblNamn.setText("Namn:");
 
         lblNummer.setText("Telefonnummer:");
@@ -94,8 +90,6 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         lblPlats.setText("Plats:");
 
         lblAgent.setText("Ansvarig agent:");
-
-        lblRas.setText("Ras:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,11 +117,9 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblPlats)
-                                    .addComponent(lblAgent)
-                                    .addComponent(lblRas))
+                                    .addComponent(lblAgent))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfRas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbPlats, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cbAnsvarigAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
@@ -169,9 +161,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDatum)
-                    .addComponent(tfRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRas))
+                    .addComponent(lblDatum))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvbryt)
@@ -186,7 +176,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         // Stänger fönstret
         dispose();
     }//GEN-LAST:event_btnAvbrytActionPerformed
-
+           
         //Fyller combobox med platser
     private void FyllPlats() {
         cbPlats.removeAllItems();
@@ -289,14 +279,14 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 
                 //Hämta ID för plats & agent
                 String platsID = idb.fetchSingle("SELECT plats_ID FROM plats where benamning = '"+plats+"'");
-                String agentID = idb.fetchSingle("SELECT alien_ID FROM agent where agent.namn = '"+agent+"'");    
+                String agentID = idb.fetchSingle("SELECT agent_ID FROM agent where agent.namn = '"+agent+"'");    
                 
                 //lagra ny info till databasen
                 idb.update("update alien set namn='"+namn+"' where epost='"+epost+"'");
                 idb.update("update alien set telefon='"+nummer+"' where epost='"+epost+"'");
                 idb.update("update alien set registreringsdatum='"+datum+"' where epost='"+epost+"'");
-                idb.update("update alien set plats = "+platsID+" where epost='"+epost+"'");
-                idb.update("update alien set ansvarig_agent = "+agentID+" where epost='"+epost+"'");
+                idb.update("update alien set Plats = "+platsID+" where epost='"+epost+"'");
+                idb.update("update alien set Ansvarig_Agent = "+agentID+" where epost='"+epost+"'");
                 
                 //Ändra tillbaka till oförändringsbart och fyller boxarna med ett värde igen
                 btnAndraInfo.setText(valdText);
@@ -326,11 +316,9 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblNamn;
     private javax.swing.JLabel lblNummer;
     private javax.swing.JLabel lblPlats;
-    private javax.swing.JLabel lblRas;
     private javax.swing.JTextField tfDatum;
     private javax.swing.JTextField tfEpost;
     private javax.swing.JTextField tfNamn;
     private javax.swing.JTextField tfNummer;
-    private javax.swing.JTextField tfRas;
     // End of variables declaration//GEN-END:variables
 }

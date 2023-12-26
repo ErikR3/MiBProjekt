@@ -50,11 +50,9 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="lblPlats" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblAgent" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblRas" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="tfRas" min="-2" pref="71" max="-2" attributes="0"/>
                                   <Component id="cbPlats" max="32767" attributes="0"/>
                                   <Component id="cbAnsvarigAgent" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -111,8 +109,6 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tfDatum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfRas" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -171,11 +167,6 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfRas">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblNamn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Namn:"/>
@@ -199,11 +190,6 @@
     <Component class="javax.swing.JLabel" name="lblAgent">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ansvarig agent:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblRas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ras:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbPlats">
