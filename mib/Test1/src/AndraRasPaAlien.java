@@ -25,9 +25,58 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
     }
 
     private void fyllRaser() {
+        cbRas.removeAllItems();
         cbRas.addItem("Boglodite");
         cbRas.addItem("Squid");
         cbRas.addItem("Worm"); 
+    }
+    private String hittaRasen() {
+        String ras = "";
+        try {
+            String epost = tfEpost.getText();
+            String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
+            Boolean hittad = false;
+            
+            ArrayList<String> rasIDBog = idb.fetchColumn("select alien_ID from boglodite");
+            for (String id : rasIDBog){
+                if (alienID.equals(id)) {
+                    ras = "Boglodite";
+                    hittad = true;
+                }
+            }
+            
+            if (!hittad) {
+                ArrayList<String> rasIDSquid = idb.fetchColumn("select alien_ID from squid");
+                for (String id : rasIDSquid){
+                    if (alienID.equals(id)) {
+                        ras = "Squid";
+                    }
+                }
+            }
+            if (!hittad) {
+                ArrayList<String> rasIDWorm = idb.fetchColumn("select alien_ID from worm");
+                for (String id : rasIDWorm){
+                    if (alienID.equals(id)) {
+                        ras = "Worm";
+                    }
+                }
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ras;
+    }
+    
+    private void taBortRas() {
+        try {
+        String epost = tfEpost.getText();
+        String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
+        if (!hittaRasen().isEmpty()){
+          idb.delete("delete from "+hittaRasen()+" where alien_id ="+alienID);
+        }
+        } catch (InfException ex) {
+            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void kollaRas() {
@@ -234,23 +283,27 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
             btnAndraInfo.setText("Spara ändringar");
             tfRasAttribut.setEditable(true);
             fyllRaser();
+            lblPrefix.setText("");
         }
         else {
             try {
                 //hämta ny info och alien ID
                 String rasAttribut = tfRasAttribut.getText();
                 String rasNamn = cbRas.getSelectedItem().toString();
-                String alienID = idb.fetchSingle("SELECT alien_ID FROM alien where epost = '"+epost+"'");   
-
+                String alienID = idb.fetchSingle("SELECT alien_ID FROM alien where epost = '"+epost+"'");
+                boolean hittad = false;
                 switch (rasNamn) {
                     case "Boglodite":
-                        idb.insert("insert into boglodite (Alien_ID, Antal_Boogies) values ("+alienID+","+rasAttribut+")");
+                        taBortRas();
+                        idb.insert("insert into boglodite (Alien_ID, Antal_Boogies) values ("+alienID+","+rasAttribut+")");                                                                        
                         break;
                     case "Squid":
+                        taBortRas();
                         idb.insert("insert into squid (Alien_ID, Antal_Armar) values ("+alienID+","+rasAttribut+")");
                         break;
                     case "Worm":
-                        idb.insert("insert into worm (Alien_ID, Langd) values ("+alienID+","+rasAttribut+")"); 
+                        taBortRas();
+                        idb.insert("insert into worm (Alien_ID, Langd) values ("+alienID+","+rasAttribut+")");                        
                         break;
                     default:
                         break;
@@ -258,6 +311,7 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                 //Ändra tillbaka till oförändringsbart och fyller boxarna med ett värde igen
                 btnAndraInfo.setText(valdText);
                 tfRasAttribut.setEditable(false);
+                    
                 
             } catch (InfException ex) {
                 Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
