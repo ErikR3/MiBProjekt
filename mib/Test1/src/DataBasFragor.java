@@ -105,17 +105,6 @@ public class DataBasFragor {
         }
         
         
-        public static String getOmrade(String omrade){
-            String omradeID = "0";
-            try{
-                System.out.println(omrade);
-                omradeID = idb.fetchSingle("select Omrades_ID from omrade where Benamning like '" + omrade + "'");
-            } catch (InfException e){
-                e.printStackTrace();
-            }
-            System.out.println(omradeID);
-            return omradeID;
-        }
         
         //select COUNT(DISTINCT Ansvarig_Agent) from alien
         public static ArrayList<HashMap<String, String>> getAntalAliens(String omrade)
@@ -135,5 +124,28 @@ public class DataBasFragor {
             return raknadeAliens;
         }
         
-        
+        public static String getOmradesChef(String Omrade){
+            String omradesID = "0";
+            String chef = "0";
+            String chefNamn = "0";
+            try{
+                omradesID = idb.fetchSingle("select Omrades_ID from omrade where Benamning like '" + Omrade + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            
+            try{
+                chef = idb.fetchSingle("select Agent_ID from omradeschef where Omrade like '" + omradesID + "'");
+            } catch (InfException ex){
+                ex.printStackTrace();
+            }
+            
+            try{
+                chefNamn = idb.fetchSingle("select Namn from agent where Agent_ID like '" + chef + "'");
+            } catch(InfException exc){
+                exc.printStackTrace();
+            }
+            
+            return chefNamn;
+        }
 }

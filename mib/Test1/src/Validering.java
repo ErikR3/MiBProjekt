@@ -1,6 +1,7 @@
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /*
@@ -15,6 +16,11 @@ public class Validering {
     
     private static String AgentID;
     private static boolean adminStatus;
+    private static InfDB idb;
+    
+    public Validering(InfDB idb){
+        this.idb = idb;
+    }
 
     //Metod för att kontrollera om ett textfält är tomt
     public static boolean textFaltHarVarde(JTextField rutaAttKolla) {
@@ -70,5 +76,24 @@ public class Validering {
     
     public static boolean getAdminStatus(){
         return adminStatus;
+    }
+    
+    public static boolean notOmrade(JTextField checkaDenna){
+        boolean resultat = true;
+        String omradetest = null;
+        String omrade = checkaDenna.getText();
+        
+        try{
+            omradetest = idb.fetchSingle("select Benamning from omrade where Benamning like '" + omrade + "'");
+        } catch (InfException e){
+            e.printStackTrace();
+        }
+        
+        if(omradetest == null){
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Omradet finns ej.");
+        }
+        
+        return resultat;
     }
 }
