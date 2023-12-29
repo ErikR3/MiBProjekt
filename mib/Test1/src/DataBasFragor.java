@@ -186,4 +186,15 @@ public class DataBasFragor {
             
             return aliens;
         }
+        
+        public static ArrayList<String> getAllaAliensMellanDatum(String startdatum, String slutdatum){
+            ArrayList<String> aliens = new ArrayList<>();
+            try{
+                aliens = idb.fetchColumn("select Alien_ID from alien where Registreringsdatum between '" + startdatum + "' and '" + slutdatum + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            
+            return aliens;
+        }
 }
