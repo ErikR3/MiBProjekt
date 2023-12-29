@@ -63,6 +63,11 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         });
 
         btnAlien.setText("jButton2");
+        btnAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlienActionPerformed(evt);
+            }
+        });
 
         btnPlanet.setText("jButton3");
 
@@ -165,6 +170,11 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     private void btnOmrådePlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådePlatsActionPerformed
         new Område().setVisible(true);
     }//GEN-LAST:event_btnOmrådePlatsActionPerformed
+
+    private void btnAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienActionPerformed
+        // TODO add your handling code here:
+        new AlienAlt().setVisible(true);
+    }//GEN-LAST:event_btnAlienActionPerformed
     
         /**
      * @param args the command line arguments

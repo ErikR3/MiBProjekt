@@ -124,15 +124,22 @@ public class DataBasFragor {
             return raknadeAliens;
         }
         
+        public static String getOmradesID(String omrade){
+            String omradesID = "0";
+            try {
+                omradesID = idb.fetchSingle("select Omrades_ID from omrade where Benamning like '" + omrade + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            return omradesID;
+        }
+        
         public static String getOmradesChef(String Omrade){
             String omradesID = "0";
             String chef = "0";
             String chefNamn = "0";
-            try{
-                omradesID = idb.fetchSingle("select Omrades_ID from omrade where Benamning like '" + Omrade + "'");
-            } catch (InfException e){
-                e.printStackTrace();
-            }
+            
+            omradesID = getOmradesID(Omrade);
             
             try{
                 chef = idb.fetchSingle("select Agent_ID from omradeschef where Omrade like '" + omradesID + "'");
@@ -147,5 +154,36 @@ public class DataBasFragor {
             }
             
             return chefNamn;
+        }
+        
+        public static ArrayList<String> getAllaAliensPaEnPlats(String platsNamn){
+             ArrayList<String> aliens = new ArrayList<>();
+             String platsID = null;
+             
+             
+             try{
+                 platsID = idb.fetchSingle("select Plats_ID from plats where Benamning like '" + platsNamn + "'");
+             } catch (InfException e){
+                 e.printStackTrace();
+             }
+             try{
+                 aliens = idb.fetchColumn("select Alien_ID from alien where plats = '" + platsID + "'");
+             } catch (InfException ex){
+                 ex.printStackTrace();
+             }
+             
+             System.out.println(aliens);
+             return aliens;
+        }
+        
+        public static ArrayList<String> getAllaAliensAvRas(String rasNamn){
+            ArrayList<String> aliens = new ArrayList<>();
+            try{
+                aliens = idb.fetchColumn("select Alien_ID from " + rasNamn);
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            
+            return aliens;
         }
 }

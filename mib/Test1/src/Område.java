@@ -36,7 +36,7 @@ public class Område extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Område chef");
 
@@ -109,9 +109,11 @@ public class Område extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        if(Validering.textFaltHarVarde(jTextField2) && Validering.notOmrade(jTextField2)){
         String omradeNamn = jTextField2.getText();
         Topp3Agent topp3agent = new Topp3Agent(DataBasFragor.getAntalAliens(omradeNamn));
         topp3agent.setVisible(true);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
