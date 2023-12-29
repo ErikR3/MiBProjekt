@@ -18,7 +18,6 @@ import oru.inf.InfException;
  */
 public class DataBasFragor {
     
-    private Topp3Agent topp3agent;
     private static InfDB idb;
     
     public DataBasFragor(InfDB idb){
@@ -106,15 +105,35 @@ public class DataBasFragor {
         }
         
         
+        public static String getOmrade(String omrade){
+            String omradeID = "0";
+            try{
+                System.out.println(omrade);
+                omradeID = idb.fetchSingle("select Omrades_ID from omrade where Benamning like '" + omrade + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            System.out.println(omradeID);
+            return omradeID;
+        }
+        
         //select COUNT(DISTINCT Ansvarig_Agent) from alien
-        public static ArrayList<HashMap<String, String>> getAntalAliens()
+        public static ArrayList<HashMap<String, String>> getAntalAliens(String omrade)
         {
+            String omradesID = "0";
+            try{
+                omradesID = idb.fetchSingle("select Omrades_ID from omrade where Benamning like '" + omrade + "'");
+            } catch (InfException ex){
+                ex.printStackTrace();
+            }
             ArrayList<HashMap<String, String>> raknadeAliens = null;
             try{
-            raknadeAliens = idb.fetchRows("select Ansvarig_Agent, count(Ansvarig_Agent) as row_count from alien group by Ansvarig_Agent order by row_count DESC");
+            raknadeAliens = idb.fetchRows("select Ansvarig_Agent, count(Ansvarig_Agent) as row_count from alien where plats like '" + omradesID + "' group by Ansvarig_Agent order by row_count DESC");
             } catch (InfException e){
                 e.printStackTrace();
             }
             return raknadeAliens;
         }
+        
+        
 }

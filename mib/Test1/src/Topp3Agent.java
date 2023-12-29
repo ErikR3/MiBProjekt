@@ -26,7 +26,7 @@ public class Topp3Agent extends javax.swing.JFrame {
     
     public DefaultTableModel sattTabellModell(ArrayList<HashMap<String, String>> rader){
         Object[][] data = new Object[rader.size()][2];
-        String[] kolumner ={"Agent namn", "Antal Aliens"};
+        String[] kolumner ={"Agent ID", "Antal Aliens"};
         
         for (int i = 0; i < rader.size(); i++){
             HashMap<String, String> HM = rader.get(i);

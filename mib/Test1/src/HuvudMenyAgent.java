@@ -76,6 +76,11 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         jLabel5.setText("Område/plats");
 
         btnOmrådePlats.setText("jButton5");
+        btnOmrådePlats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOmrådePlatsActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Konto");
 
@@ -156,6 +161,10 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     private void btnKontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKontoActionPerformed
         new KontoMeny(idb).setVisible(true);
     }//GEN-LAST:event_btnKontoActionPerformed
+
+    private void btnOmrådePlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådePlatsActionPerformed
+        new Område().setVisible(true);
+    }//GEN-LAST:event_btnOmrådePlatsActionPerformed
     
         /**
      * @param args the command line arguments
