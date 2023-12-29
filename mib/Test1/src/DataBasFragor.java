@@ -2,6 +2,7 @@
 import oru.inf.InfDB;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import oru.inf.InfException;
@@ -17,6 +18,7 @@ import oru.inf.InfException;
  */
 public class DataBasFragor {
     
+    private Topp3Agent topp3agent;
     private static InfDB idb;
     
     public DataBasFragor(InfDB idb){
@@ -105,15 +107,14 @@ public class DataBasFragor {
         
         
         //select COUNT(DISTINCT Ansvarig_Agent) from alien
-        public static ArrayList<String> getAntalAliens()
+        public static ArrayList<HashMap<String, String>> getAntalAliens()
         {
-            ArrayList<String> raknadeAliens = null;
+            ArrayList<HashMap<String, String>> raknadeAliens = null;
             try{
-            raknadeAliens = idb.fetchColumn("select count(distinct Ansvarig_Agent) from alien");
+            raknadeAliens = idb.fetchRows("select Ansvarig_Agent, count(Ansvarig_Agent) as row_count from alien group by Ansvarig_Agent order by row_count DESC");
             } catch (InfException e){
                 e.printStackTrace();
             }
             return raknadeAliens;
         }
-        
 }

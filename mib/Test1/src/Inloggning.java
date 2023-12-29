@@ -113,7 +113,6 @@ public class Inloggning extends javax.swing.JFrame {
                 if(i.trim().equals(e.trim())){
                     Validering.setAdminStatus(true);
                 }
-                System.out.println(Validering.getAgentInloggning());
             }
             else if (losen == null ) {
                 JOptionPane.showMessageDialog(null, "Fel epost!");
