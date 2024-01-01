@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -119,6 +121,10 @@ public class Utrustning extends javax.swing.JFrame {
     //Denna knapp visar aktiv utrustning som agenter har just nu. 
     private void btnVisaAktivUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaAktivUtrustningActionPerformed
         //new VisaAktivUtrustning(idb).setVisible(true);
+        String mittID = Validering.getAgentInloggning();
+        ArrayList<HashMap<String, String>> AL = new ArrayList<>();
+        AL = DataBasFragor.getUtkvitteradUtrustning(mittID);
+        new VisaMinUtkvitteradeUtrustning(AL).setVisible(true);
     }//GEN-LAST:event_btnVisaAktivUtrustningActionPerformed
 //    Via denna knapp kan man registera ny utrustning.
 //    Man blir slussad till ett formulär som ger användaren möjlighet att

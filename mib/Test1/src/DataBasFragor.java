@@ -247,4 +247,19 @@ public class DataBasFragor {
             
             return HM;
         }
+        
+        public static ArrayList<HashMap<String, String>> getUtkvitteradUtrustning(String agentID){
+            ArrayList<HashMap<String, String>> AL = new ArrayList<>();
+            String[] utrustningNamn;
+            
+            try{
+                AL = idb.fetchRows("select innehar_utrustning.Utrustnings_ID, utrustning.Benamning from innehar_utrustning\n" +
+                                   "inner join utrustning on innehar_utrustning.Utrustnings_ID = utrustning.Utrustnings_ID\n" +
+                                   "where Agent_ID like '" + agentID + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            
+            return AL;
+        }
 }
