@@ -124,14 +124,20 @@ public class DataBasFragor {
             String omradesID = getOmradesID(omrade);
             ArrayList<String> platsID = getPlats(omradesID);
             ArrayList<HashMap<String, String>> raknadeAliens = null;
+            StringBuilder allaPlatser = new StringBuilder();
+            
             
             for(String s : platsID){
+                allaPlatser.append("'" + s + "'").append(", ");
+            }
+                allaPlatser.setLength(allaPlatser.length() - 2);
+            
             try{
-            raknadeAliens = idb.fetchRows("select Ansvarig_Agent, count(Ansvarig_Agent) as row_count from alien where plats like '" + s + "' group by Ansvarig_Agent order by row_count DESC");
+            raknadeAliens = idb.fetchRows("select Ansvarig_Agent, count(Ansvarig_Agent) as row_count from alien where plats in (" + allaPlatser + ") group by Ansvarig_Agent order by row_count DESC");
             } catch (InfException e){
                 e.printStackTrace();
             }
-            }
+            System.out.println(allaPlatser);
             System.out.println(raknadeAliens);
                 
             return raknadeAliens;

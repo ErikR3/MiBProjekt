@@ -26,12 +26,18 @@ public class Topp3Agent extends javax.swing.JFrame {
     }
     
     public DefaultTableModel sattTabellModell(ArrayList<HashMap<String, String>> rader){
-        Object[][] data = new Object[3][2];
+        Integer e = 0;
+        if(rader.size() > 3){
+            e = 3;
+        } else {
+            e = rader.size();
+        }
+        Object[][] data = new Object[e][2];
         String[] kolumner ={"Agent ID", "Antal Aliens"};
         
         
         
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < e; i++){
             HashMap<String, String> HM = rader.get(i);
             String agentID = HM.get("Ansvarig_Agent");
             String antalAliens = HM.get("row_count");
