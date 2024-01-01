@@ -105,25 +105,35 @@ public class DataBasFragor {
         }
         
         
+        public static ArrayList<String> getPlats(String omradeID){
+            ArrayList<String> platsID = null;
+            
+            try{
+                platsID = idb.fetchColumn("Select Plats_ID from plats where Finns_i like '" + omradeID + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            
+            return platsID;
+        }
+        
         
         //select COUNT(DISTINCT Ansvarig_Agent) from alien
         public static ArrayList<HashMap<String, String>> getAntalAliens(String omrade)
         {
-            String omradesID = "0";
-            try{
-                omradesID = idb.fetchSingle("select Omrades_ID from omrade where Benamning like '" + omrade + "'");
-            } catch (InfException ex){
-                ex.printStackTrace();
-            }
+            String omradesID = getOmradesID(omrade);
+            ArrayList<String> platsID = getPlats(omradesID);
             ArrayList<HashMap<String, String>> raknadeAliens = null;
+            
+            for(String s : platsID){
             try{
-            raknadeAliens = idb.fetchRows("select Ansvarig_Agent, count(Ansvarig_Agent) as row_count from alien where plats like '" + omradesID + "' group by Ansvarig_Agent order by row_count DESC");
+            raknadeAliens = idb.fetchRows("select Ansvarig_Agent, count(Ansvarig_Agent) as row_count from alien where plats like '" + s + "' group by Ansvarig_Agent order by row_count DESC");
             } catch (InfException e){
                 e.printStackTrace();
             }
-                for (String AlienNamn : raknadeAliens){
-                    
-                }
+            }
+            System.out.println(raknadeAliens);
+                
             return raknadeAliens;
         }
         

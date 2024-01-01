@@ -35,7 +35,7 @@
                       <Component id="jButton2" alignment="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="178" max="32767" attributes="0"/>
+              <EmptySpace pref="110" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,7 +83,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Topp 3 agenter ansvariga f&#xf6;r aliens"/>
+        <Property name="text" type="java.lang.String" value="Topp 3 agenter ansvariga f&#xf6;r aliens p&#xe5; viss plats"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">

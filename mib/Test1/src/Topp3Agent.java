@@ -26,8 +26,7 @@ public class Topp3Agent extends javax.swing.JFrame {
     }
     
     public DefaultTableModel sattTabellModell(ArrayList<HashMap<String, String>> rader){
-        Integer e = 3;
-        Object[][] data = new Object[e][2];
+        Object[][] data = new Object[3][2];
         String[] kolumner ={"Agent ID", "Antal Aliens"};
         
         
@@ -71,7 +70,7 @@ public class Topp3Agent extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
         pack();

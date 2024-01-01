@@ -54,7 +54,7 @@ public class Område extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Topp 3 agenter ansvariga för aliens");
+        jLabel2.setText("Topp 3 agenter ansvariga för aliens på viss plats");
 
         jButton2.setText("jButton2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public class Område extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
