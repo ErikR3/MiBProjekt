@@ -1,3 +1,9 @@
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,11 +15,28 @@
  */
 public class TabellAgent extends javax.swing.JFrame {
 
+    private HashMap<String, String> HM;
     /**
      * Creates new form TabellAgent
      */
-    public TabellAgent() {
+    public TabellAgent(HashMap<String, String> HM) {
+        this.HM = HM;
         initComponents();
+    }
+    
+    public DefaultTableModel sattTabellModell(HashMap<String, String> HM){
+        String[] kolumner = {"Namn", "Telnummer", "Anställningsdatum", "Administratör", "Epost", "Omrade", "Agent_ID"};
+                
+        Collection<String> info = HM.values();
+        
+        ArrayList<String> infoAgent = new ArrayList<>(info);
+        
+            
+            Object[] rad = infoAgent.toArray();
+            Object[][] data = {rad};
+        
+        
+        return new DefaultTableModel(data, kolumner);    
     }
 
     /**
@@ -30,17 +53,7 @@ public class TabellAgent extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ID.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Namn", "Telefon", "Anställningsdatum", "Administratör", "Epost", "Lösenord", "Område"
-            }
-        ));
+        ID.setModel(sattTabellModell(HM));
         jScrollPane1.setViewportView(ID);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -60,37 +73,7 @@ public class TabellAgent extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TabellAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TabellAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TabellAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TabellAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TabellAgent().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ID;

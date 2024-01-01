@@ -153,10 +153,9 @@ public class DataBasFragor {
             return omradesID;
         }
         
-        public static String getOmradesChef(String Omrade){
+        public static String getOmradesChefID(String Omrade){
             String omradesID = "0";
             String chef = "0";
-            String chefNamn = "0";
             
             omradesID = getOmradesID(Omrade);
             
@@ -165,11 +164,19 @@ public class DataBasFragor {
             } catch (InfException ex){
                 ex.printStackTrace();
             }
+
+            
+            return chef;
+        }
+        
+        public static String getOmradesChefNamn(String omrade){
+            String chefNamn = "";
+            String id = getOmradesChefID(omrade);
             
             try{
-                chefNamn = idb.fetchSingle("select Namn from agent where Agent_ID like '" + chef + "'");
-            } catch(InfException exc){
-                exc.printStackTrace();
+                chefNamn = idb.fetchSingle("Select Namn from agent where Agent_ID like '" + id + "'");
+            } catch(InfException e){
+                e.printStackTrace();
             }
             
             return chefNamn;
@@ -215,5 +222,29 @@ public class DataBasFragor {
             }
             
             return aliens;
+        }
+        
+        public static String getAgentID(String index){
+            String ID = null;
+            
+            try{
+                ID = idb.fetchSingle("Select Agent_ID from agent where Namn like '" + index + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            return ID;
+        }
+        
+        public static HashMap<String, String> getAlltOmEnAgent(String id){
+            HashMap<String, String> HM = new HashMap<>();
+                    
+            try{
+                HM = idb.fetchRow("select Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Epost, Omrade from agent where Agent_ID like '" + id + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            System.out.println(HM);
+            
+            return HM;
         }
 }

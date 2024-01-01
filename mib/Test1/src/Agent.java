@@ -61,6 +61,11 @@ public class Agent extends javax.swing.JFrame {
         jTextField1.setText("jTextField1");
 
         jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,6 +110,13 @@ public class Agent extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(rootPane, "Ej systemadmin");
       }
     }//GEN-LAST:event_btnRegistreraActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String id = DataBasFragor.getAgentID(jTextField1.getText());
+        
+        new TabellAgent(DataBasFragor.getAlltOmEnAgent(id)).setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

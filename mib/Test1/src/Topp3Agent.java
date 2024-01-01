@@ -18,7 +18,6 @@ public class Topp3Agent extends javax.swing.JFrame {
      * Creates new form Topp3Agent
      */
     private ArrayList<HashMap<String, String>> AL;
-    private DefaultTableModel tabellModell;
     
     public Topp3Agent(ArrayList<HashMap<String, String>> AL) {
         this.AL = AL;

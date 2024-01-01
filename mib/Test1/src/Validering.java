@@ -17,6 +17,7 @@ public class Validering {
     private static String AgentID;
     private static boolean adminStatus;
     private static InfDB idb;
+    private static String mittOmrade;
     
     public Validering(InfDB idb){
         this.idb = idb;
@@ -76,6 +77,15 @@ public class Validering {
     
     public static boolean getAdminStatus(){
         return adminStatus;
+    }
+    
+    public static void setOmrade(String s){
+        mittOmrade = s;
+        System.out.println(mittOmrade);
+    }
+    
+    public static String getOmrade(){
+        return mittOmrade;
     }
     
     public static boolean notOmrade(JTextField checkaDenna){
