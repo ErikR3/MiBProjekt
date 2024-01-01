@@ -1,4 +1,7 @@
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -38,6 +41,7 @@ public class ErikTestKlass extends javax.swing.JFrame {
         tabellTest = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         kolNamnKnapp = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +66,13 @@ public class ErikTestKlass extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("topp3Agent");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,6 +80,7 @@ public class ErikTestKlass extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
                     .addComponent(kolNamnKnapp)
                     .addComponent(jButton1)
                     .addComponent(tabellTest))
@@ -83,7 +95,9 @@ public class ErikTestKlass extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(33, 33, 33)
                 .addComponent(kolNamnKnapp)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jButton2)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,11 +118,17 @@ public class ErikTestKlass extends javax.swing.JFrame {
         
     }//GEN-LAST:event_kolNamnKnappActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -142,14 +162,42 @@ public class ErikTestKlass extends javax.swing.JFrame {
             Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
         }
         new DataBasFragor(idb);
+                String e = "J";
+                String i = null;
+                String epost = "ao@mib.net";
+        try{
         
+        i = idb.fetchSingle("Select Administrator from agent where Epost like '" + epost + "'");
+        } catch (InfException ex){
+           ex.printStackTrace();
+        }
+        System.out.println(e);
+        if(i.trim().equals(e.trim())){
+        System.out.println(i);
+        }
+        getAntalAliens();
     }
+            public static ArrayList<HashMap<String, String>> getAntalAliens()
+        {
+            ArrayList<HashMap<String, String>> raknadeAliens = null;
+            try{
+            raknadeAliens = idb.fetchRows("select Ansvarig_Agent, count(Ansvarig_Agent) as row_count from alien group by Ansvarig_Agent order by row_count DESC");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            for(HashMap<String, String> HM : raknadeAliens){
+                System.out.println("ID: " + HM.get("Ansvarig_Agent") + ", Antal Aliens: " + HM.get("row_count"));
+            }
+            return raknadeAliens;
+        }
+
     
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton kolNamnKnapp;
     private javax.swing.JButton tabellTest;
     // End of variables declaration//GEN-END:variables

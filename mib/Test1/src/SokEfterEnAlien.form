@@ -31,32 +31,30 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblNummer" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="tfNummer" min="-2" pref="71" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
                                       <Component id="lblNamn" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="tfNamn" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="tfNamn" min="-2" pref="85" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblNummer" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="tfNummer" min="-2" pref="85" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="lblDatum" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="tfDatum" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="tfDatum" min="-2" pref="85" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="lblPlats" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblAgent" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblRas" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tfRas" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="tfAgent" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="cbPlats" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="cbPlats" max="32767" attributes="0"/>
+                                  <Component id="cbAnsvarigAgent" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -105,14 +103,12 @@
                   <Component id="lblNummer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfNummer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAgent" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbAnsvarigAgent" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tfDatum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfRas" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -171,16 +167,6 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfAgent">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tfRas">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblNamn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Namn:"/>
@@ -206,14 +192,18 @@
         <Property name="text" type="java.lang.String" value="Ansvarig agent:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblRas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ras:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JComboBox" name="cbPlats">
       <Properties>
-        <Property name="editable" type="boolean" value="true"/>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbAnsvarigAgent">
+      <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>

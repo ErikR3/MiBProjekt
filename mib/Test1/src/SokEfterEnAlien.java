@@ -42,15 +42,13 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         btnAvbryt = new javax.swing.JButton();
         tfNummer = new javax.swing.JTextField();
         tfDatum = new javax.swing.JTextField();
-        tfAgent = new javax.swing.JTextField();
-        tfRas = new javax.swing.JTextField();
         lblNamn = new javax.swing.JLabel();
         lblNummer = new javax.swing.JLabel();
         lblDatum = new javax.swing.JLabel();
         lblPlats = new javax.swing.JLabel();
         lblAgent = new javax.swing.JLabel();
-        lblRas = new javax.swing.JLabel();
         cbPlats = new javax.swing.JComboBox<>();
+        cbAnsvarigAgent = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -83,10 +81,6 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
 
         tfDatum.setEditable(false);
 
-        tfAgent.setEditable(false);
-
-        tfRas.setEditable(false);
-
         lblNamn.setText("Namn:");
 
         lblNummer.setText("Telefonnummer:");
@@ -96,10 +90,6 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         lblPlats.setText("Plats:");
 
         lblAgent.setText("Ansvarig agent:");
-
-        lblRas.setText("Ras:");
-
-        cbPlats.setEditable(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,27 +103,25 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblNummer)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tfNummer, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblNamn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tfNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(tfNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblNummer)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tfNummer, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblDatum)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tfDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(37, 37, 37)
+                                        .addComponent(tfDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblPlats)
-                                    .addComponent(lblAgent)
-                                    .addComponent(lblRas))
+                                    .addComponent(lblAgent))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfRas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbPlats, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbAnsvarigAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,13 +157,11 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                     .addComponent(lblNummer)
                     .addComponent(tfNummer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAgent)
-                    .addComponent(tfAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDatum)
-                    .addComponent(tfRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRas))
+                    .addComponent(lblDatum))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvbryt)
@@ -190,7 +176,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         // Stänger fönstret
         dispose();
     }//GEN-LAST:event_btnAvbrytActionPerformed
-
+           
         //Fyller combobox med platser
     private void FyllPlats() {
         cbPlats.removeAllItems();
@@ -205,13 +191,40 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         }
     }
     
-         //Fyller combobox med plats för en specifik alien
+         //Fyller combobox med en plats för en specifik alien
     private void FyllPlatsForAlien(String epost) {
             cbPlats.removeAllItems();
             try {
             String fraga ="select Benamning from plats join alien on plats=Plats_ID where epost = '"+epost+"'";
             String namn = idb.fetchSingle(fraga);
                 cbPlats.addItem(namn);
+            }
+         catch (InfException ex) {
+            Logger.getLogger(RegistreraNyAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+         //Fyller combobox med agenter
+    private void FyllAgenter() {
+        cbAnsvarigAgent.removeAllItems();
+    try {
+            String fraga ="select namn from agent ";
+            ArrayList<String> namnLista = idb.fetchColumn(fraga);
+            for (String namn :namnLista){
+                cbAnsvarigAgent.addItem(namn);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(RegistreraNyAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+         //Fyller combobox med en agent för en specifik alien
+    private void FyllAgentForAlien(String epost) {
+            cbAnsvarigAgent.removeAllItems();
+            try {
+            String fraga ="select agent.namn from agent join alien on Ansvarig_Agent=Agent_ID where alien.Epost = '"+epost+"'";
+            String namn = idb.fetchSingle(fraga);
+                cbAnsvarigAgent.addItem(namn);
             }
          catch (InfException ex) {
             Logger.getLogger(RegistreraNyAlien.class.getName()).log(Level.SEVERE, null, ex);
@@ -226,16 +239,15 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
             String namn = idb.fetchSingle("select namn from alien where epost = '" + epost + "'");
             String nummer = idb.fetchSingle("select telefon from alien where epost = '" + epost + "'");
             String datum = idb.fetchSingle("select registreringsdatum from alien where epost = '" + epost + "'");
-            String plats = idb.fetchSingle("select benamning from plats join alien on plats.Plats_ID = alien.plats where alien.Epost = '"+epost+"'");
-            String agent = idb.fetchSingle("select agent.Namn from agent join alien on agent.Agent_ID = alien.Ansvarig_Agent where alien.Epost = '"+epost+"'");
             
             //printa info i rutorna
             tfNamn.setText(namn);
             tfNummer.setText(nummer);
             tfDatum.setText(datum);
-            //fyll boxarna
-            FyllPlatsForAlien(epost);
-                    
+            
+            //kallar på metod för att fylla boxarna
+            FyllAgentForAlien(epost);
+            FyllPlatsForAlien(epost);              
             
         } catch (InfException ex) {
             Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
@@ -243,22 +255,50 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSokActionPerformed
 
     private void btnAndraInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraInfoActionPerformed
-        // TODO add your handling code here:
+        // Lagra titlar
+        String epost = tfEpost.getText();
         String knappText = btnAndraInfo.getText();
         String valdText = "Ändra information";
+        //Om man trycker på "ändra" sätter det rutorna till förändringsbara
         if (knappText.equals(valdText)) {      
             btnAndraInfo.setText("Spara ändringar");
             tfNamn.setEditable(true);
             tfNummer.setEditable(true);
             tfDatum.setEditable(true);   
             FyllPlats();
+            FyllAgenter();
         }
         else {
-            btnAndraInfo.setText(valdText);
-            tfNamn.setEditable(false);
-            tfNummer.setEditable(false);
-            tfDatum.setEditable(false);
-            
+            try {
+                //hämta ny info
+                String namn = tfNamn.getText();
+                String nummer = tfNummer.getText();
+                String datum = tfDatum.getText();
+                String plats = cbPlats.getSelectedItem().toString();
+                String agent = cbAnsvarigAgent.getSelectedItem().toString();
+                
+                //Hämta ID för plats & agent
+                String platsID = idb.fetchSingle("SELECT plats_ID FROM plats where benamning = '"+plats+"'");
+                String agentID = idb.fetchSingle("SELECT agent_ID FROM agent where agent.namn = '"+agent+"'");    
+                
+                //lagra ny info till databasen
+                idb.update("update alien set namn='"+namn+"' where epost='"+epost+"'");
+                idb.update("update alien set telefon='"+nummer+"' where epost='"+epost+"'");
+                idb.update("update alien set registreringsdatum='"+datum+"' where epost='"+epost+"'");
+                idb.update("update alien set Plats = "+platsID+" where epost='"+epost+"'");
+                idb.update("update alien set Ansvarig_Agent = "+agentID+" where epost='"+epost+"'");
+                
+                //Ändra tillbaka till oförändringsbart och fyller boxarna med ett värde igen
+                btnAndraInfo.setText(valdText);
+                tfNamn.setEditable(false);
+                tfNummer.setEditable(false);
+                tfDatum.setEditable(false);
+                FyllPlatsForAlien(epost);
+                FyllAgentForAlien(epost);
+                
+            } catch (InfException ex) {
+                Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
+            }          
         }
     }//GEN-LAST:event_btnAndraInfoActionPerformed
 
@@ -268,6 +308,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
     private javax.swing.JButton btnAndraInfo;
     private javax.swing.JButton btnAvbryt;
     private javax.swing.JButton btnSok;
+    private javax.swing.JComboBox<String> cbAnsvarigAgent;
     private javax.swing.JComboBox<String> cbPlats;
     private javax.swing.JLabel lblAgent;
     private javax.swing.JLabel lblAngeEpost;
@@ -275,12 +316,9 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
     private javax.swing.JLabel lblNamn;
     private javax.swing.JLabel lblNummer;
     private javax.swing.JLabel lblPlats;
-    private javax.swing.JLabel lblRas;
-    private javax.swing.JTextField tfAgent;
     private javax.swing.JTextField tfDatum;
     private javax.swing.JTextField tfEpost;
     private javax.swing.JTextField tfNamn;
     private javax.swing.JTextField tfNummer;
-    private javax.swing.JTextField tfRas;
     // End of variables declaration//GEN-END:variables
 }

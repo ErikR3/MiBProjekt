@@ -2,6 +2,7 @@
 import oru.inf.InfDB;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import oru.inf.InfException;
@@ -104,13 +105,19 @@ public class DataBasFragor {
         }
         
         
+        
         //select COUNT(DISTINCT Ansvarig_Agent) from alien
-        public static ArrayList<String> getAntalAliens()
+        public static ArrayList<HashMap<String, String>> getAntalAliens(String omrade)
         {
-            int[] x = null;
-            ArrayList<String> raknadeAliens = null;
+            String omradesID = "0";
             try{
-            raknadeAliens = idb.fetchColumn("SELECT Ansvarig_Agent FROM alien");
+                omradesID = idb.fetchSingle("select Omrades_ID from omrade where Benamning like '" + omrade + "'");
+            } catch (InfException ex){
+                ex.printStackTrace();
+            }
+            ArrayList<HashMap<String, String>> raknadeAliens = null;
+            try{
+            raknadeAliens = idb.fetchRows("select Ansvarig_Agent, count(Ansvarig_Agent) as row_count from alien where plats like '" + omradesID + "' group by Ansvarig_Agent order by row_count DESC");
             } catch (InfException e){
                 e.printStackTrace();
             }
@@ -120,4 +127,77 @@ public class DataBasFragor {
             return raknadeAliens;
         }
         
+        public static String getOmradesID(String omrade){
+            String omradesID = "0";
+            try {
+                omradesID = idb.fetchSingle("select Omrades_ID from omrade where Benamning like '" + omrade + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            return omradesID;
+        }
+        
+        public static String getOmradesChef(String Omrade){
+            String omradesID = "0";
+            String chef = "0";
+            String chefNamn = "0";
+            
+            omradesID = getOmradesID(Omrade);
+            
+            try{
+                chef = idb.fetchSingle("select Agent_ID from omradeschef where Omrade like '" + omradesID + "'");
+            } catch (InfException ex){
+                ex.printStackTrace();
+            }
+            
+            try{
+                chefNamn = idb.fetchSingle("select Namn from agent where Agent_ID like '" + chef + "'");
+            } catch(InfException exc){
+                exc.printStackTrace();
+            }
+            
+            return chefNamn;
+        }
+        
+        public static ArrayList<String> getAllaAliensPaEnPlats(String platsNamn){
+             ArrayList<String> aliens = new ArrayList<>();
+             String platsID = null;
+             
+             
+             try{
+                 platsID = idb.fetchSingle("select Plats_ID from plats where Benamning like '" + platsNamn + "'");
+             } catch (InfException e){
+                 e.printStackTrace();
+             }
+             try{
+                 aliens = idb.fetchColumn("select Alien_ID from alien where plats = '" + platsID + "'");
+             } catch (InfException ex){
+                 ex.printStackTrace();
+             }
+             
+             System.out.println(aliens);
+             return aliens;
+        }
+        
+        public static ArrayList<String> getAllaAliensAvRas(String rasNamn){
+            ArrayList<String> aliens = new ArrayList<>();
+            try{
+                aliens = idb.fetchColumn("select Alien_ID from " + rasNamn);
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            
+            return aliens;
+        }
+        
+        public static ArrayList<String> getAllaAliensMellanDatum(String startdatum, String slutdatum){
+            ArrayList<String> aliens = new ArrayList<>();
+            try{
+                aliens = idb.fetchColumn("select Alien_ID from alien where Registreringsdatum between '" + startdatum + "' and '" + slutdatum + "'");
+            } catch (InfException e){
+                e.printStackTrace();
+            }
+            
+            return aliens;
+        }
 }

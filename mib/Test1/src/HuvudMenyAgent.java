@@ -32,7 +32,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblAgent = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -47,7 +47,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Agent");
+        lblAgent.setText("Agent");
 
         jLabel2.setText("Alien");
 
@@ -63,6 +63,11 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         });
 
         btnAlien.setText("jButton2");
+        btnAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlienActionPerformed(evt);
+            }
+        });
 
         btnPlanet.setText("jButton3");
 
@@ -76,10 +81,20 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         jLabel5.setText("Område/plats");
 
         btnOmrådePlats.setText("jButton5");
+        btnOmrådePlats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOmrådePlatsActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Konto");
 
         btnKonto.setText("jButton6");
+        btnKonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKontoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,7 +109,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(lblAgent)
                             .addComponent(btnAgent)
                             .addComponent(jLabel4)
                             .addComponent(btnUtrustning))
@@ -111,7 +126,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblAgent)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -147,6 +162,19 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Utrustning(idb).setVisible(true);
     }//GEN-LAST:event_btnUtrustningActionPerformed
+
+    private void btnKontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKontoActionPerformed
+        new KontoMeny(idb).setVisible(true);
+    }//GEN-LAST:event_btnKontoActionPerformed
+
+    private void btnOmrådePlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådePlatsActionPerformed
+        new Område().setVisible(true);
+    }//GEN-LAST:event_btnOmrådePlatsActionPerformed
+
+    private void btnAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienActionPerformed
+        // TODO add your handling code here:
+        new AlienAlt().setVisible(true);
+    }//GEN-LAST:event_btnAlienActionPerformed
     
         /**
      * @param args the command line arguments
@@ -158,11 +186,11 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     private javax.swing.JButton btnOmrådePlats;
     private javax.swing.JButton btnPlanet;
     private javax.swing.JButton btnUtrustning;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel lblAgent;
     // End of variables declaration//GEN-END:variables
 }
