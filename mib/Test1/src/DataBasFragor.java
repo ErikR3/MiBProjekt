@@ -107,12 +107,16 @@ public class DataBasFragor {
         //select COUNT(DISTINCT Ansvarig_Agent) from alien
         public static ArrayList<String> getAntalAliens()
         {
+            int[] x = null;
             ArrayList<String> raknadeAliens = null;
             try{
-            raknadeAliens = idb.fetchColumn("select count(distinct Ansvarig_Agent) from alien");
+            raknadeAliens = idb.fetchColumn("SELECT Ansvarig_Agent FROM alien");
             } catch (InfException e){
                 e.printStackTrace();
             }
+                for (String AlienNamn : raknadeAliens){
+                    
+                }
             return raknadeAliens;
         }
         
