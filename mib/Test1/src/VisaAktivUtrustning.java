@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /*
@@ -23,6 +24,45 @@ public class VisaAktivUtrustning extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
     }
+         //String aktivUtrustning =  new tblAktivUtrustning;
+         //boolean hittad = false; 
+    
+        //try {
+                //ArrayList<String> utrustning = idb.fetchColumn("SELECT Benamning FROM Utrustning");
+
+               // if (Validering.setAgentInloggning(tblAktivUtrustning) {
+                   // for (String inlogg: aktiv) {      
+                       // if (aktivUtrustning.equals(inlogg)) {
+                            //hittad = true;
+            
+//                    if (Validering.textFaltHarVarde(txtRaderaUtrustning)) {
+//                    for (String namn : utrustning) {      
+//                        if (utrustningNamn.equals(namn)) {
+//                        hittad = true;
+            
+//             if (!finnsRedan){
+//                String id = idb.getAutoIncrement("utrustning", "Utrustnings_ID");
+//                String nyUtrustning = id+",'"+utrustningNamn+"'";
+//                String LaggTillFraga = "insert into utrustning (Utrustnings_ID, Benamning) values ("+nyUtrustning+")";
+//                idb.insert(LaggTillFraga);
+//                JOptionPane.showMessageDialog(null,"Ny utrustning har lagts till");
+//            } else {
+//                JOptionPane.showMessageDialog(null,"Utrustningen finns redan i systemet");    
+//            }}
+//             catch (InfException ex) {
+//            Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+           
+          
+            
+            
+            
+            //String visaAktivUtrustning =  "SELECT Utrustning.Benamning, Innehar_Utrustning.Utrustnings_ID FROM Innehar_Utrustning JOIN Utrustning ON Innehar_Utrustning.Utrustnings_ID = Utrustning.Utrustnings_ID";
+       // } catch (InfException ex) {
+           // Logger.getLogger(VisaAktivUtrustning.class.getName()).log(Level.SEVERE, null, ex);
+        //}
+    
+
     // Validering till databsen för att hitta rätt agent
     // från valderingen ska det synas vilken agent som är inloggad
     // koden ska sedan ge vilken utrustning som agenten har tagit ut för stunden. 
@@ -102,12 +142,14 @@ public class VisaAktivUtrustning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
- 
+  public static void main(String args[]) {
    
-
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblRubrik;
     private javax.swing.JTable tblAktivUtrustning;
     // End of variables declaration//GEN-END:variables
+
 }
+

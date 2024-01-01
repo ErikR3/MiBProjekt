@@ -118,7 +118,7 @@ public class Utrustning extends javax.swing.JFrame {
 
     //Denna knapp visar aktiv utrustning som agenter har just nu. 
     private void btnVisaAktivUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaAktivUtrustningActionPerformed
-        new VisaAktivUtrustning(idb).setVisible(true);
+        //new VisaAktivUtrustning(idb).setVisible(true);
     }//GEN-LAST:event_btnVisaAktivUtrustningActionPerformed
 //    Via denna knapp kan man registera ny utrustning.
 //    Man blir slussad till ett formulär som ger användaren möjlighet att

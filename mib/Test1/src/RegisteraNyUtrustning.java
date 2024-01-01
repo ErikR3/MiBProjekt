@@ -79,9 +79,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLäggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLäggTillActionPerformed
-        //catch var inuti try, därför fick du röd text där
-        //catch kommer inte heller att kunna fånga InfException för ingen fråga ställs
-        //till databasen vad jag ser
+
         try {
             String utrustningNamn = txtLaggTill.getText();
             boolean finnsRedan = false;
