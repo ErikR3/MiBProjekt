@@ -35,6 +35,7 @@ public class AgentInfo extends javax.swing.JFrame {
                 cbAgent.addItem(agent);
                 cbGeAdmin.addItem(agent);
                 cbTaAdmin.addItem(agent);
+                cbKontorChef.addItem(agent);
             }
                 
         }
@@ -81,6 +82,11 @@ public class AgentInfo extends javax.swing.JFrame {
         lblTaAdmin = new javax.swing.JLabel();
         btnTaOk = new javax.swing.JButton();
         lblDash3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        cbKontorChef = new javax.swing.JComboBox<>();
+        lblKontorChef = new javax.swing.JLabel();
+        lblDash4 = new javax.swing.JLabel();
+        btnKontorChef = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -121,19 +127,33 @@ public class AgentInfo extends javax.swing.JFrame {
 
         lblDash3.setText("-");
 
+        lblKontorChef.setText("Ändra kontorschef på Örebrokontoret");
+
+        lblDash4.setText("-");
+
+        btnKontorChef.setText("OK");
+        btnKontorChef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKontorChefActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAndraOmrade)
                     .addComponent(lblTaAdmin)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cbTaAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblDash3)
-                        .addGap(7, 7, 7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnTaOk))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cbGeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,54 +163,71 @@ public class AgentInfo extends javax.swing.JFrame {
                         .addComponent(btnGeOk))
                     .addComponent(lblGeAdmin)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblAgent)
-                        .addGap(58, 58, 58)
-                        .addComponent(lblOmrade))
+                        .addComponent(cbKontorChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblDash4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnKontorChef))
+                    .addComponent(lblKontorChef)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDash, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblAgent))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblDash, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnOmradeOK))
-                    .addComponent(lblAndraOmrade))
-                .addContainerGap(121, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblOmrade)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnOmradeOK)))))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(28, 28, 28)
                 .addComponent(lblAndraOmrade)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAgent)
-                    .addComponent(lblOmrade))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblOmrade)
+                    .addComponent(lblAgent))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1)
+                        .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDash)
-                            .addComponent(btnOmradeOK))))
-                .addGap(18, 18, 18)
-                .addComponent(lblGeAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbGeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGeOk)
-                    .addComponent(lblDash2))
-                .addGap(18, 18, 18)
-                .addComponent(lblTaAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnOmradeOK))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblKontorChef)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbKontorChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDash4)
+                            .addComponent(btnKontorChef))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblGeAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbGeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnGeOk)
+                                .addComponent(lblDash2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTaAdmin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbTaAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTaOk)
                     .addComponent(lblDash3))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,23 +296,42 @@ public class AgentInfo extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btnTaOkActionPerformed
 
+    private void btnKontorChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKontorChefActionPerformed
+        try {
+            String Agent = cbKontorChef.getSelectedItem().toString();
+            String AgentID = idb.fetchSingle("Select Agent_ID from agent where Namn = '" + Agent + "'");
+            
+            String Fraga = "Update kontorschef set Agent_ID = " + AgentID + " where Kontorsbeteckning = 'Örebrokontoret'";
+            idb.update(Fraga);
+            JOptionPane.showMessageDialog(rootPane, Agent + " är nu chef över Örebrokontoret!");
+        }
+        catch (InfException ex){
+            
+        }
+    }//GEN-LAST:event_btnKontorChefActionPerformed
+
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGeOk;
+    private javax.swing.JButton btnKontorChef;
     private javax.swing.JButton btnOmradeOK;
     private javax.swing.JButton btnTaOk;
     private javax.swing.JComboBox<String> cbAgent;
     private javax.swing.JComboBox<String> cbGeAdmin;
+    private javax.swing.JComboBox<String> cbKontorChef;
     private javax.swing.JComboBox<String> cbOmrade;
     private javax.swing.JComboBox<String> cbTaAdmin;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAgent;
     private javax.swing.JLabel lblAndraOmrade;
     private javax.swing.JLabel lblDash;
     private javax.swing.JLabel lblDash2;
     private javax.swing.JLabel lblDash3;
+    private javax.swing.JLabel lblDash4;
     private javax.swing.JLabel lblGeAdmin;
+    private javax.swing.JLabel lblKontorChef;
     private javax.swing.JLabel lblOmrade;
     private javax.swing.JLabel lblTaAdmin;
     // End of variables declaration//GEN-END:variables
