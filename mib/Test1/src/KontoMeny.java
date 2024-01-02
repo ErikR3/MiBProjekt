@@ -31,7 +31,7 @@ public class KontoMeny extends javax.swing.JFrame {
         btnByt = new javax.swing.JButton();
         lblBytLosen = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnByt.setText("Byt");
         btnByt.addActionListener(new java.awt.event.ActionListener() {
