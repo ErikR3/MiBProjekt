@@ -131,16 +131,19 @@ public class AgentInfo extends javax.swing.JFrame {
     private void btnOmradeOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmradeOKActionPerformed
        try {
            
-       
+//       gör om comborutor till text
         String Agent = cbAgent.getSelectedItem().toString();
         String Omrade = cbOmrade.getSelectedItem().toString();
         
+//        Hämtar omrdåes ID utirfrån namnet på området
         String HamtaOID = "Select Omrades_ID from omrade where Benamning = '" + Omrade + "'";
         String OID = idb.fetchSingle(HamtaOID);
         
+//        Hämtar agent ID utifrån namnet på agenten
         String HamtaAID = "Select Agent_ID from agent where Namn = '" + Agent + "'";
         String AID = idb.fetchSingle(HamtaAID);
         
+//        Ändrar i databasen för vem som är chef i ett område utifrån dessa IDn
         idb.update("update omradeschef set Agent_ID = " + AID + " where Omrade = " + OID);
         
         JOptionPane.showMessageDialog(rootPane, Agent + " är nu områdes chef för " + Omrade);
