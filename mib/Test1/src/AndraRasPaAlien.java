@@ -31,12 +31,14 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
         cbRas.addItem("Worm"); 
     }
     private String hittaRasen() {
+        //Metod för att hitta rasen som en alien tillhör
         String ras = "";
         try {
             String epost = tfEpost.getText();
             String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
             Boolean hittad = false;
             
+            //Söker förts igenom rasen boglodite, ifall hittad söker den inte igenom fler, annars fortsätter den söka i nästa
             ArrayList<String> rasIDBog = idb.fetchColumn("select alien_ID from boglodite");
             for (String id : rasIDBog){
                 if (alienID.equals(id)) {
@@ -44,7 +46,7 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                     hittad = true;
                 }
             }
-            
+            //Söker igenom squid
             if (!hittad) {
                 ArrayList<String> rasIDSquid = idb.fetchColumn("select alien_ID from squid");
                 for (String id : rasIDSquid){
@@ -53,6 +55,7 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                     }
                 }
             }
+            //Söker igenom worm
             if (!hittad) {
                 ArrayList<String> rasIDWorm = idb.fetchColumn("select alien_ID from worm");
                 for (String id : rasIDWorm){
@@ -64,6 +67,7 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
         } catch (InfException ex) {
             Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //Returnerar den hittade rasen, om ingen ras hittad är grundvärdet en tom sträng
         return ras;
     }
     
@@ -71,16 +75,18 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
         try {
         String epost = tfEpost.getText();
         String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
+        //Hämtar den tillhörande rasen, finns det en så tas den bort ur systemet.
         if (!hittaRasen().isEmpty()){
           idb.delete("delete from "+hittaRasen()+" where alien_id ="+alienID);
         }
         } catch (InfException ex) {
             Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
     
     private void kollaRas() {
-        
+        //Metod för att lägga in info om uppsökt alien
+        if (Validering.textFaltHarVarde(tfEpost) && Validering.alienEpostFinns(tfEpost)) {
         cbRas.removeAllItems();
         tfRasAttribut.setText("");
         lblPrefix.setText("");
@@ -88,35 +94,11 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
         String attribut = "";
         try {
             String epost = tfEpost.getText();
-            String ras = "";
             String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
-            Boolean hittad = false;
+            Boolean hittad = false;          
+            String ras = hittaRasen();
             
-            ArrayList<String> rasIDBog = idb.fetchColumn("select alien_ID from boglodite");
-            for (String id : rasIDBog){
-            if (alienID.equals(id)) {
-            ras = "Boglodite";
-            hittad = true;
-            }
-            }
-            
-            if (!hittad) {
-            ArrayList<String> rasIDSquid = idb.fetchColumn("select alien_ID from squid");
-            for (String id : rasIDSquid){
-            if (alienID.equals(id)) {
-            ras = "Squid";
-            }
-            }  
-            }
-            if (!hittad) {
-            ArrayList<String> rasIDWorm = idb.fetchColumn("select alien_ID from worm");
-            for (String id : rasIDWorm){
-            if (alienID.equals(id)) {
-            ras = "Worm";
-            }
-            }  
-            }
-            
+            //En switch för att hitta den rasen alien tillhör, hittas en ras ändras prefix-texten och rasnamnet och den hämtar även attributet
             switch (ras) {
                 case "Boglodite":
                     cbRas.addItem(ras);
@@ -138,11 +120,13 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                      tfRasAttribut.setText(attribut);
                      break;
                 default:
+                    //Hittas ingen ras kommer ett pop-up meddelande upp
                      JOptionPane.showMessageDialog(null,"OBS denna alien tillhör ingen ras.");                                  
             }
         } catch (InfException ex) {
             Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
         }   
+    }
     }
     
     
@@ -165,6 +149,7 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
         cbRas = new javax.swing.JComboBox<>();
         btnAndraInfo = new javax.swing.JButton();
         btnAvbryt = new javax.swing.JButton();
+        btnUppdatera = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -197,6 +182,13 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
             }
         });
 
+        btnUppdatera.setText("Uppdatera");
+        btnUppdatera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUppdateraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,9 +196,6 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblAngeEpost)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -227,12 +216,19 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblPrefix, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(cbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 100, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnAndraInfo)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnAvbryt)))))
-                        .addGap(34, 34, 34))))
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAngeEpost)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(253, 253, 253)
+                                .addComponent(btnUppdatera)))
+                        .addContainerGap(20, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,13 +242,14 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDennaRas)
-                    .addComponent(cbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUppdatera, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfRasAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRas)
                     .addComponent(lblPrefix, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvbryt)
                     .addComponent(btnAndraInfo))
@@ -282,9 +279,10 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
         if (knappText.equals(valdText)) {      
             btnAndraInfo.setText("Spara ändringar");
             tfRasAttribut.setEditable(true);
+            tfEpost.setEditable(false);
             fyllRaser();
-            lblPrefix.setText("");
-        }
+            lblPrefix.setText("");          
+            }
         else {
             try {
                 //hämta ny info och alien ID
@@ -292,18 +290,25 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                 String rasNamn = cbRas.getSelectedItem().toString();
                 String alienID = idb.fetchSingle("SELECT alien_ID FROM alien where epost = '"+epost+"'");
                 boolean hittad = false;
+                //Kör en check på vilken ras den vill ändras till, och tar först bort den alien från andra raser och sedan lägger till den i den nya
                 switch (rasNamn) {
-                    case "Boglodite":
+                    case "Boglodite":                       
+                        if (Validering.isHeltal(tfRasAttribut)){
                         taBortRas();
-                        idb.insert("insert into boglodite (Alien_ID, Antal_Boogies) values ("+alienID+","+rasAttribut+")");                                                                        
-                        break;
+                        idb.insert("insert into boglodite (Alien_ID, Antal_Boogies) values ("+alienID+","+rasAttribut+")");                                                                          
+                        }
+                        break; 
                     case "Squid":
+                        if (Validering.isHeltal(tfRasAttribut)){
                         taBortRas();
                         idb.insert("insert into squid (Alien_ID, Antal_Armar) values ("+alienID+","+rasAttribut+")");
+                        }
                         break;
                     case "Worm":
+                        if (Validering.isDouble(tfRasAttribut)){
                         taBortRas();
                         idb.insert("insert into worm (Alien_ID, Langd) values ("+alienID+","+rasAttribut+")");                        
+                        }
                         break;
                     default:
                         break;
@@ -311,7 +316,8 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                 //Ändra tillbaka till oförändringsbart och fyller boxarna med ett värde igen
                 btnAndraInfo.setText(valdText);
                 tfRasAttribut.setEditable(false);
-                    
+                tfEpost.setEditable(true);
+                kollaRas();                    
                 
             } catch (InfException ex) {
                 Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
@@ -319,10 +325,31 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAndraInfoActionPerformed
 
+    private void btnUppdateraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUppdateraActionPerformed
+        // Uppdaterar textinfo beroende på vilken ras användaren vill ändra till
+       if (btnAndraInfo.getText().equals("Spara ändringar")) {
+         String rasNamn = cbRas.getSelectedItem().toString();      
+            switch (rasNamn) {
+                    case "Boglodite":
+                        lblRas.setText("Antal boogies: ");
+                        break;
+                    case "Squid":
+                        lblRas.setText("Antal armar: ");
+                        break;
+                    case "Worm":
+                        lblRas.setText("Längd i meter: ");
+                        break;
+                    default:
+                        break;
+            }  
+       }
+    }//GEN-LAST:event_btnUppdateraActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraInfo;
     private javax.swing.JButton btnAvbryt;
     private javax.swing.JButton btnSok;
+    private javax.swing.JButton btnUppdatera;
     private javax.swing.JComboBox<String> cbRas;
     private javax.swing.JLabel lblAngeEpost;
     private javax.swing.JLabel lblDennaRas;

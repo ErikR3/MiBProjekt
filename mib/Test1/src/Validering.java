@@ -1,4 +1,7 @@
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
@@ -35,6 +38,26 @@ public class Validering {
         return resultat;
     }
 
+    //Metod för att kontrollera om en aliens epost finns i systemet
+    public static boolean alienEpostFinns(JTextField rutaAttKolla) {
+            boolean resultat = false;
+        try {         
+            String epost = rutaAttKolla.getText();
+            ArrayList<String> eposts = idb.fetchColumn("select epost from alien"); 
+            for (String enEpost : eposts) {
+                if (enEpost.equals(epost)) {               
+                resultat = true;
+                }
+            }
+            if (!resultat) {
+               JOptionPane.showMessageDialog(null, "Det finns ingen alien med denna Epost"); 
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(Validering.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultat;
+    } 
+
     //Metod för att kontrollera om ett värde är ett heltal
     public static boolean isHeltal(JTextField rutaAttKolla) {
         boolean resultat = true;
@@ -45,6 +68,20 @@ public class Validering {
             rutaAttKolla.requestFocus();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Var god ange ett heltal!");
+            resultat = false;
+        }
+        return resultat;
+    }
+    
+     //Metod för att kontrollera om ett värde är av typen double
+    public static boolean isDouble(JTextField rutaAttKolla) {
+        boolean resultat = true;
+        try {
+            String inStrang = rutaAttKolla.getText();
+            Double.parseDouble(inStrang);
+            rutaAttKolla.requestFocus();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Var god ange ett tal. Vid decimaler använd . för att skilja");
             resultat = false;
         }
         return resultat;

@@ -207,7 +207,7 @@ public class RegistreraNyAlien extends javax.swing.JFrame {
     private void btnRegistreraNyAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraNyAlienActionPerformed
         try {  
             //Kontrollera så ingen ruta är tom, annars felmeddelande "Alla fält måste vara ifyllda!"
-            
+            if (Validering.textFaltHarVarde(tfDatum)) {
             //Lagra all inskriven info
             String id = idb.getAutoIncrement("alien", "Alien_ID");
             String namn = tfNamn.getText();
@@ -226,7 +226,7 @@ public class RegistreraNyAlien extends javax.swing.JFrame {
             String ansvarigAgent = idb.fetchSingle(fragaAgent);
             
             //Kontrollera så emailen är unik, samt ev. även så den är i rätt format(?)
-            
+                              
             //Kontrollera alla fält så de är i rätt format. (typ string, int o.s.v)
             
             //formatera en fråga
@@ -234,6 +234,8 @@ public class RegistreraNyAlien extends javax.swing.JFrame {
             String nyAlienFraga = "insert into alien (Alien_ID, Namn, Epost, Telefon, Losenord, Registreringsdatum, Plats, Ansvarig_Agent) values("+nyAlien+")";
             //Skapa den nya alien
             idb.insert(nyAlienFraga);
+        
+        }
         } catch (InfException ex) {
             Logger.getLogger(RegistreraNyAlien.class.getName()).log(Level.SEVERE, null, ex);
         }

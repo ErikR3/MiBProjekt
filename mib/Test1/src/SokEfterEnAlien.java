@@ -232,6 +232,8 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
     }
     
     private void btnSokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokActionPerformed
+       
+        if (Validering.textFaltHarVarde(tfEpost) && Validering.alienEpostFinns(tfEpost)) {
         try {
             // Hämta epost
             String epost = tfEpost.getText();
@@ -251,6 +253,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
             
         } catch (InfException ex) {
             Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }//GEN-LAST:event_btnSokActionPerformed
 

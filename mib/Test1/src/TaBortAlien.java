@@ -18,6 +18,7 @@ import oru.inf.InfException;
 public class TaBortAlien extends javax.swing.JFrame {
 
     private InfDB idb;
+
     /**
      * Creates new form TaBortAlien
      */
@@ -125,7 +126,7 @@ public class TaBortAlien extends javax.swing.JFrame {
     private void btnTaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAlienActionPerformed
         if (cbTaBort.isSelected()) {
         //Kör en validering på att eposten finns
-        //LÄGG TILL VALIDERING HÄR
+        if (Validering.textFaltHarVarde(tfSoktEpost) && Validering.alienEpostFinns(tfSoktEpost)) {
         try {
         //väljer den alien ur rutan där man kan välja aliens
         String valdEpost = tfSoktEpost.getText();
@@ -139,6 +140,7 @@ public class TaBortAlien extends javax.swing.JFrame {
           Logger.getLogger(TaBortAlien.class.getName()).log(Level.SEVERE, null, ex);
     } 
     }
+        }
         else {
             JOptionPane.showMessageDialog(this, "Du måste klicka i rutan för att kunna ta bort");
         }
