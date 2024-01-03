@@ -236,7 +236,7 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                 String rasAttribut = tfRasAttribut.getText();
                 String rasNamn = cbRas.getSelectedItem().toString();
                 String alienID = idb.fetchSingle("SELECT alien_ID FROM alien where epost = '"+epost+"'");
-                boolean hittad = false;
+                
                 //Kör en check på vilken ras den vill ändras till, och tar först bort den alien från andra raser och sedan lägger till den i den nya
                 switch (rasNamn) {
                     case "Boglodite":                       
