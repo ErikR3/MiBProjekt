@@ -287,7 +287,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 String platsID = idb.fetchSingle("SELECT plats_ID FROM plats where benamning = '"+plats+"'");
                 String agentID = idb.fetchSingle("SELECT agent_ID FROM agent where agent.namn = '"+agent+"'");    
                 
-                //Kontroller så datum är i rätt format
+                //Kontroller så datum är i rätt format och eposten är unik
                 if (Validering.isDatum(datum)) {
                     
                 //lagra ny info till databasen
