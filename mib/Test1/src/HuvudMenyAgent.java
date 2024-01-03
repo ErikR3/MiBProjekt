@@ -32,44 +32,27 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAgent = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         btnAgent = new javax.swing.JButton();
         btnAlien = new javax.swing.JButton();
-        btnPlanet = new javax.swing.JButton();
         btnUtrustning = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         btnOmrådePlats = new javax.swing.JButton();
-        lblBytLosen = new javax.swing.JLabel();
         btnBytLosen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblAgent.setText("Agent");
-
-        jLabel2.setText("Alien");
-
-        jLabel3.setText("Planeter");
-
-        jLabel4.setText("Utrustning");
-
-        btnAgent.setText("jButton1");
+        btnAgent.setText("Agent");
         btnAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgentActionPerformed(evt);
             }
         });
 
-        btnAlien.setText("jButton2");
+        btnAlien.setText("Alien");
         btnAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlienActionPerformed(evt);
             }
         });
-
-        btnPlanet.setText("jButton3");
 
         btnUtrustning.setText("Gå till utrustning");
         btnUtrustning.addActionListener(new java.awt.event.ActionListener() {
@@ -78,18 +61,14 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Område/plats");
-
-        btnOmrådePlats.setText("jButton5");
+        btnOmrådePlats.setText("Område/plats");
         btnOmrådePlats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOmrådePlatsActionPerformed(evt);
             }
         });
 
-        lblBytLosen.setText("Byt lösenord");
-
-        btnBytLosen.setText("jButton6");
+        btnBytLosen.setText("Byt lösenord");
         btnBytLosen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBytLosenActionPerformed(evt);
@@ -103,52 +82,30 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnOmrådePlats)
                     .addComponent(btnAlien)
-                    .addComponent(btnPlanet)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAgent)
-                            .addComponent(btnAgent)
-                            .addComponent(jLabel4)
-                            .addComponent(btnUtrustning))
-                        .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBytLosen)
-                            .addComponent(lblBytLosen)
-                            .addComponent(btnOmrådePlats)
-                            .addComponent(jLabel5))))
-                .addContainerGap(102, Short.MAX_VALUE))
+                    .addComponent(btnUtrustning)
+                    .addComponent(btnAgent))
+                .addContainerGap(237, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBytLosen)
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAgent)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgent)
-                    .addComponent(btnOmrådePlats))
-                .addGap(1, 1, 1)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(61, 61, 61)
+                .addComponent(btnAgent)
+                .addGap(26, 26, 26)
                 .addComponent(btnAlien)
-                .addGap(1, 1, 1)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPlanet)
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lblBytLosen))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUtrustning)
-                    .addComponent(btnBytLosen))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btnOmrådePlats)
+                .addGap(28, 28, 28)
+                .addComponent(btnUtrustning)
+                .addGap(28, 28, 28)
+                .addComponent(btnBytLosen)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,13 +141,6 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     private javax.swing.JButton btnAlien;
     private javax.swing.JButton btnBytLosen;
     private javax.swing.JButton btnOmrådePlats;
-    private javax.swing.JButton btnPlanet;
     private javax.swing.JButton btnUtrustning;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel lblAgent;
-    private javax.swing.JLabel lblBytLosen;
     // End of variables declaration//GEN-END:variables
 }
