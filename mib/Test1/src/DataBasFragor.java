@@ -319,7 +319,7 @@ public class DataBasFragor {
     }
     
     public static boolean hittaChef(String epost) {
-        //Metod för att tabort olika positioner som en agent kan tillhöra 
+        //Metod för att hitta olika chefspositioner som en agent kan tillhöra 
         boolean hittad = false;
         try {
             //hämta agentID
