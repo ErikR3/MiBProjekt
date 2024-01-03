@@ -298,9 +298,10 @@ public class AlienAlt extends javax.swing.JFrame {
         // TODO add your handling code here:
         String startdatum = jTextField3.getText();
         String slutdatum = jTextField4.getText();
+        System.out.println(startdatum + slutdatum);
         ArrayList<String> aliens = new ArrayList<>();
        
-        if(Validering.isDatum(startdatum)){
+        if(Validering.isDatum(startdatum) && Validering.isDatum(slutdatum)){
         aliens = DataBasFragor.getAllaAliensMellanDatum(startdatum, slutdatum);
         
         new AliensMellanTvaDatum(aliens, startdatum, slutdatum).setVisible(true);
