@@ -40,16 +40,18 @@
                       </Group>
                       <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField1" min="-2" pref="71" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSokAgent" min="-2" pref="71" max="-2" attributes="0"/>
+                          <Component id="lblSokAgent" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSokAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnInfo" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblInfo" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnChefAndra" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="lblChefAndra" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAndraAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAdminAndra" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -61,22 +63,26 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-              <Component id="lblInfo" min="-2" max="-2" attributes="0"/>
+              <Component id="lblChefAndra" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnInfo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <Component id="btnChefAndra" min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lblAndraAdmin" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnAdminAndra" min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <Component id="lblSokAgent" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSokAgent" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblRegistrera" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnRegistrera" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="btnSokAgent" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="btnRegistrera" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,35 +101,39 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistreraActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lblSokAgent">
       <Properties>
         <Property name="text" type="java.lang.String" value="S&#xf6;k efter Agent"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="txtSokAgent">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnSokAgent">
       <Properties>
         <Property name="text" type="java.lang.String" value="jButton3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSokAgentActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblInfo">
+    <Component class="javax.swing.JLabel" name="lblChefAndra">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc4;ndra information om agenter"/>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra chefer f&#xf6;r agenter"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnInfo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
-      </Properties>
+    <Component class="javax.swing.JButton" name="btnChefAndra">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInfoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChefAndraActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAndraAdmin">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra adminstatus f&#xf6;r agenter"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAdminAndra">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminAndraActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -6,6 +6,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -37,9 +41,26 @@ public class Validering {
         }
         return resultat;
     }
+    
+    //Metod för att kontrollera om en alienEpost redan finns
+    public static boolean alienEpostFinns(String textAttKolla) {
+   boolean resultat = false;
+        try {         
+            ArrayList<String> eposts = idb.fetchColumn("select epost from alien"); 
+            for (String enEpost : eposts) {
+                if (enEpost.equals(textAttKolla)) {               
+                resultat = true;
+                JOptionPane.showMessageDialog(null, "Det finns redan en alien med denna Epost!"); 
+                }
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(Validering.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultat;
+        }
 
     //Metod för att kontrollera om en aliens epost finns i systemet
-    public static boolean alienEpostFinns(JTextField rutaAttKolla) {
+    public static boolean alienEpostFinnsSok(JTextField rutaAttKolla) {
             boolean resultat = false;
         try {         
             String epost = rutaAttKolla.getText();
@@ -139,6 +160,20 @@ public class Validering {
         if(omradetest == null){
             resultat = false;
             JOptionPane.showMessageDialog(null, "Omradet finns ej.");
+        }
+        
+        return resultat;
+    }
+    
+    public static boolean isDatum(String s){
+        boolean resultat = true;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        
+        try{
+            LocalDate date = LocalDate.parse(s, formatter);
+        } catch (DateTimeParseException e){
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Datum måste skrivas i formatet: 'YYYY-MM-DD'");
         }
         
         return resultat;

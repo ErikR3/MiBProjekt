@@ -33,7 +33,7 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
     
     private void kollaRas() {
         //Metod för att lägga in info om uppsökt alien
-        if (Validering.textFaltHarVarde(tfEpost) && Validering.alienEpostFinns(tfEpost)) {
+        if (Validering.textFaltHarVarde(tfEpost) && Validering.alienEpostFinnsSok(tfEpost)) {
         cbRas.removeAllItems();
         tfRasAttribut.setText("");
         lblPrefix.setText("");
