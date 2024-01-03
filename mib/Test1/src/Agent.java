@@ -221,7 +221,12 @@ public class Agent extends javax.swing.JFrame {
 
     private void btnTabortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabortAgentActionPerformed
         // TODO add your handling code here:
+        if (Validering.getAdminStatus()) {
         new TaBortAgent(idb).setVisible(true);
+        }
+         else {
+           JOptionPane.showMessageDialog(rootPane, "Ej systemadmin");
+       }
     }//GEN-LAST:event_btnTabortAgentActionPerformed
 
     private void btnAndraInfoAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraInfoAgentActionPerformed
