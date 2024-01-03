@@ -77,17 +77,20 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   
+    // Denna knapp gör det möjligt för agenter att lägga till utrustning i databasen.
     private void btnLäggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLäggTillActionPerformed
 
         try {
             String utrustningNamn = txtLaggTill.getText();
             boolean finnsRedan = false;
+            //Validering här är till för att kontrollera att textfältet inte är tomt. Finns inte denna validering kan användaren lägga in "ingeting" som utrustning. 
+            if(Validering.textFaltHarVarde(txtLaggTill))
+          
             
-            //String fraga = "select Utrustnings_ID, Benamning from Utrustning";
-            
-            
-            
+            //Här kontrollerar vi mot databsen ifall utrustningen redan finns i databasen eller inte. 
+            //Om utrustningen redan finns i databasen kommer användaren få upp en dialogruta då samma utrustning inte går att lägga till två gånger. 
+            //Finns utrustningen så kommer användaren få upp en dialogruta som anses som ett godkännande att utrustningen nu är inlagd i systemet. 
             if (!finnsRedan){
                 String id = idb.getAutoIncrement("utrustning", "Utrustnings_ID");
                 String nyUtrustning = id+",'"+utrustningNamn+"'";
@@ -96,14 +99,15 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Ny utrustning har lagts till");
             } else {
                 JOptionPane.showMessageDialog(null,"Utrustningen finns redan i systemet");    
-            }}
-             catch (InfException ex) {
+            }
+           
+        } catch (InfException ex) {
             Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
             }
                 
         
     }//GEN-LAST:event_btnLäggTillActionPerformed
-
+        //detta textfält finns inte, och går inte heller att ta bort. 
     private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNamnActionPerformed

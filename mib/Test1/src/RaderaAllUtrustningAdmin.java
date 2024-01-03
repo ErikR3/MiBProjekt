@@ -82,36 +82,52 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
     //Denna kanpp kommer endast Admin åt via sin inloggning. Klickar man på knappen
     //kommer all utrustning som finns i systemet att raderas. 
     private void btnRaderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaActionPerformed
-            
+            //Valideringen sker via valideringsklassen. Den kontrollerar att den inloggade användaren faktiskt är administratör.
+            // Om användaren inte är administratör, se kommentrar längre ner. 
+            if(Validering.getAdminStatus()){
             String utrustningNamn = txtRaderaUtrustning.getText();
             boolean hittad = false;
             try{
                 ArrayList<String> utrustning = idb.fetchColumn("SELECT Benamning FROM Utrustning");
                 
+                //Denna validering kontrollerar att textfältet för att radera utrustningen inte är tom. Om ja, se kommentar längre ner. 
+                //Den kontrollerar sedan att utrustningen är registerad, om inte, se kommentar längre ner. 
                 if (Validering.textFaltHarVarde(txtRaderaUtrustning)) {
                     for (String namn : utrustning) {      
                         if (utrustningNamn.equals(namn)) {
                             hittad = true;
                         }
-                    }                              
+                            
+                    }   
+                    //Denna if-sats kontrollerar följande:
                     if (hittad) {
+                        //Finns den utrustningen admin vill ta bort i databsen?
                         String raderaUtrustning = ("DELETE FROM Utrustning WHERE Benamning = '"+ utrustningNamn + "'");
                     idb.delete(raderaUtrustning);
+                    // Om utrustningen finns i Databasen får man upp en dialogruta som svar:
                         JOptionPane.showMessageDialog(null, "Utrustningen har blivit borttagen från systemet.");
                     } else if (!hittad) { 
+                        //Om utrustningen inte finns i systemet får man upp en dialogruta som svar:
                         JOptionPane.showMessageDialog(null, "Utrustningen hittades inte i systemet.");
                     }
-                }else {
+                    else {
+                        //Om inmatningsrutan är tom får man upp en dialogruta som svar:
                     JOptionPane.showMessageDialog(null, "Inmatningsrutan är tom!");
                     }
+                } 
             } catch (InfException ex) {
                 Logger.getLogger(RaderaAllUtrustningAdmin.class.getName()).log(Level.SEVERE, null, ex);  
             }
-            // du skirver in en utrustning, sen tycker du på radera. 
-            // då ska utrustningen försvinna från systemet. 
-      //  }
+    
     }//GEN-LAST:event_btnRaderaActionPerformed
-
+            // Skulle man som agent eller alien logga in och försöka att ta bort utrustning, kommer man få upp följade dialogruta.
+            //Det är endast administratörer som kan ta bort utrusning, där av valideringen i första if-satsen. (se kommentar längre upp)
+            else {
+                    JOptionPane.showMessageDialog(null, "Du är ej behörig att ta bort utrustning");
+                }
+    }
+    
+    
    /**
      * @param args the command line arguments
      */

@@ -118,7 +118,9 @@ public class Utrustning extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Denna knapp visar aktiv utrustning som agenter har just nu. 
+    //Denna knapp visar aktiv utrustning som agenter har just nu.
+    //VisaAktivUtrusning är kopplad till klassen VisaMinUtkvitteradeUtrisning som skickar
+    //användaren vidare till klassen "VisaMinUtkvitteradeUtrustning. 
     private void btnVisaAktivUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaAktivUtrustningActionPerformed
         //new VisaAktivUtrustning(idb).setVisible(true);
         String mittID = Validering.getAgentInloggning();
@@ -129,11 +131,13 @@ public class Utrustning extends javax.swing.JFrame {
 //    Via denna knapp kan man registera ny utrustning.
 //    Man blir slussad till ett formulär som ger användaren möjlighet att
 //    skriva in ny utrustning.  
-    
     private void btnRegistreraNyUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraNyUtrustningActionPerformed
         new RegisteraNyUtrustning(idb).setVisible(true);
     }//GEN-LAST:event_btnRegistreraNyUtrustningActionPerformed
 
+    //RaderaAllUtrustning gör det möjligt för administratörer att ta bort utrusning från systemet. 
+    //via knappen skickas administratörer vidare till en ny klass "RaderaAllUtrustningAdmin" som gör det möjligt att ta bort
+    //utrustning som inte ska vara kvar i systemet. 
     private void btnRaderaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaderaUtrustningActionPerformed
         new RaderaAllUtrustningAdmin(idb).setVisible(true);
     }//GEN-LAST:event_btnRaderaUtrustningActionPerformed
