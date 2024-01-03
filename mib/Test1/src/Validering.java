@@ -165,7 +165,7 @@ public class Validering {
         return resultat;
     }
     
-    public boolean isDatum(String s){
+    public static boolean isDatum(String s){
         boolean resultat = true;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         
@@ -173,6 +173,7 @@ public class Validering {
             LocalDate date = LocalDate.parse(s, formatter);
         } catch (DateTimeParseException e){
             resultat = false;
+            JOptionPane.showMessageDialog(null, "Datum måste skrivas i formatet: 'YYYY-MM-DD'");
         }
         
         return resultat;
