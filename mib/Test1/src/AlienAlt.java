@@ -300,10 +300,11 @@ public class AlienAlt extends javax.swing.JFrame {
         String slutdatum = jTextField4.getText();
         ArrayList<String> aliens = new ArrayList<>();
        
-        
+        if(Validering.isDatum(startdatum)){
         aliens = DataBasFragor.getAllaAliensMellanDatum(startdatum, slutdatum);
         
         new AliensMellanTvaDatum(aliens, startdatum, slutdatum).setVisible(true);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
