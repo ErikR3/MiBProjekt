@@ -262,7 +262,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         String epost = tfEpost.getText();
         String knappText = btnAndraInfo.getText();
         String valdText = "Ändra information";
-        //Om man trycker på "ändra" sätter det rutorna till förändringsbara
+        //Om man trycker på "Ändra information" sätter det rutorna till förändringsbara
         if (knappText.equals(valdText)) {      
             btnAndraInfo.setText("Spara ändringar");
             tfNamn.setEditable(true);
@@ -273,6 +273,9 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         }
         else {
             try {
+                //Kontrollera så ingen ruta är tom
+                if (Validering.textFaltHarVarde(tfNamn) && Validering.textFaltHarVarde(tfNummer) && Validering.textFaltHarVarde(tfDatum)) {
+                    
                 //hämta ny info
                 String namn = tfNamn.getText();
                 String nummer = tfNummer.getText();
@@ -284,6 +287,9 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 String platsID = idb.fetchSingle("SELECT plats_ID FROM plats where benamning = '"+plats+"'");
                 String agentID = idb.fetchSingle("SELECT agent_ID FROM agent where agent.namn = '"+agent+"'");    
                 
+                //Kontroller så datum är i rätt format
+                if (Validering.isDatum(datum)) {
+                    
                 //lagra ny info till databasen
                 idb.update("update alien set namn='"+namn+"' where epost='"+epost+"'");
                 idb.update("update alien set telefon='"+nummer+"' where epost='"+epost+"'");
@@ -298,7 +304,8 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 tfDatum.setEditable(false);
                 FyllPlatsForAlien(epost);
                 FyllAgentForAlien(epost);
-                
+            }
+            }
             } catch (InfException ex) {
                 Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
             }          

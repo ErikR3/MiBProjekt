@@ -125,10 +125,10 @@ public class TaBortAlien extends javax.swing.JFrame {
     //Knapp som tar bort en alien ur systemet
     private void btnTaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAlienActionPerformed
         if (cbTaBort.isSelected()) {
-        //Kör en validering på att eposten finns
+        //Kör en validering på att eposten finns och rutan inte är tom
         if (Validering.textFaltHarVarde(tfSoktEpost) && Validering.alienEpostFinnsSok(tfSoktEpost)) {
         try {
-        //väljer den alien ur rutan där man kan välja aliens
+        //hämtar epost från rutan
         String valdEpost = tfSoktEpost.getText();
         //skapar en fråga
         String fraga = "delete from alien where epost = '" + valdEpost + "'";
