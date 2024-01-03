@@ -15,11 +15,11 @@ import javax.swing.JOptionPane;
  *
  * @author johan
  */
-public class AgentInfo extends javax.swing.JFrame {
+public class AndraChef extends javax.swing.JFrame {
     private InfDB idb;
     
     
-    public AgentInfo(InfDB idb) {
+    public AndraChef(InfDB idb) {
         this.idb = idb;
         initComponents();
         FyllAgent();
@@ -33,14 +33,12 @@ public class AgentInfo extends javax.swing.JFrame {
             ArrayList<String> namnLista = idb.fetchColumn(Fraga);
             for (String agent : namnLista){
                 cbAgent.addItem(agent);
-                cbGeAdmin.addItem(agent);
-                cbTaAdmin.addItem(agent);
                 cbKontorChef.addItem(agent);
             }
                 
         }
         catch (InfException ex){
-            Logger.getLogger(AgentInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AndraChef.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -53,7 +51,7 @@ public class AgentInfo extends javax.swing.JFrame {
             }
         }
         catch (InfException ex) {
-            Logger.getLogger(AgentInfo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AndraChef.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -74,14 +72,6 @@ public class AgentInfo extends javax.swing.JFrame {
         lblOmrade = new javax.swing.JLabel();
         cbOmrade = new javax.swing.JComboBox<>();
         btnOmradeOK = new javax.swing.JButton();
-        lblGeAdmin = new javax.swing.JLabel();
-        cbGeAdmin = new javax.swing.JComboBox<>();
-        btnGeOk = new javax.swing.JButton();
-        lblDash2 = new javax.swing.JLabel();
-        cbTaAdmin = new javax.swing.JComboBox<>();
-        lblTaAdmin = new javax.swing.JLabel();
-        btnTaOk = new javax.swing.JButton();
-        lblDash3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         cbKontorChef = new javax.swing.JComboBox<>();
         lblKontorChef = new javax.swing.JLabel();
@@ -105,28 +95,6 @@ public class AgentInfo extends javax.swing.JFrame {
             }
         });
 
-        lblGeAdmin.setText("Ge agenter adminstatus");
-
-        btnGeOk.setText("OK");
-        btnGeOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGeOkActionPerformed(evt);
-            }
-        });
-
-        lblDash2.setText("-");
-
-        lblTaAdmin.setText("Ta bort adminstatus från agenter");
-
-        btnTaOk.setText("OK");
-        btnTaOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTaOkActionPerformed(evt);
-            }
-        });
-
-        lblDash3.setText("-");
-
         lblKontorChef.setText("Ändra kontorschef på Örebrokontoret");
 
         lblDash4.setText("-");
@@ -148,20 +116,6 @@ public class AgentInfo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAndraOmrade)
-                    .addComponent(lblTaAdmin)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbTaAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblDash3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTaOk))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbGeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblDash2)
-                        .addGap(7, 7, 7)
-                        .addComponent(btnGeOk))
-                    .addComponent(lblGeAdmin)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cbKontorChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -198,7 +152,7 @@ public class AgentInfo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(15, 15, 15))
+                        .addContainerGap(224, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,22 +166,7 @@ public class AgentInfo extends javax.swing.JFrame {
                             .addComponent(cbKontorChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDash4)
                             .addComponent(btnKontorChef))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblGeAdmin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cbGeAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnGeOk)
-                                .addComponent(lblDash2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTaAdmin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbTaAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTaOk)
-                    .addComponent(lblDash3))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -258,44 +197,6 @@ public class AgentInfo extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btnOmradeOKActionPerformed
 
-    private void btnGeOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeOkActionPerformed
-       try {
-//           Hämtar den valda agentens ID och sätter dennes adminstatus till J
-        String Agent = cbGeAdmin.getSelectedItem().toString();
-        String AgentID = idb.fetchSingle("Select Agent_ID from agent where Namn = '" + Agent + "'");
-       
-        String Fraga = "Update agent set Administrator = 'J' where Agent_ID = '" + AgentID + "'";
-        
-        idb.update(Fraga);
-        JOptionPane.showMessageDialog(rootPane, Agent + " har nu adminstatus");
-       }
-       catch (InfException ex) {
-           
-       }
-    }//GEN-LAST:event_btnGeOkActionPerformed
-
-    private void btnTaOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaOkActionPerformed
-        try {
-//            Hämtar den valda agentens ID och en sql fråga som sätter adminstatus till N
-        String Agent = cbTaAdmin.getSelectedItem().toString();
-        String AgentID = idb.fetchSingle("Select Agent_ID from agent where Namn = '" + Agent + "'");
-        
-        String Fraga = "Update agent set Administrator = 'N' where Agent_ID = '" + AgentID + "'";
-        
-//        kontrollerare ifall den angivna agenten har samma agentID som den inloggade
-        if (AgentID.equals(Validering.getAgentInloggning()) ) {
-            JOptionPane.showMessageDialog(rootPane, "Du får inte ta bort din egna Adminstatus");
-        }
-        else {
-            idb.update(Fraga);
-            JOptionPane.showMessageDialog(rootPane, Agent + " har nu inte längre Adminstatus");
-        }
-       }
-       catch (InfException ex){
-           
-       }
-    }//GEN-LAST:event_btnTaOkActionPerformed
-
     private void btnKontorChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKontorChefActionPerformed
         try {
             String Agent = cbKontorChef.getSelectedItem().toString();
@@ -314,25 +215,17 @@ public class AgentInfo extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGeOk;
     private javax.swing.JButton btnKontorChef;
     private javax.swing.JButton btnOmradeOK;
-    private javax.swing.JButton btnTaOk;
     private javax.swing.JComboBox<String> cbAgent;
-    private javax.swing.JComboBox<String> cbGeAdmin;
     private javax.swing.JComboBox<String> cbKontorChef;
     private javax.swing.JComboBox<String> cbOmrade;
-    private javax.swing.JComboBox<String> cbTaAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAgent;
     private javax.swing.JLabel lblAndraOmrade;
     private javax.swing.JLabel lblDash;
-    private javax.swing.JLabel lblDash2;
-    private javax.swing.JLabel lblDash3;
     private javax.swing.JLabel lblDash4;
-    private javax.swing.JLabel lblGeAdmin;
     private javax.swing.JLabel lblKontorChef;
     private javax.swing.JLabel lblOmrade;
-    private javax.swing.JLabel lblTaAdmin;
     // End of variables declaration//GEN-END:variables
 }

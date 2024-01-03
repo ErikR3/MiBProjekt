@@ -39,11 +39,13 @@ public class Agent extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         lblRegistrera = new javax.swing.JLabel();
         btnRegistrera = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        lblInfo = new javax.swing.JLabel();
-        btnInfo = new javax.swing.JButton();
+        lblSokAgent = new javax.swing.JLabel();
+        txtSokAgent = new javax.swing.JTextField();
+        btnSokAgent = new javax.swing.JButton();
+        lblChefAndra = new javax.swing.JLabel();
+        btnChefAndra = new javax.swing.JButton();
+        lblAndraAdmin = new javax.swing.JLabel();
+        btnAdminAndra = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
@@ -58,23 +60,28 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Sök efter Agent");
+        lblSokAgent.setText("Sök efter Agent");
 
-        jTextField1.setText("jTextField1");
-
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnSokAgent.setText("jButton3");
+        btnSokAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnSokAgentActionPerformed(evt);
             }
         });
 
-        lblInfo.setText("Ändra information om agenter");
+        lblChefAndra.setText("Ändra chefer för agenter");
 
-        btnInfo.setText("jButton1");
-        btnInfo.addActionListener(new java.awt.event.ActionListener() {
+        btnChefAndra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInfoActionPerformed(evt);
+                btnChefAndraActionPerformed(evt);
+            }
+        });
+
+        lblAndraAdmin.setText("Ändra adminstatus för agenter");
+
+        btnAdminAndra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminAndraActionPerformed(evt);
             }
         });
 
@@ -91,34 +98,40 @@ public class Agent extends javax.swing.JFrame {
                             .addComponent(lblRegistrera))
                         .addGap(108, 108, 108)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jButton3)))
+                            .addComponent(txtSokAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSokAgent)
+                            .addComponent(btnSokAgent)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnInfo)
-                            .addComponent(lblInfo))))
+                            .addComponent(btnChefAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblChefAndra)
+                            .addComponent(lblAndraAdmin)
+                            .addComponent(btnAdminAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(lblInfo)
+                .addComponent(lblChefAndra)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnInfo)
-                .addGap(100, 100, 100)
-                .addComponent(jLabel2)
+                .addComponent(btnChefAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblAndraAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAdminAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(lblSokAgent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSokAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRegistrera))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(btnRegistrera, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
+                    .addComponent(btnSokAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrera, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,22 +146,31 @@ public class Agent extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_btnRegistreraActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnSokAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAgentActionPerformed
         // TODO add your handling code here:
-        String id = DataBasFragor.getAgentID(jTextField1.getText());
+        String id = DataBasFragor.getAgentID(txtSokAgent.getText());
         
         new TabellAgent(DataBasFragor.getAlltOmEnAgent(id)).setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnSokAgentActionPerformed
 
-    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
+    private void btnChefAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChefAndraActionPerformed
         if (Validering.getAdminStatus()) {
-            new AgentInfo(idb).setVisible(true);
+            new AndraChef(idb).setVisible(true);
         }
         else {
             JOptionPane.showMessageDialog(rootPane, "Ej systemadmin");
 
         }
-    }//GEN-LAST:event_btnInfoActionPerformed
+    }//GEN-LAST:event_btnChefAndraActionPerformed
+
+    private void btnAdminAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminAndraActionPerformed
+       if (Validering.getAdminStatus() == true) {
+          new AndraAdmin(idb).setVisible(true);
+      }
+      else {
+           JOptionPane.showMessageDialog(rootPane, "Ej systemadmin");
+       }
+    }//GEN-LAST:event_btnAdminAndraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,13 +179,15 @@ public class Agent extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInfo;
+    private javax.swing.JButton btnAdminAndra;
+    private javax.swing.JButton btnChefAndra;
     private javax.swing.JButton btnRegistrera;
+    private javax.swing.JButton btnSokAgent;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblInfo;
+    private javax.swing.JLabel lblAndraAdmin;
+    private javax.swing.JLabel lblChefAndra;
     private javax.swing.JLabel lblRegistrera;
+    private javax.swing.JLabel lblSokAgent;
+    private javax.swing.JTextField txtSokAgent;
     // End of variables declaration//GEN-END:variables
 }
