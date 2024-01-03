@@ -48,6 +48,8 @@ public class Agent extends javax.swing.JFrame {
         btnAdminAndra = new javax.swing.JButton();
         btnTabortAgent = new javax.swing.JButton();
         lblAdmin = new javax.swing.JLabel();
+        lblAndraInfoAgent = new javax.swing.JLabel();
+        btnAndraInfoAgent = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
@@ -98,18 +100,19 @@ public class Agent extends javax.swing.JFrame {
 
         lblAdmin.setText("Administratörfunktion");
 
+        lblAndraInfoAgent.setText("Ändra info för en agent");
+
+        btnAndraInfoAgent.setText("Ändra");
+        btnAndraInfoAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAndraInfoAgentActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnChefAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblChefAndra)
-                    .addComponent(lblAndraAdmin)
-                    .addComponent(btnAdminAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(196, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,25 +123,39 @@ public class Agent extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblRegistrera)
                             .addComponent(btnRegistrera)
-                            .addComponent(lblAdmin))
-                        .addGap(90, 90, 90)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblAdmin)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblSokAgent)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnChefAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblChefAndra)
+                                    .addComponent(lblAndraAdmin)
+                                    .addComponent(btnAdminAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtSokAgent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnSokAgent, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAndraInfoAgent)
+                                    .addComponent(lblSokAgent)
+                                    .addComponent(btnAndraInfoAgent))
+                                .addContainerGap(30, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(lblChefAndra)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblChefAndra)
+                    .addComponent(lblAndraInfoAgent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnChefAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnChefAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAndraInfoAgent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAndraAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -207,6 +224,10 @@ public class Agent extends javax.swing.JFrame {
         new TaBortAgent(idb).setVisible(true);
     }//GEN-LAST:event_btnTabortAgentActionPerformed
 
+    private void btnAndraInfoAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraInfoAgentActionPerformed
+        new AndraInfoAgent(idb).setVisible(true);
+    }//GEN-LAST:event_btnAndraInfoAgentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,6 +236,7 @@ public class Agent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdminAndra;
+    private javax.swing.JButton btnAndraInfoAgent;
     private javax.swing.JButton btnChefAndra;
     private javax.swing.JButton btnRegistrera;
     private javax.swing.JButton btnSokAgent;
@@ -222,6 +244,7 @@ public class Agent extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblAndraAdmin;
+    private javax.swing.JLabel lblAndraInfoAgent;
     private javax.swing.JLabel lblChefAndra;
     private javax.swing.JLabel lblRegistrera;
     private javax.swing.JLabel lblSokAgent;

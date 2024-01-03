@@ -31,40 +31,43 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnChefAndra" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="lblChefAndra" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAndraAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAdminAndra" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="196" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="btnTabortAgent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblRegistrera" min="-2" max="-2" attributes="0"/>
                           <Component id="btnRegistrera" min="-2" max="-2" attributes="0"/>
                           <Component id="lblAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblSokAgent" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnChefAndra" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="lblChefAndra" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAndraAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAdminAndra" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="txtSokAgent" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                   <Component id="btnSokAgent" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblAndraInfoAgent" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSokAgent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAndraInfoAgent" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="30" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -76,9 +79,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-              <Component id="lblChefAndra" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblChefAndra" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAndraInfoAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnChefAndra" min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnChefAndra" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="btnAndraInfoAgent" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lblAndraAdmin" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -178,6 +187,19 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Administrat&#xf6;rfunktion"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAndraInfoAgent">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra info f&#xf6;r en agent"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAndraInfoAgent">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndraInfoAgentActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
