@@ -46,7 +46,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
         lblNamn = new javax.swing.JLabel();
         lblTelefonnummer = new javax.swing.JLabel();
         lblAnstallningnummer = new javax.swing.JLabel();
-        txtAnstallningsnummer = new javax.swing.JTextField();
+        txtAnstallningsDatum = new javax.swing.JTextField();
         lblEpost = new javax.swing.JLabel();
         txtEpost = new javax.swing.JTextField();
         lblLosenord = new javax.swing.JLabel();
@@ -90,7 +90,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
                     .addComponent(lblAnstallningnummer)
                     .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefonnummer, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAnstallningsnummer, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAnstallningsDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegistrera)
@@ -131,7 +131,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
                     .addComponent(lblOmrade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAnstallningsnummer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAnstallningsDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(btnRegistrera)
@@ -145,16 +145,20 @@ public class RegistreraAgent extends javax.swing.JFrame {
 //    Alla nya agenter startar utan adminstatus
     
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
-      try {
-       
+        if (Validering.textFaltHarVarde(txtNamn) && Validering.textFaltHarVarde(txtEpost) && Validering.textFaltHarVarde(txtTelefonnummer) && Validering.textFaltHarVarde(pfLosenord) && Validering.textFaltHarVarde(txtAnstallningsDatum)) {
+        
+       try {
         String id = idb.getAutoIncrement("agent", "Agent_ID");
         String namn = txtNamn.getText();
         String telefon = txtTelefonnummer.getText();
-        String datum = txtAnstallningsnummer.getText();
+        String datum = txtAnstallningsDatum.getText();
         String epost = txtEpost.getText();
         char[] losenordChar = pfLosenord.getPassword();
         String losenord = new String (losenordChar);
         String omrade = cbOmrade.getSelectedItem().toString();
+        
+        if (Validering.isDatum(datum)) {
+        
         
         String fragaPlats = "select Plats_ID from plats where benamning = '" + omrade + "'";
         String omradeID = idb.fetchSingle(fragaPlats);
@@ -164,11 +168,13 @@ public class RegistreraAgent extends javax.swing.JFrame {
         String sql = fraga + values;
         idb.insert (sql);
         JOptionPane.showMessageDialog(rootPane, "En ny agent har nu lagts till");
-        
+        }
       }
         catch (InfException ex){
             Logger.getLogger(RegistreraAgent.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
+        
     }//GEN-LAST:event_btnRegistreraActionPerformed
 
 
@@ -184,7 +190,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lblOmrade;
     private javax.swing.JLabel lblTelefonnummer;
     private javax.swing.JPasswordField pfLosenord;
-    private javax.swing.JTextField txtAnstallningsnummer;
+    private javax.swing.JTextField txtAnstallningsDatum;
     private javax.swing.JTextField txtEpost;
     private javax.swing.JTextField txtNamn;
     private javax.swing.JTextField txtTelefonnummer;
