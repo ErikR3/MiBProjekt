@@ -123,7 +123,7 @@ public class Utrustning extends javax.swing.JFrame {
     //användaren vidare till klassen "VisaMinUtkvitteradeUtrustning. 
     private void btnVisaAktivUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisaAktivUtrustningActionPerformed
         //new VisaAktivUtrustning(idb).setVisible(true);
-        String mittID = Validering.getAgentInloggning();
+        String mittID = Validering.getIDInloggning();
         ArrayList<HashMap<String, String>> AL = new ArrayList<>();
         AL = DataBasFragor.getUtkvitteradUtrustning(mittID);
         new VisaMinUtkvitteradeUtrustning(AL).setVisible(true);

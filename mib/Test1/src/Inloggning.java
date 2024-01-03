@@ -139,7 +139,7 @@ public class Inloggning extends javax.swing.JFrame {
             
             if(!isAlien){           
                 Validering.setOmrade(idb.fetchSingle("select Benamning from omrade where Omrades_ID in (select Omrade from agent where Epost like '" + epost + "')"));
-                Validering.setAgentInloggning(idb.fetchSingle("Select Agent_ID from agent where Epost like '" + epost + "'"));
+                Validering.setIDInloggning(idb.fetchSingle("Select Agent_ID from agent where Epost like '" + epost + "'"));
                     if(i.trim().equals(e.trim())){
                         Validering.setAdminStatus(true);
                     }

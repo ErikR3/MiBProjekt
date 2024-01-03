@@ -97,10 +97,15 @@ public class BytLosenord extends javax.swing.JFrame {
         String gamlaLosen = new String(gamlaLosenChar);
         char[] nyaLosenChar = pfNya.getPassword();
         String nyaLosen = new String(nyaLosenChar);
-        String sqlHamta = idb.fetchSingle("select Losenord from agent where Agent_ID = " + Validering.getAgentInloggning());
+        String sqlHamta;
+        if(!Validering.getAlienStatus()) {
+            sqlHamta= idb.fetchSingle("select Losenord from agent where Agent_ID = " + Validering.getIDInloggning());
+        } else {
+            sqlHamta= idb.fetchSingle("select Losenord from alien where Alien_ID = " + Validering.getIDInloggning());
+        }
         
         if (gamlaLosen.equals(sqlHamta)){
-            idb.update("update agent set Losenord = '" + nyaLosen + "' where Agent_ID = " + Validering.getAgentInloggning());
+            idb.update("update agent set Losenord = '" + nyaLosen + "' where Agent_ID = " + Validering.getIDInloggning());
             JOptionPane.showMessageDialog(rootPane, "Ditt lösenord är nu bytt!");
         }
         else {

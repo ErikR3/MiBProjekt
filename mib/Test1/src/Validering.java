@@ -21,10 +21,11 @@ import java.time.format.DateTimeParseException;
  */
 public class Validering {
     
-    private static String AgentID;
+    private static String allmanID;
     private static boolean adminStatus;
     private static InfDB idb;
     private static String mittOmrade;
+    private static boolean alienStatus;
     
     public Validering(InfDB idb){
         this.idb = idb;
@@ -119,14 +120,14 @@ public class Validering {
         return resultat;
     }
     
-    public static void setAgentInloggning(String index)
+    public static void setIDInloggning(String index)
     {
-        AgentID = index;
+        allmanID = index;
     }
     
-    public static String getAgentInloggning()
+    public static String getIDInloggning()
     {
-        return AgentID;
+        return allmanID;
     }
     
     public static void setAdminStatus(boolean index){
@@ -144,6 +145,14 @@ public class Validering {
     
     public static String getOmrade(){
         return mittOmrade;
+    }
+    
+    public static void setAlienStatus(boolean x){
+        alienStatus = x; 
+    }
+    
+    public static boolean getAlienStatus(){
+        return alienStatus;
     }
     
     public static boolean notOmrade(JTextField checkaDenna){

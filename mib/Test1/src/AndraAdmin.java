@@ -148,7 +148,7 @@ public class AndraAdmin extends javax.swing.JFrame {
         String Fraga = "Update agent set Administrator = 'N' where Agent_ID = '" + AgentID + "'";
         
 //        kontrollerare ifall den angivna agenten har samma agentID som den inloggade
-        if (AgentID.equals(Validering.getAgentInloggning()) ) {
+        if (AgentID.equals(Validering.getIDInloggning()) ) {
             JOptionPane.showMessageDialog(rootPane, "Du får inte ta bort din egna Adminstatus");
         }
         else {
