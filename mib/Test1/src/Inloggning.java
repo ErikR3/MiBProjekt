@@ -18,6 +18,7 @@ import oru.inf.InfException;
 public class Inloggning extends javax.swing.JFrame {
    
     private InfDB idb;
+    private boolean isAlien;
     /**
      * Creates new form Huvudfonster
      */
@@ -41,6 +42,7 @@ public class Inloggning extends javax.swing.JFrame {
         pfLosen = new javax.swing.JPasswordField();
         lblEpost = new javax.swing.JLabel();
         lblLosen = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -61,6 +63,13 @@ public class Inloggning extends javax.swing.JFrame {
 
         lblLosen.setText("Ange ditt lösenord:");
 
+        jToggleButton1.setText("Alien");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,12 +78,15 @@ public class Inloggning extends javax.swing.JFrame {
                 .addGap(93, 93, 93)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEpost)
-                    .addComponent(btnLoggaIn)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnLoggaIn)
+                        .addGap(37, 37, 37)
+                        .addComponent(jToggleButton1))
                     .addComponent(tfEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(pfLosen, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblLosen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +100,9 @@ public class Inloggning extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(pfLosen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnLoggaIn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLoggaIn)
+                    .addComponent(jToggleButton1))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
@@ -96,27 +110,39 @@ public class Inloggning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoggaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaInActionPerformed
-                        
+        String epost = tfEpost.getText();
+        String fraga = "select losenord from agent where Epost = '" + epost + "'";
+        String fraga1 = "select losenord from alien where Epost = '" + epost + "'";
+        
         try {
-            String epost = tfEpost.getText();
-            String fraga = "select losenord from agent where Epost = '" + epost + "'";
-            String losen = idb.fetchSingle(fraga);
+            String losen;
+            if(!isAlien){
+                losen = idb.fetchSingle(fraga);
+            } else {
+                losen = idb.fetchSingle(fraga1);
+            }
             String i = idb.fetchSingle("Select Administrator from agent where Epost like '" + epost + "'");
             String e = "J";
             
             char[] losenordChar = pfLosen.getPassword();
             String losenord = new String(losenordChar);
                     
-            if(losenord.equals(losen)){             
+            if(losenord.equals(losen)){    
+            if(!isAlien){
             new HuvudMenyAgent(idb).setVisible(true);
+            } else {
+                new HuvudMenyAlien().setVisible(true);
+            }
             new DataBasFragor(idb);
             new Validering(idb);
             setVisible(false);
+            if(!isAlien){
             Validering.setOmrade(idb.fetchSingle("select Benamning from omrade where Omrades_ID in (select Omrade from agent where Epost like '" + epost + "')"));
             Validering.setAgentInloggning(idb.fetchSingle("Select Agent_ID from agent where Epost like '" + epost + "'"));
                 if(i.trim().equals(e.trim())){
                     Validering.setAdminStatus(true);
                 }
+            }
             }
             else if (losen == null ) {
                 JOptionPane.showMessageDialog(null, "Fel epost!");
@@ -128,12 +154,27 @@ public class Inloggning extends javax.swing.JFrame {
         catch (InfException ex) {
             Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);           
         }
+        
+        
     }//GEN-LAST:event_btnLoggaInActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        if(!isAlien){
+             isAlien = true;
+        } else if (isAlien){
+            isAlien = false;
+        } else {
+            isAlien = true;
+        }
+
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoggaIn;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblLosen;
     private javax.swing.JPasswordField pfLosen;
