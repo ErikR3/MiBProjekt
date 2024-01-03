@@ -154,7 +154,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
         String losenord = new String (losenordChar);
         String omrade = cbOmrade.getSelectedItem().toString();
         
-        if (Validering.isDatum(datum)) {
+        if (!Validering.agentEpostFinns(epost) && Validering.isDatum(datum)) {
         
         
         String fragaPlats = "select Plats_ID from plats where benamning = '" + omrade + "'";

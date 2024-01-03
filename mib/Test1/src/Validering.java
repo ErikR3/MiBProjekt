@@ -215,4 +215,19 @@ public class Validering {
         
         return resultat;
     }
+    public static boolean agentEpostFinns(String textAttKolla) {
+   boolean resultat = false;
+        try {         
+            ArrayList<String> eposts = idb.fetchColumn("select Epost from agent"); 
+            for (String enEpost : eposts) {
+                if (enEpost.equals(textAttKolla)) {               
+                resultat = true;
+                JOptionPane.showMessageDialog(null, "Det finns redan en agent med denna Epost!"); 
+                }
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(Validering.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultat;
+        }
 }
