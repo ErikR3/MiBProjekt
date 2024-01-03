@@ -286,6 +286,7 @@ public class DataBasFragor {
                 for (String id : rasIDSquid){
                     if (alienID.equals(id)) {
                         ras = "Squid";
+                        hittad = true;
                     }
                 }
             }
@@ -315,5 +316,37 @@ public class DataBasFragor {
         } catch (InfException ex) {
             Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+    
+    public static void taBortAgentPosition(String epost) {
+        //Metod för att tabort olika positioner som en agent kan tillhöra     
+        try {
+            //hämta agentID
+            String agentID = idb.fetchSingle("select agent_id from agent where epost = '" + epost + "'");
+            
+            //Söker först igenom fältagent och tar bort om agenten finns där
+            ArrayList<String> faltAgentIDs = idb.fetchColumn("select agent_ID from faltagent");
+            for (String id : faltAgentIDs){
+                if (agentID.equals(id)) {
+                    idb.delete("delete from faltagent where agent_id ="+agentID); 
+                }
+            }
+            //Söker igenom områdeschef och tar bort om agenten finns där       
+            ArrayList<String> omradesChefIDs = idb.fetchColumn("select agent_ID from omradeschef");
+            for (String id : omradesChefIDs){
+                if (agentID.equals(id)) {
+                    idb.delete("delete from omradeschef where agent_id ="+agentID); 
+                }
+            }
+            //Söker igenom kontorschef och tar bort om agenten finns där
+            ArrayList<String> kontorsChefIDS = idb.fetchColumn("select agent_ID from kontorschef");
+            for (String id : kontorsChefIDS){
+                if (agentID.equals(id)) {
+                    idb.delete("delete from kontorschef where agent_id ="+agentID); 
+                }
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

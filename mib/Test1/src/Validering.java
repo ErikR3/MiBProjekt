@@ -61,6 +61,26 @@ public class Validering {
         }
 
     //Metod för att kontrollera om en aliens epost finns i systemet
+    public static boolean agentEpostFinnsSok(JTextField rutaAttKolla) {
+            boolean resultat = false;
+        try {         
+            String epost = rutaAttKolla.getText();
+            ArrayList<String> eposts = idb.fetchColumn("select epost from agent"); 
+            for (String enEpost : eposts) {
+                if (enEpost.equals(epost)) {               
+                resultat = true;
+                }
+            }
+            if (!resultat) {
+               JOptionPane.showMessageDialog(null, "Det finns ingen agent med denna Epost"); 
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(Validering.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultat;
+    } 
+    
+    //Metod för att kontrollera om en aliens epost finns i systemet
     public static boolean alienEpostFinnsSok(JTextField rutaAttKolla) {
             boolean resultat = false;
         try {         
