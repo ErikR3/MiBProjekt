@@ -37,6 +37,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         btnUtrustning = new javax.swing.JButton();
         btnOmrådePlats = new javax.swing.JButton();
         btnBytLosen = new javax.swing.JButton();
+        btnLoggaUt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -75,6 +76,13 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
             }
         });
 
+        btnLoggaUt.setText("Logga ut");
+        btnLoggaUt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoggaUtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,6 +90,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBytLosen)
                     .addComponent(btnOmrådePlats)
                     .addComponent(btnAlien)
                     .addComponent(btnUtrustning)
@@ -89,23 +98,25 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
                 .addContainerGap(237, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBytLosen)
-                .addGap(30, 30, 30))
+                .addComponent(btnLoggaUt)
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(43, 43, 43)
                 .addComponent(btnAgent)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(btnAlien)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(btnOmrådePlats)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(btnUtrustning)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(btnBytLosen)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLoggaUt)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,7 +143,11 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         // TODO add your handling code here:
         new AlienAlt().setVisible(true);
     }//GEN-LAST:event_btnAlienActionPerformed
-    
+
+    private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnLoggaUtActionPerformed
+     
         /**
      * @param args the command line arguments
      */   
@@ -140,6 +155,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     private javax.swing.JButton btnAgent;
     private javax.swing.JButton btnAlien;
     private javax.swing.JButton btnBytLosen;
+    private javax.swing.JButton btnLoggaUt;
     private javax.swing.JButton btnOmrådePlats;
     private javax.swing.JButton btnUtrustning;
     // End of variables declaration//GEN-END:variables

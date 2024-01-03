@@ -39,6 +39,7 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
         iblUtrustningRaderaAdmin = new javax.swing.JLabel();
         btnRadera = new javax.swing.JButton();
         txtRaderaUtrustning = new javax.swing.JTextField();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -48,6 +49,13 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
         btnRadera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRaderaActionPerformed(evt);
+            }
+        });
+
+        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
             }
         });
 
@@ -62,6 +70,10 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
                     .addComponent(btnRadera)
                     .addComponent(iblUtrustningRaderaAdmin))
                 .addContainerGap(161, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,7 +84,9 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
                 .addComponent(txtRaderaUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRadera, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addGap(29, 29, 29))
         );
 
         pack();
@@ -125,7 +139,16 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
             else {
                     JOptionPane.showMessageDialog(null, "Du är ej behörig att ta bort utrustning");
                 }
-    }
+ }        
+    
+    
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        //Denna knapp gör att du kommer tillbaka till Utrustningsmenyn
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
+            
+
+    
     
     
    /**
@@ -164,6 +187,7 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JButton btnRadera;
     private javax.swing.JLabel iblUtrustningRaderaAdmin;
     private javax.swing.JTextField txtRaderaUtrustning;

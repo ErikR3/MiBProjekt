@@ -44,6 +44,7 @@ public class Utrustning extends javax.swing.JFrame {
         btnRegistreraNyUtrustning = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnRaderaUtrustning = new javax.swing.JButton();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -76,6 +77,13 @@ public class Utrustning extends javax.swing.JFrame {
             }
         });
 
+        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,6 +102,10 @@ public class Utrustning extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(btnRaderaUtrustning))))
                 .addContainerGap(235, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +124,9 @@ public class Utrustning extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRaderaUtrustning)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnGaTillbaka)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,10 +156,16 @@ public class Utrustning extends javax.swing.JFrame {
         new RaderaAllUtrustningAdmin(idb).setVisible(true);
     }//GEN-LAST:event_btnRaderaUtrustningActionPerformed
 
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        //Denna knapp gör så du kommer tillbaka till menyn igen.
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
+
     
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JButton btnRaderaUtrustning;
     private javax.swing.JButton btnRegistreraNyUtrustning;
     private javax.swing.JButton btnVisaAktivUtrustning;
