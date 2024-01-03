@@ -42,8 +42,8 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         btnUtrustning = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btnOmrådePlats = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        btnKonto = new javax.swing.JButton();
+        lblBytLosen = new javax.swing.JLabel();
+        btnBytLosen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -87,12 +87,12 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Konto");
+        lblBytLosen.setText("Byt lösenord");
 
-        btnKonto.setText("jButton6");
-        btnKonto.addActionListener(new java.awt.event.ActionListener() {
+        btnBytLosen.setText("jButton6");
+        btnBytLosen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKontoActionPerformed(evt);
+                btnBytLosenActionPerformed(evt);
             }
         });
 
@@ -115,8 +115,8 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
                             .addComponent(btnUtrustning))
                         .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnKonto)
-                            .addComponent(jLabel6)
+                            .addComponent(btnBytLosen)
+                            .addComponent(lblBytLosen)
                             .addComponent(btnOmrådePlats)
                             .addComponent(jLabel5))))
                 .addContainerGap(102, Short.MAX_VALUE))
@@ -143,11 +143,11 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel6))
+                    .addComponent(lblBytLosen))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUtrustning)
-                    .addComponent(btnKonto))
+                    .addComponent(btnBytLosen))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -163,9 +163,9 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
         new Utrustning(idb).setVisible(true);
     }//GEN-LAST:event_btnUtrustningActionPerformed
 
-    private void btnKontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKontoActionPerformed
-        new KontoMeny(idb).setVisible(true);
-    }//GEN-LAST:event_btnKontoActionPerformed
+    private void btnBytLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLosenActionPerformed
+        new BytLosenord(idb).setVisible(true);
+    }//GEN-LAST:event_btnBytLosenActionPerformed
 
     private void btnOmrådePlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådePlatsActionPerformed
         new Område().setVisible(true);
@@ -182,7 +182,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgent;
     private javax.swing.JButton btnAlien;
-    private javax.swing.JButton btnKonto;
+    private javax.swing.JButton btnBytLosen;
     private javax.swing.JButton btnOmrådePlats;
     private javax.swing.JButton btnPlanet;
     private javax.swing.JButton btnUtrustning;
@@ -190,7 +190,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblAgent;
+    private javax.swing.JLabel lblBytLosen;
     // End of variables declaration//GEN-END:variables
 }
