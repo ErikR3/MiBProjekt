@@ -136,12 +136,16 @@ public class Inloggning extends javax.swing.JFrame {
             new DataBasFragor(idb);
             new Validering(idb);
             setVisible(false);
-            if(!isAlien){
-            Validering.setOmrade(idb.fetchSingle("select Benamning from omrade where Omrades_ID in (select Omrade from agent where Epost like '" + epost + "')"));
-            Validering.setAgentInloggning(idb.fetchSingle("Select Agent_ID from agent where Epost like '" + epost + "'"));
-                if(i.trim().equals(e.trim())){
-                    Validering.setAdminStatus(true);
-                }
+            
+            if(!isAlien){           
+                Validering.setOmrade(idb.fetchSingle("select Benamning from omrade where Omrades_ID in (select Omrade from agent where Epost like '" + epost + "')"));
+                Validering.setAgentInloggning(idb.fetchSingle("Select Agent_ID from agent where Epost like '" + epost + "'"));
+                    if(i.trim().equals(e.trim())){
+                        Validering.setAdminStatus(true);
+                    }
+                } else {
+                Validering.setOmrade(idb.fetchSingle("select Benamning from omrade where Omrades_ID in (select Finns_i from plats where Plats_ID in (select Plats from alien where Epost like '" + epost + "'))"));
+                Validering.setAdminStatus(false);
             }
             }
             else if (losen == null ) {

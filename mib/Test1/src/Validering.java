@@ -6,6 +6,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -139,6 +142,17 @@ public class Validering {
         if(omradetest == null){
             resultat = false;
             JOptionPane.showMessageDialog(null, "Omradet finns ej.");
+        }
+        
+        return resultat;
+    }
+    
+    public boolean isDatum(String s){
+        boolean resultat = false;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        
+        try{
+            LocalDate
         }
         
         return resultat;
