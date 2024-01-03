@@ -60,7 +60,7 @@ public class Validering {
         return resultat;
         }
 
-    //Metod för att kontrollera om en aliens epost finns i systemet
+    //Metod för att kontrollera om en agents epost finns i systemet
     public static boolean agentEpostFinnsSok(JTextField rutaAttKolla) {
             boolean resultat = false;
         try {         
@@ -230,4 +230,14 @@ public class Validering {
         }
         return resultat;
         }
+    
+//    Kollar om ett textfält är tomt utan att ge felmeddelande
+    public static boolean textFaltHarVardeUtanMsg(JTextField rutaAttKolla) {
+        boolean resultat = true;
+
+        if (rutaAttKolla.getText().isEmpty()) {
+            resultat = false;
+        }
+        return resultat;
+    }
 }
