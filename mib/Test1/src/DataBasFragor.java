@@ -318,35 +318,50 @@ public class DataBasFragor {
         } 
     }
     
-    public static void taBortAgentPosition(String epost) {
-        //Metod för att tabort olika positioner som en agent kan tillhöra     
+    public static boolean hittaChef(String epost) {
+        //Metod för att tabort olika positioner som en agent kan tillhöra 
+        boolean hittad = false;
+        try {
+            //hämta agentID
+            String agentID = idb.fetchSingle("select agent_id from agent where epost = '" + epost + "'");
+           
+            //Söker igenom områdeschef och ger meddelande om agenten finns där      
+            ArrayList<String> omradesChefIDs = idb.fetchColumn("select agent_ID from omradeschef");
+            for (String id : omradesChefIDs){
+                if (agentID.equals(id)) {
+                    String omrade = idb.fetchSingle("select benamning from omrade join omradeschef on omrade = omrades_id where agent_id = "+id);
+                    JOptionPane.showMessageDialog(null, "OBS! Agenten är chef över "+omrade+", en ny agent måste tillsättas innan agenten tas bort."); 
+                    hittad = true;
+                }
+            }
+            //Söker igenom kontorschef och ger meddelande om agenten finns där  
+            ArrayList<String> kontorsChefIDS = idb.fetchColumn("select agent_ID from kontorschef");
+            for (String id : kontorsChefIDS){
+                if (agentID.equals(id)) {
+                    JOptionPane.showMessageDialog(null, "OBS! Agenten är kontorschef, en ny agent måste tillsättas innan agenten tas bort.");
+                    hittad = true;
+                }
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return hittad;
+    }
+    
+    public static void taBortFaltagent(String epost) {
         try {
             //hämta agentID
             String agentID = idb.fetchSingle("select agent_id from agent where epost = '" + epost + "'");
             
-            //Söker först igenom fältagent och tar bort om agenten finns där
+            //Söker först igenom fältagent och tar sedan bort om agenten finns där
             ArrayList<String> faltAgentIDs = idb.fetchColumn("select agent_ID from faltagent");
             for (String id : faltAgentIDs){
                 if (agentID.equals(id)) {
                     idb.delete("delete from faltagent where agent_id ="+agentID); 
                 }
             }
-            //Söker igenom områdeschef och tar bort om agenten finns där       
-            ArrayList<String> omradesChefIDs = idb.fetchColumn("select agent_ID from omradeschef");
-            for (String id : omradesChefIDs){
-                if (agentID.equals(id)) {
-                    idb.delete("delete from omradeschef where agent_id ="+agentID); 
-                }
-            }
-            //Söker igenom kontorschef och tar bort om agenten finns där
-            ArrayList<String> kontorsChefIDS = idb.fetchColumn("select agent_ID from kontorschef");
-            for (String id : kontorsChefIDS){
-                if (agentID.equals(id)) {
-                    idb.delete("delete from kontorschef where agent_id ="+agentID); 
-                }
-            }
         } catch (InfException ex) {
-            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DataBasFragor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
