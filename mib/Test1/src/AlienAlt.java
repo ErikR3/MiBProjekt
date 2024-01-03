@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -42,13 +43,10 @@ public class AlienAlt extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblRegistreraAlien = new javax.swing.JLabel();
         btnRegistreraAlien = new javax.swing.JButton();
-        btnListaAlien = new javax.swing.JButton();
         btnSokEnAlien = new javax.swing.JButton();
         btnAndraRas = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         btnTaBortAlien = new javax.swing.JButton();
         lblAdminFunktion = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         BtnAliensInomOmråde = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
@@ -63,7 +61,7 @@ public class AlienAlt extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Vad vill du veta om aliens?");
+        jLabel1.setText("Information om aliens");
 
         lblRegistreraAlien.setText("Registrera ny Alien");
 
@@ -73,8 +71,6 @@ public class AlienAlt extends javax.swing.JFrame {
                 btnRegistreraAlienActionPerformed(evt);
             }
         });
-
-        btnListaAlien.setText("Lista aliens via område");
 
         btnSokEnAlien.setText("Sök efter en enskild alien // Ändra information om alien");
         btnSokEnAlien.addActionListener(new java.awt.event.ActionListener() {
@@ -90,8 +86,6 @@ public class AlienAlt extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Lista aliens registrerade över en viss tidsperiod");
-
         btnTaBortAlien.setText("Ta bort en alien ur systemet");
         btnTaBortAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,8 +94,6 @@ public class AlienAlt extends javax.swing.JFrame {
         });
 
         lblAdminFunktion.setText("Administratörfunktion");
-
-        jButton8.setText("Lista aliens av en viss ras");
 
         jLabel2.setText("Se alla aliens inom viss plats");
 
@@ -112,12 +104,7 @@ public class AlienAlt extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("(område här)");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        jTextField1.setText("(skriv område här)");
 
         jButton1.setText("Aliens av ras");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +115,7 @@ public class AlienAlt extends javax.swing.JFrame {
 
         jLabel3.setText("Se aliens av ras");
 
-        jTextField2.setText("(ras här)");
+        jTextField2.setText("(skriv ras här)");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -137,9 +124,9 @@ public class AlienAlt extends javax.swing.JFrame {
 
         jLabel4.setText("Lista aliens registrerade mellan");
 
-        jTextField3.setText("jTextField3");
+        jTextField3.setText("(skriv datum här)");
 
-        jTextField4.setText("jTextField4");
+        jTextField4.setText("(skriv datum här)");
 
         jLabel5.setText("-");
 
@@ -157,30 +144,18 @@ public class AlienAlt extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnListaAlien)
-                    .addComponent(jButton8)
-                    .addComponent(jButton6)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRegistreraAlien)
-                            .addComponent(btnRegistreraAlien)
-                            .addComponent(BtnAliensInomOmråde)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jButton1)
-                            .addComponent(lblAdminFunktion)
-                            .addComponent(btnTaBortAlien)))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(btnSokEnAlien)
-                            .addComponent(btnAndraRas))
-                        .addGap(45, 45, 45)
+                            .addComponent(btnSokEnAlien))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(388, 388, 388))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAndraRas)
                             .addComponent(jLabel4)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -189,53 +164,69 @@ public class AlienAlt extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(106, Short.MAX_VALUE))
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(BtnAliensInomOmråde)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblAdminFunktion)
+                                .addGap(59, 59, 59))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(lblRegistreraAlien)
+                                    .addGap(28, 28, 28))
+                                .addComponent(btnRegistreraAlien))
+                            .addComponent(btnTaBortAlien))
+                        .addGap(60, 60, 60))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSokEnAlien)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAndraRas)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSokEnAlien)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAndraRas)
-                    .addComponent(jButton2))
-                .addGap(32, 32, 32)
-                .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnListaAlien)
+                .addComponent(jButton2)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRegistreraAlien)
-                    .addComponent(lblAdminFunktion))
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistreraAlien)
-                    .addComponent(btnTaBortAlien))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnAliensInomOmråde)
-                    .addComponent(jButton1))
-                .addGap(31, 31, 31))
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BtnAliensInomOmråde)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblRegistreraAlien)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRegistreraAlien)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAdminFunktion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTaBortAlien)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -251,9 +242,13 @@ public class AlienAlt extends javax.swing.JFrame {
     private void btnTaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaBortAlienActionPerformed
 
         //Kontrollerar om den inloggade agenten är admin
-        //LÄGG EN KONTROLL HÄR OM NÅGON ÄR ADMIN
+        if (Validering.getAdminStatus()) {
         //öppnar en ny "TaBortAlien" JFrame
         new TaBortAlien(idb).setVisible(true);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Endast administratörer kan radera aliens.");
+        }
     }//GEN-LAST:event_btnTaBortAlienActionPerformed
 
     private void btnSokEnAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokEnAlienActionPerformed
@@ -265,10 +260,6 @@ public class AlienAlt extends javax.swing.JFrame {
         // TODO add your handling code here:
         new AndraRasPaAlien(idb).setVisible(true);
     }//GEN-LAST:event_btnAndraRasActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void BtnAliensInomOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAliensInomOmrådeActionPerformed
         // TODO add your handling code here:
@@ -346,14 +337,11 @@ public class AlienAlt extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAliensInomOmråde;
     private javax.swing.JButton btnAndraRas;
-    private javax.swing.JButton btnListaAlien;
     private javax.swing.JButton btnRegistreraAlien;
     private javax.swing.JButton btnSokEnAlien;
     private javax.swing.JButton btnTaBortAlien;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
