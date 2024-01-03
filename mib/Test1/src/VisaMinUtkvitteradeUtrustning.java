@@ -18,22 +18,31 @@ public class VisaMinUtkvitteradeUtrustning extends javax.swing.JFrame {
     /**
      * Creates new form VisaMinUtkvitteradeUtrustning
      */
+    //tar emot en ArrayList med data för att skapa tabellerna
     public VisaMinUtkvitteradeUtrustning(ArrayList<HashMap<String, String>> AL) {
         this.AL = AL;
         initComponents();
         
     }
     
+    //denna metod returnerar en DefaultTableModel, den tar emot en Arraylist med datan som parameter. 
     public DefaultTableModel sattTabellModell(ArrayList<HashMap<String, String>> Lista){
+        //Object{][] första hakparantes är antal rader i tabell, andra är kolumner
         Object[][] data = new Object[Lista.size()][2];
+        //kolumners namn
         String[] kolumner = {"Benämning", "UtrustningsID"};
         
+        //itererar igenom ArrayList och hämtar ut data ur HashMap
         for(int i = 0; i < Lista.size(); i++){
+            //Hämtar ut både Benamning och ID från hashmap
             HashMap<String, String> HM = Lista.get(i);
             String namn = HM.get("Benamning");
             String utrID = HM.get("Utrustnings_ID");
             
+            //lägger till varje enskild rad inuti ett objekt
+            //namn, utrID är värdet som ges
             Object[] rad = {namn, utrID};
+            //data är en array av objekten
             data[i] = rad;
             
         }

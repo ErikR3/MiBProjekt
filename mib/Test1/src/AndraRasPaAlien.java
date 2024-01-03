@@ -30,59 +30,6 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
         cbRas.addItem("Squid");
         cbRas.addItem("Worm"); 
     }
-    private String hittaRasen() {
-        //Metod för att hitta rasen som en alien tillhör
-        String ras = "";
-        try {
-            String epost = tfEpost.getText();
-            String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
-            Boolean hittad = false;
-            
-            //Söker förts igenom rasen boglodite, ifall hittad söker den inte igenom fler, annars fortsätter den söka i nästa
-            ArrayList<String> rasIDBog = idb.fetchColumn("select alien_ID from boglodite");
-            for (String id : rasIDBog){
-                if (alienID.equals(id)) {
-                    ras = "Boglodite";
-                    hittad = true;
-                }
-            }
-            //Söker igenom squid
-            if (!hittad) {
-                ArrayList<String> rasIDSquid = idb.fetchColumn("select alien_ID from squid");
-                for (String id : rasIDSquid){
-                    if (alienID.equals(id)) {
-                        ras = "Squid";
-                    }
-                }
-            }
-            //Söker igenom worm
-            if (!hittad) {
-                ArrayList<String> rasIDWorm = idb.fetchColumn("select alien_ID from worm");
-                for (String id : rasIDWorm){
-                    if (alienID.equals(id)) {
-                        ras = "Worm";
-                    }
-                }
-            }
-        } catch (InfException ex) {
-            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //Returnerar den hittade rasen, om ingen ras hittad är grundvärdet en tom sträng
-        return ras;
-    }
-    
-    private void taBortRas() {
-        try {
-        String epost = tfEpost.getText();
-        String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
-        //Hämtar den tillhörande rasen, finns det en så tas den bort ur systemet.
-        if (!hittaRasen().isEmpty()){
-          idb.delete("delete from "+hittaRasen()+" where alien_id ="+alienID);
-        }
-        } catch (InfException ex) {
-            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-    }
     
     private void kollaRas() {
         //Metod för att lägga in info om uppsökt alien
@@ -96,7 +43,7 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
             String epost = tfEpost.getText();
             String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
             Boolean hittad = false;          
-            String ras = hittaRasen();
+            String ras = DataBasFragor.hittaRasen(epost);
             
             //En switch för att hitta den rasen alien tillhör, hittas en ras ändras prefix-texten och rasnamnet och den hämtar även attributet
             switch (ras) {
@@ -294,19 +241,19 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                 switch (rasNamn) {
                     case "Boglodite":                       
                         if (Validering.isHeltal(tfRasAttribut)){
-                        taBortRas();
+                        DataBasFragor.taBortRas(epost);
                         idb.insert("insert into boglodite (Alien_ID, Antal_Boogies) values ("+alienID+","+rasAttribut+")");                                                                          
                         }
                         break; 
                     case "Squid":
                         if (Validering.isHeltal(tfRasAttribut)){
-                        taBortRas();
+                        DataBasFragor.taBortRas(epost);
                         idb.insert("insert into squid (Alien_ID, Antal_Armar) values ("+alienID+","+rasAttribut+")");
                         }
                         break;
                     case "Worm":
                         if (Validering.isDouble(tfRasAttribut)){
-                        taBortRas();
+                        DataBasFragor.taBortRas(epost);
                         idb.insert("insert into worm (Alien_ID, Langd) values ("+alienID+","+rasAttribut+")");                        
                         }
                         break;

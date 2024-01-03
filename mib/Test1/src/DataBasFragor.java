@@ -3,6 +3,8 @@ import oru.inf.InfDB;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import oru.inf.InfException;
@@ -262,4 +264,56 @@ public class DataBasFragor {
             
             return AL;
         }
+        
+        public static String hittaRasen (String epost) {
+        //Metod för att hitta rasen som en alien tillhör
+        String ras = "";
+        try {
+            String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
+            Boolean hittad = false;
+            
+            //Söker förts igenom rasen boglodite, ifall hittad söker den inte igenom fler, annars fortsätter den söka i nästa
+            ArrayList<String> rasIDBog = idb.fetchColumn("select alien_ID from boglodite");
+            for (String id : rasIDBog){
+                if (alienID.equals(id)) {
+                    ras = "Boglodite";
+                    hittad = true;
+                }
+            }
+            //Söker igenom squid
+            if (!hittad) {
+                ArrayList<String> rasIDSquid = idb.fetchColumn("select alien_ID from squid");
+                for (String id : rasIDSquid){
+                    if (alienID.equals(id)) {
+                        ras = "Squid";
+                    }
+                }
+            }
+            //Söker igenom worm
+            if (!hittad) {
+                ArrayList<String> rasIDWorm = idb.fetchColumn("select alien_ID from worm");
+                for (String id : rasIDWorm){
+                    if (alienID.equals(id)) {
+                        ras = "Worm";
+                    }
+                }
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Returnerar den hittade rasen, om ingen ras hittad är grundvärdet en tom sträng
+        return ras;
+    }
+    
+    public static void taBortRas(String epost) {
+        try {
+        String alienID = idb.fetchSingle("select alien_id from alien where epost = '" + epost + "'");
+        //Hämtar den tillhörande rasen, finns det en så tas den bort ur systemet.
+        if (!hittaRasen(epost).isEmpty()){
+          idb.delete("delete from "+hittaRasen(epost)+" where alien_id ="+alienID);
+        }
+        } catch (InfException ex) {
+            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
 }

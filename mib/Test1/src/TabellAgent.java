@@ -25,10 +25,9 @@ public class TabellAgent extends javax.swing.JFrame {
     }
     
     public DefaultTableModel sattTabellModell(HashMap<String, String> HM){
-        String[] kolumner = {"Namn", "Telnummer", "Anställningsdatum", "Administratör", "Epost", "Omrade", "Agent_ID"};
-                
+        String[] kolumner = {"Namn", "Anställningsdatum", "Administratör", "Epost", "Omrade", "Telnummer", "Agent_ID"};
+               
         Collection<String> info = HM.values();
-        
         ArrayList<String> infoAgent = new ArrayList<>(info);
         
             
