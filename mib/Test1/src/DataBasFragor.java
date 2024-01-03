@@ -330,7 +330,7 @@ public class DataBasFragor {
             for (String id : omradesChefIDs){
                 if (agentID.equals(id)) {
                     String omrade = idb.fetchSingle("select benamning from omrade join omradeschef on omrade = omrades_id where agent_id = "+id);
-                    JOptionPane.showMessageDialog(null, "OBS! Agenten är chef över "+omrade+", en ny agent måste tillsättas innan agenten tas bort."); 
+                    JOptionPane.showMessageDialog(null, "OBS! Agenten är chef över "+omrade+", en ny agent måste tillsättas som chef innan agenten tas bort."); 
                     hittad = true;
                 }
             }
@@ -338,7 +338,7 @@ public class DataBasFragor {
             ArrayList<String> kontorsChefIDS = idb.fetchColumn("select agent_ID from kontorschef");
             for (String id : kontorsChefIDS){
                 if (agentID.equals(id)) {
-                    JOptionPane.showMessageDialog(null, "OBS! Agenten är kontorschef, en ny agent måste tillsättas innan agenten tas bort.");
+                    JOptionPane.showMessageDialog(null, "OBS! Agenten är kontorschef, en ny agent måste tillsättas som chef innan agenten tas bort.");
                     hittad = true;
                 }
             }
