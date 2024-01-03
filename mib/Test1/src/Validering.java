@@ -37,9 +37,26 @@ public class Validering {
         }
         return resultat;
     }
+    
+    //Metod för att kontrollera om en alienEpost redan finns
+    public static boolean alienEpostFinns(String textAttKolla) {
+   boolean resultat = false;
+        try {         
+            ArrayList<String> eposts = idb.fetchColumn("select epost from alien"); 
+            for (String enEpost : eposts) {
+                if (enEpost.equals(textAttKolla)) {               
+                resultat = true;
+                JOptionPane.showMessageDialog(null, "Det finns redan en alien med denna Epost!"); 
+                }
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(Validering.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultat;
+        }
 
     //Metod för att kontrollera om en aliens epost finns i systemet
-    public static boolean alienEpostFinns(JTextField rutaAttKolla) {
+    public static boolean alienEpostFinnsSok(JTextField rutaAttKolla) {
             boolean resultat = false;
         try {         
             String epost = rutaAttKolla.getText();

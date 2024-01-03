@@ -233,7 +233,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
     
     private void btnSokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokActionPerformed
        
-        if (Validering.textFaltHarVarde(tfEpost) && Validering.alienEpostFinns(tfEpost)) {
+        if (Validering.textFaltHarVarde(tfEpost) && Validering.alienEpostFinnsSok(tfEpost)) {
         try {
             // Hämta epost
             String epost = tfEpost.getText();
