@@ -152,13 +152,19 @@ public class TaBortAgent extends javax.swing.JFrame {
         String valdEpost = tfSoktEpost.getText();
         //skapar en fråga
         String fraga = "delete from agent where epost = '" + valdEpost + "'";
-        //Kontrollerar om agenten är någon form av chef
-        if (!DataBasFragor.hittaChef(valdEpost)) {
+        //Hämtar eposten från det inloggade kontot
+        String inloggatID = Validering.getIDInloggning();
+        String inloggadEpost = idb.fetchSingle("select epost from agent where agent_id ="+inloggatID);
+        //Kontrollerar om agenten är någon form av chef eller det inloggade kontot
+        if (!DataBasFragor.hittaChef(valdEpost) && !inloggadEpost.equals(valdEpost)) {
         //Tar bort agenten från eventuell fältagentposition
         DataBasFragor.taBortFaltagent(valdEpost);
         //tar bort agenten
         idb.delete(fraga);
         JOptionPane.showMessageDialog(null, "Agenten har tagits bort.");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Du kan inte ta bort dig själv!)");
         }
         } catch(InfException ex){
           Logger.getLogger(TaBortAlien.class.getName()).log(Level.SEVERE, null, ex);
