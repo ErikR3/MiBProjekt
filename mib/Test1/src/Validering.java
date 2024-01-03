@@ -171,9 +171,17 @@ public class Validering {
         
         try{
             LocalDate date = LocalDate.parse(s, formatter);
+            String kollaFebruari;
+            
+            if(s.length() == 10){
+                kollaFebruari = s.substring(s.length() - 5);
+                if(kollaFebruari.equals("02-29") || kollaFebruari.equals("02-30") ||kollaFebruari.equals("02-31")){
+                    throw new DateTimeParseException("Ogiltigt datum i februari", s, 0);
+                }
+            }
         } catch (DateTimeParseException e){
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Datum måste skrivas i formatet: 'YYYY-MM-DD'");
+            JOptionPane.showMessageDialog(null, "Datum måste skrivas i formatet: 'YYYY-MM-DD' och utan ogiltiga datum!");
         }
         
         return resultat;

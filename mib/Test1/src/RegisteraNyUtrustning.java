@@ -39,6 +39,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
         lblLäggTill = new javax.swing.JLabel();
         txtLaggTill = new javax.swing.JTextField();
         btnLäggTill = new javax.swing.JButton();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -48,6 +49,13 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
         btnLäggTill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLäggTillActionPerformed(evt);
+            }
+        });
+
+        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
             }
         });
 
@@ -62,6 +70,10 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
                     .addComponent(txtLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLäggTill))
                 .addContainerGap(221, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,7 +84,9 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
                 .addComponent(txtLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLäggTill)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -112,6 +126,11 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNamnActionPerformed
 
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        //Kanppen gör att du kommer tillbaka till Utrustningsklassen/menyn
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -148,6 +167,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JButton btnLäggTill;
     private javax.swing.JLabel lblLäggTill;
     private javax.swing.JTextField txtLaggTill;
