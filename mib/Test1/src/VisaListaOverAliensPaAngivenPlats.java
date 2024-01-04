@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Erik
  */
-public class ListaOverAliensPaAngivenPlats extends javax.swing.JFrame {
+public class VisaListaOverAliensPaAngivenPlats extends javax.swing.JFrame {
     
     private DefaultTableModel tabellModell;
     private ArrayList<String> AL;
@@ -20,7 +20,7 @@ public class ListaOverAliensPaAngivenPlats extends javax.swing.JFrame {
     /**
      * Creates new form ListaÖverAliensPåAngivenPlats
      */
-    public ListaOverAliensPaAngivenPlats(ArrayList<String> AL, String omrade) {
+    public VisaListaOverAliensPaAngivenPlats(ArrayList<String> AL, String omrade) {
         this.AL = AL;
         this.omrade = omrade;
         initComponents();
