@@ -37,20 +37,20 @@ public class Utrustning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        utrusning = new javax.swing.JLabel();
-        visaUtrustning = new javax.swing.JLabel();
+        lblUtrustning = new javax.swing.JLabel();
+        lblVisaUtrustning = new javax.swing.JLabel();
         btnVisaAktivUtrustning = new javax.swing.JButton();
-        regiNyUtrustning = new javax.swing.JLabel();
+        lblRegiNyUtrustning = new javax.swing.JLabel();
         btnRegistreraNyUtrustning = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblRaderaUtrustning = new javax.swing.JLabel();
         btnRaderaUtrustning = new javax.swing.JButton();
         btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        utrusning.setText("Utrustning");
+        lblUtrustning.setText("Utrustning");
 
-        visaUtrustning.setText("Visa min aktiva utrustning");
+        lblVisaUtrustning.setText("Visa min aktiva utrustning");
 
         btnVisaAktivUtrustning.setText("Visa");
         btnVisaAktivUtrustning.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +59,7 @@ public class Utrustning extends javax.swing.JFrame {
             }
         });
 
-        regiNyUtrustning.setText("Registrera Ny Utrustning");
+        lblRegiNyUtrustning.setText("Registrera Ny Utrustning");
 
         btnRegistreraNyUtrustning.setText("Visa");
         btnRegistreraNyUtrustning.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +68,7 @@ public class Utrustning extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Radera utrustning");
+        lblRaderaUtrustning.setText("Radera utrustning");
 
         btnRaderaUtrustning.setText("Visa");
         btnRaderaUtrustning.addActionListener(new java.awt.event.ActionListener() {
@@ -91,15 +91,15 @@ public class Utrustning extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(visaUtrustning)
-                    .addComponent(utrusning)
+                    .addComponent(lblVisaUtrustning)
+                    .addComponent(lblUtrustning)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(regiNyUtrustning)
+                            .addComponent(lblRegiNyUtrustning)
                             .addComponent(btnVisaAktivUtrustning)
                             .addComponent(btnRegistreraNyUtrustning)
-                            .addComponent(jLabel1)
+                            .addComponent(lblRaderaUtrustning)
                             .addComponent(btnRaderaUtrustning))))
                 .addContainerGap(235, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -111,17 +111,17 @@ public class Utrustning extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(utrusning)
+                .addComponent(lblUtrustning)
                 .addGap(18, 18, 18)
-                .addComponent(visaUtrustning)
+                .addComponent(lblVisaUtrustning)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVisaAktivUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(regiNyUtrustning)
+                .addComponent(lblRegiNyUtrustning)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegistreraNyUtrustning)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(lblRaderaUtrustning)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRaderaUtrustning)
                 .addGap(18, 18, 18)
@@ -171,10 +171,10 @@ public class Utrustning extends javax.swing.JFrame {
     private javax.swing.JButton btnRaderaUtrustning;
     private javax.swing.JButton btnRegistreraNyUtrustning;
     private javax.swing.JButton btnVisaAktivUtrustning;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel regiNyUtrustning;
-    private javax.swing.JLabel utrusning;
-    private javax.swing.JLabel visaUtrustning;
+    private javax.swing.JLabel lblRaderaUtrustning;
+    private javax.swing.JLabel lblRegiNyUtrustning;
+    private javax.swing.JLabel lblUtrustning;
+    private javax.swing.JLabel lblVisaUtrustning;
     // End of variables declaration//GEN-END:variables
 
    

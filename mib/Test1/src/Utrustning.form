@@ -26,15 +26,15 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="visaUtrustning" min="-2" max="-2" attributes="0"/>
-                  <Component id="utrusning" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblVisaUtrustning" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblUtrustning" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="regiNyUtrustning" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRegiNyUtrustning" min="-2" max="-2" attributes="0"/>
                           <Component id="btnVisaAktivUtrustning" min="-2" max="-2" attributes="0"/>
                           <Component id="btnRegistreraNyUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRaderaUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btnRaderaUtrustning" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -52,17 +52,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="utrusning" min="-2" max="-2" attributes="0"/>
+              <Component id="lblUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="visaUtrustning" min="-2" max="-2" attributes="0"/>
+              <Component id="lblVisaUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnVisaAktivUtrustning" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="regiNyUtrustning" min="-2" max="-2" attributes="0"/>
+              <Component id="lblRegiNyUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnRegistreraNyUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="lblRaderaUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnRaderaUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -73,12 +73,12 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="utrusning">
+    <Component class="javax.swing.JLabel" name="lblUtrustning">
       <Properties>
         <Property name="text" type="java.lang.String" value="Utrustning"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="visaUtrustning">
+    <Component class="javax.swing.JLabel" name="lblVisaUtrustning">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visa min aktiva utrustning"/>
       </Properties>
@@ -91,7 +91,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisaAktivUtrustningActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="regiNyUtrustning">
+    <Component class="javax.swing.JLabel" name="lblRegiNyUtrustning">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrera Ny Utrustning"/>
       </Properties>
@@ -104,7 +104,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistreraNyUtrustningActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblRaderaUtrustning">
       <Properties>
         <Property name="text" type="java.lang.String" value="Radera utrustning"/>
       </Properties>

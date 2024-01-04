@@ -35,19 +35,19 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblLäggTill = new javax.swing.JLabel();
+        lblLaggTill = new javax.swing.JLabel();
         txtLaggTill = new javax.swing.JTextField();
-        btnLäggTill = new javax.swing.JButton();
+        btnLaggTill = new javax.swing.JButton();
         btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblLäggTill.setText("Registera ny utrustning");
+        lblLaggTill.setText("Registera ny utrustning");
 
-        btnLäggTill.setText("Lägg till");
-        btnLäggTill.addActionListener(new java.awt.event.ActionListener() {
+        btnLaggTill.setText("Lägg till");
+        btnLaggTill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLäggTillActionPerformed(evt);
+                btnLaggTillActionPerformed(evt);
             }
         });
 
@@ -65,9 +65,9 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLäggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLäggTill))
+                    .addComponent(lblLaggTill))
                 .addContainerGap(221, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -78,11 +78,11 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(lblLäggTill)
+                .addComponent(lblLaggTill)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLäggTill)
+                .addComponent(btnLaggTill)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addComponent(btnGaTillbaka)
                 .addGap(25, 25, 25))
@@ -92,7 +92,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
    
     // Denna knapp gör det möjligt för agenter att lägga till utrustning i databasen.
-    private void btnLäggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLäggTillActionPerformed
+    private void btnLaggTillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaggTillActionPerformed
 
         try {
             String utrustningNamn = txtLaggTill.getText();
@@ -127,7 +127,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             }
                 
         
-    }//GEN-LAST:event_btnLäggTillActionPerformed
+    }//GEN-LAST:event_btnLaggTillActionPerformed
         //detta textfält finns inte, och går inte heller att ta bort. 
     private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed
         // TODO add your handling code here:
@@ -175,8 +175,8 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGaTillbaka;
-    private javax.swing.JButton btnLäggTill;
-    private javax.swing.JLabel lblLäggTill;
+    private javax.swing.JButton btnLaggTill;
+    private javax.swing.JLabel lblLaggTill;
     private javax.swing.JTextField txtLaggTill;
     // End of variables declaration//GEN-END:variables
 

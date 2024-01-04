@@ -38,25 +38,16 @@ public class TaBortAgent extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         lblAngeEpost = new javax.swing.JLabel();
         tfSoktEpost = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        taVarningsruta = new javax.swing.JTextArea();
         cbTaBort = new javax.swing.JCheckBox();
         btnTaBortAgent = new javax.swing.JButton();
         btnAvbryt = new javax.swing.JButton();
+        taVarningsruta = new javax.swing.JTextArea();
 
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblAngeEpost.setText("Vänligen ange epost för den agent du vill ta bort:");
-
-        taVarningsruta.setEditable(false);
-        taVarningsruta.setColumns(20);
-        taVarningsruta.setRows(5);
-        taVarningsruta.setText("OBS!\nAtt ta bort en agent innebär att all dens \ndata försvinner från systemet. Denna \ninformation går inte att återfå.");
-        taVarningsruta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        taVarningsruta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(taVarningsruta);
 
         cbTaBort.setText("Jag förstår");
         cbTaBort.addActionListener(new java.awt.event.ActionListener() {
@@ -79,32 +70,41 @@ public class TaBortAgent extends javax.swing.JFrame {
             }
         });
 
+        taVarningsruta.setEditable(false);
+        taVarningsruta.setColumns(20);
+        taVarningsruta.setRows(5);
+        taVarningsruta.setText("OBS!\nAtt ta bort en agent innebär att all dens \ndata försvinner från systemet. Denna \ninformation går inte att återfå.");
+        taVarningsruta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        taVarningsruta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnTaBortAgent)
+                .addGap(61, 61, 61)
+                .addComponent(btnAvbryt)
+                .addGap(90, 90, 90))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(btnTaBortAgent)
-                        .addGap(55, 55, 55)
-                        .addComponent(btnAvbryt))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAngeEpost)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(tfSoktEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(tfSoktEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
+                        .addGap(164, 164, 164)
                         .addComponent(cbTaBort)))
                 .addContainerGap(81, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(taVarningsruta, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,15 +113,18 @@ public class TaBortAgent extends javax.swing.JFrame {
                 .addComponent(lblAngeEpost)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSoktEpost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(cbTaBort)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAvbryt)
-                    .addComponent(btnTaBortAgent))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addComponent(btnTaBortAgent)
+                    .addComponent(btnAvbryt))
+                .addGap(42, 42, 42))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(taVarningsruta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -183,7 +186,6 @@ public class TaBortAgent extends javax.swing.JFrame {
     private javax.swing.JButton btnTaBortAgent;
     private javax.swing.JCheckBox cbTaBort;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAngeEpost;
     private javax.swing.JTextArea taVarningsruta;
     private javax.swing.JTextField tfSoktEpost;

@@ -26,9 +26,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnLäggTill" min="-2" pref="100" max="-2" attributes="0"/>
+                  <Component id="btnLaggTill" min="-2" pref="100" max="-2" attributes="0"/>
                   <Component id="txtLaggTill" min="-2" pref="135" max="-2" attributes="0"/>
-                  <Component id="lblLäggTill" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblLaggTill" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="221" max="32767" attributes="0"/>
           </Group>
@@ -43,11 +43,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="lblLäggTill" min="-2" max="-2" attributes="0"/>
+              <Component id="lblLaggTill" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="txtLaggTill" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnLäggTill" min="-2" max="-2" attributes="0"/>
+              <Component id="btnLaggTill" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="142" max="32767" attributes="0"/>
               <Component id="btnGaTillbaka" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -56,19 +56,19 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblL&#xe4;ggTill">
+    <Component class="javax.swing.JLabel" name="lblLaggTill">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registera ny utrustning"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtLaggTill">
     </Component>
-    <Component class="javax.swing.JButton" name="btnL&#xe4;ggTill">
+    <Component class="javax.swing.JButton" name="btnLaggTill">
       <Properties>
         <Property name="text" type="java.lang.String" value="L&#xe4;gg till"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnL&#xe4;ggTillActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLaggTillActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGaTillbaka">
