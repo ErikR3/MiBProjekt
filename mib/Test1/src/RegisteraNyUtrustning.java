@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -17,7 +16,7 @@ import oru.inf.InfException;
 public class RegisteraNyUtrustning extends javax.swing.JFrame {
     
     private InfDB idb;
-    private List<Utrustning> utrustningLista = new ArrayList <>();
+    
 
     /**
      * Creates new form RegisteraNyUtrustning
@@ -99,9 +98,17 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             String utrustningNamn = txtLaggTill.getText();
             boolean finnsRedan = false;
             //Validering här är till för att kontrollera att textfältet inte är tomt. Finns inte denna validering kan användaren lägga in "ingeting" som utrustning. 
-            if(Validering.textFaltHarVarde(txtLaggTill))
-          
+            if(Validering.textFaltHarVarde(txtLaggTill)) {
             
+            ArrayList<String> utrustningsNamn = idb.fetchColumn("SELECT Benamning from Utrustning");
+                 for (String namn : utrustningsNamn){
+                     if(namn.equals(utrustningNamn)){
+                         finnsRedan = true;
+                     }
+                         
+                     
+                 }
+             
             //Här kontrollerar vi mot databsen ifall utrustningen redan finns i databasen eller inte. 
             //Om utrustningen redan finns i databasen kommer användaren få upp en dialogruta då samma utrustning inte går att lägga till två gånger. 
             //Finns utrustningen så kommer användaren få upp en dialogruta som anses som ett godkännande att utrustningen nu är inlagd i systemet. 
@@ -114,7 +121,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null,"Utrustningen finns redan i systemet");    
             }
-           
+            }
         } catch (InfException ex) {
             Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
             }
