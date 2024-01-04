@@ -105,6 +105,11 @@ public class AlienAlt extends javax.swing.JFrame {
         });
 
         tfSeAliensOmrade.setText("(skriv område här)");
+        tfSeAliensOmrade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSeAliensOmradeActionPerformed(evt);
+            }
+        });
 
         btnSeAliensAvRas.setText("Aliens av ras");
         btnSeAliensAvRas.addActionListener(new java.awt.event.ActionListener() {
@@ -273,12 +278,14 @@ public class AlienAlt extends javax.swing.JFrame {
 
     private void btnSeAliensAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeAliensAvRasActionPerformed
         // TODO add your handling code here:
+        if(Validering.textFaltHarVarde(tfSeAliensAvRas)){
         String ras = tfSeAliensAvRas.getText();
         ArrayList<String> aliens = new ArrayList<>();
         
         aliens = DataBasFragor.getAllaAliensAvRas(ras);
         
         new AliensAvRas(aliens, ras).setVisible(true);
+        }
     }//GEN-LAST:event_btnSeAliensAvRasActionPerformed
 
     private void tfSeAliensAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSeAliensAvRasActionPerformed
@@ -299,40 +306,14 @@ public class AlienAlt extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnListaAliensActionPerformed
 
+    private void tfSeAliensOmradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSeAliensOmradeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSeAliensOmradeActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AlienAlt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AlienAlt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AlienAlt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AlienAlt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AlienAlt().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAliensInomOmråde;
