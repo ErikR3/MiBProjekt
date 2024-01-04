@@ -53,6 +53,7 @@ public class AndraInfoAgent extends javax.swing.JFrame {
         lblOmrade = new javax.swing.JLabel();
         cbOmrade = new javax.swing.JComboBox<>();
         btnAndraInfo = new javax.swing.JButton();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -74,6 +75,8 @@ public class AndraInfoAgent extends javax.swing.JFrame {
                 btnAndraInfoActionPerformed(evt);
             }
         });
+
+        btnGaTillbaka.setText("Gå tillbaka");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,6 +102,10 @@ public class AndraInfoAgent extends javax.swing.JFrame {
                             .addComponent(lblDatum)
                             .addComponent(btnAndraInfo))))
                 .addContainerGap(108, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +132,9 @@ public class AndraInfoAgent extends javax.swing.JFrame {
                     .addComponent(cbOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(btnAndraInfo)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGaTillbaka)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         pack();
@@ -175,6 +184,7 @@ public class AndraInfoAgent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAndraInfo;
+    private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JComboBox<String> cbOmrade;
     private javax.swing.JLabel lblDatum;
     private javax.swing.JLabel lblNamn;
