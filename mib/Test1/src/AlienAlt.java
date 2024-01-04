@@ -303,7 +303,9 @@ public class AlienAlt extends javax.swing.JFrame {
         aliens = DataBasFragor.getAllaAliensMellanDatum(startdatum, slutdatum);
         
         new AliensMellanTvaDatum(aliens, startdatum, slutdatum).setVisible(true);
-        }
+        } 
+        
+        
     }//GEN-LAST:event_btnListaAliensActionPerformed
 
     private void tfSeAliensOmradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSeAliensOmradeActionPerformed
