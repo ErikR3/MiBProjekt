@@ -11,29 +11,32 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Erik
  */
-public class AliensAvRas extends javax.swing.JFrame {
-
+public class VisaAliensMellanTvaDatum extends javax.swing.JFrame {
+    
     private DefaultTableModel tabellModell;
-    private ArrayList<String> avRas;
-    private String ras;
+    private ArrayList<String> aliens;
+    private String startdatum;
+    private String slutdatum;
+
     /**
-     * Creates new form AliensAvRas
+     * Creates new form AliensMellanTvåDatum
      */
-    public AliensAvRas(ArrayList<String> avRas, String ras) {
-        this.ras = ras;
-        this.avRas = avRas;
+    public VisaAliensMellanTvaDatum(ArrayList<String> aliens, String startdatum, String slutdatum) {
+        this.aliens = aliens;
+        this.startdatum = startdatum;
+        this.slutdatum = slutdatum;
         initComponents();
     }
     
-    public DefaultTableModel sattTabellModell(ArrayList<String> aliensLista, String ras){
+    public DefaultTableModel sattTabellModell(ArrayList<String> aliensLista, String datumstart, String datumslut){
         Object[][] data = new Object[aliensLista.size()][1];
-        String[] kolumner = {"Aliens med ras " + ras};
+        String[] kolumner = {"Aliens registrerade mellan " + datumstart + " - " + datumslut};
         
         for(int i = 0; i < aliensLista.size(); i++){
-            String AlienID = aliensLista.get(i);
+            String alienID = aliensLista.get(i);
             
-            Object[] rad = {AlienID};
-            data[i] = rad;
+            Object[] rad = {alienID};
+            data[i] = rad;   
         }
         
         return new DefaultTableModel(data, kolumner);
@@ -53,7 +56,7 @@ public class AliensAvRas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(sattTabellModell(avRas, ras));
+        jTable1.setModel(sattTabellModell(aliens, startdatum, slutdatum));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

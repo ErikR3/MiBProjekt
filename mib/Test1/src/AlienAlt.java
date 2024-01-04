@@ -273,7 +273,7 @@ public class AlienAlt extends javax.swing.JFrame {
         
         aliens = DataBasFragor.getAllaAliensPaEnPlats(plats);
         
-        new ListaOverAliensPaAngivenPlats(aliens, plats).setVisible(true);
+        new VisaListaOverAliensPaAngivenPlats(aliens, plats).setVisible(true);
     }//GEN-LAST:event_BtnAliensInomOmrådeActionPerformed
 
     private void btnSeAliensAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeAliensAvRasActionPerformed
@@ -284,7 +284,7 @@ public class AlienAlt extends javax.swing.JFrame {
         
         aliens = DataBasFragor.getAllaAliensAvRas(ras);
         
-        new AliensAvRas(aliens, ras).setVisible(true);
+        new VisaAliensAvRas(aliens, ras).setVisible(true);
         }
     }//GEN-LAST:event_btnSeAliensAvRasActionPerformed
 
@@ -302,7 +302,7 @@ public class AlienAlt extends javax.swing.JFrame {
         if(Validering.isDatum(startdatum) && Validering.isDatum(slutdatum)){
         aliens = DataBasFragor.getAllaAliensMellanDatum(startdatum, slutdatum);
         
-        new AliensMellanTvaDatum(aliens, startdatum, slutdatum).setVisible(true);
+        new VisaAliensMellanTvaDatum(aliens, startdatum, slutdatum).setVisible(true);
         } 
         
         

@@ -11,32 +11,29 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Erik
  */
-public class AliensMellanTvaDatum extends javax.swing.JFrame {
-    
-    private DefaultTableModel tabellModell;
-    private ArrayList<String> aliens;
-    private String startdatum;
-    private String slutdatum;
+public class VisaAliensAvRas extends javax.swing.JFrame {
 
+    private DefaultTableModel tabellModell;
+    private ArrayList<String> avRas;
+    private String ras;
     /**
-     * Creates new form AliensMellanTvåDatum
+     * Creates new form AliensAvRas
      */
-    public AliensMellanTvaDatum(ArrayList<String> aliens, String startdatum, String slutdatum) {
-        this.aliens = aliens;
-        this.startdatum = startdatum;
-        this.slutdatum = slutdatum;
+    public VisaAliensAvRas(ArrayList<String> avRas, String ras) {
+        this.ras = ras;
+        this.avRas = avRas;
         initComponents();
     }
     
-    public DefaultTableModel sattTabellModell(ArrayList<String> aliensLista, String datumstart, String datumslut){
+    public DefaultTableModel sattTabellModell(ArrayList<String> aliensLista, String ras){
         Object[][] data = new Object[aliensLista.size()][1];
-        String[] kolumner = {"Aliens registrerade mellan " + datumstart + " - " + datumslut};
+        String[] kolumner = {"Aliens med ras " + ras};
         
         for(int i = 0; i < aliensLista.size(); i++){
-            String alienID = aliensLista.get(i);
+            String AlienID = aliensLista.get(i);
             
-            Object[] rad = {alienID};
-            data[i] = rad;   
+            Object[] rad = {AlienID};
+            data[i] = rad;
         }
         
         return new DefaultTableModel(data, kolumner);
@@ -56,7 +53,7 @@ public class AliensMellanTvaDatum extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(sattTabellModell(aliens, startdatum, slutdatum));
+        jTable1.setModel(sattTabellModell(avRas, ras));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
