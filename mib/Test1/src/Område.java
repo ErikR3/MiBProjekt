@@ -38,6 +38,7 @@ public class Område extends javax.swing.JFrame {
         tfOmradeAgenter = new javax.swing.JTextField();
         lblMinChef = new javax.swing.JLabel();
         btnSeChef = new javax.swing.JButton();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -82,6 +83,13 @@ public class Område extends javax.swing.JFrame {
             }
         });
 
+        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,8 +101,7 @@ public class Område extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblOmradeAgenter)
                             .addComponent(btnSeChefOmrade)
-                            .addComponent(tfOmradeAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSeAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfOmradeAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(110, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +114,12 @@ public class Område extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnSeChef)
-                                .addGap(71, 71, 71))))))
+                                .addGap(71, 71, 71))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSeAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGaTillbaka)
+                        .addGap(50, 50, 50))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,9 +138,15 @@ public class Område extends javax.swing.JFrame {
                 .addComponent(lblOmradeAgenter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfOmradeAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(btnSeAgenter)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(btnSeAgenter)
+                        .addContainerGap(49, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGaTillbaka)
+                        .addGap(34, 34, 34))))
         );
 
         pack();
@@ -138,7 +156,7 @@ public class Område extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(Validering.textFaltHarVarde(tfOmradeAgenter) && Validering.notOmrade(tfOmradeAgenter)){
         String omradeNamn = tfOmradeAgenter.getText();
-        Topp3Agent topp3agent = new Topp3Agent(DataBasFragor.getAntalAliens(omradeNamn));
+        VisaTopp3Agent topp3agent = new VisaTopp3Agent(DataBasFragor.getAntalAliens(omradeNamn));
         topp3agent.setVisible(true);
         }
     }//GEN-LAST:event_btnSeAgenterActionPerformed
@@ -166,8 +184,12 @@ public class Område extends javax.swing.JFrame {
         String omradesChef = DataBasFragor.getOmradesChefID(omrade);
         System.out.println(omradesChef);
         HashMap<String, String> HM = DataBasFragor.getAlltOmEnAgent(omradesChef);
-        new TabellAgent(HM).setVisible(true);
+        new VisaTabellAgent(HM).setVisible(true);
     }//GEN-LAST:event_btnSeChefActionPerformed
+
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,6 +197,7 @@ public class Område extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JButton btnSeAgenter;
     private javax.swing.JButton btnSeChef;
     private javax.swing.JButton btnSeChefOmrade;

@@ -109,6 +109,7 @@ public class BytLosenord extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Ditt lösenord är nu bytt!");
         } else if (gamlaLosen.equals(sqlHamta) && Validering.getAlienStatus()){
             idb.update("update alien set Losenord = '" + nyaLosen + "' where Alien_ID = " + Validering.getIDInloggning());
+            JOptionPane.showMessageDialog(null, "Ditt lösenord är nu bytt!");
         }
         else {
             JOptionPane.showMessageDialog(rootPane, "Lösenordet du angivit stämmer ej överens med ditt gamla");
@@ -117,6 +118,8 @@ public class BytLosenord extends javax.swing.JFrame {
        catch (InfException ex) {
            Logger.getLogger(BytLosenord.class.getName()).log(Level.SEVERE, null, ex);
        }
+       
+       
     }//GEN-LAST:event_btnBytLosenActionPerformed
 
     
