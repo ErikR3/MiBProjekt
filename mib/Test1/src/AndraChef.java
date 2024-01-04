@@ -108,6 +108,11 @@ public class AndraChef extends javax.swing.JFrame {
         });
 
         btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,6 +227,10 @@ public class AndraChef extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btnKontorChefActionPerformed
+
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     
     

@@ -45,7 +45,7 @@ public class Agent extends javax.swing.JFrame {
         btnAdminAndra = new javax.swing.JButton();
         btnTabortAgent = new javax.swing.JButton();
         btnAndraInfoAgent = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblAdminFunktioner = new javax.swing.JLabel();
         btnGaTillbaka = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
@@ -96,7 +96,7 @@ public class Agent extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Adminfunktioner");
+        lblAdminFunktioner.setText("Adminfunktioner");
 
         btnGaTillbaka.setText("Gå tillbaka");
         btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +120,7 @@ public class Agent extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAndraInfoAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnChefAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
+                            .addComponent(lblAdminFunktioner)
                             .addComponent(btnAdminAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegistrera, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnTabortAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -137,7 +137,7 @@ public class Agent extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAdminFunktioner, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnChefAndra, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -237,7 +237,7 @@ public class Agent extends javax.swing.JFrame {
     private javax.swing.JButton btnSokAgent;
     private javax.swing.JButton btnTabortAgent;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAdminFunktioner;
     private javax.swing.JLabel lblSokAgent;
     private javax.swing.JTextField txtSokAgent;
     // End of variables declaration//GEN-END:variables

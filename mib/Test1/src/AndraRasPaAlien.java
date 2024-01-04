@@ -122,7 +122,7 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
             }
         });
 
-        btnAvbryt.setText("Avbryt");
+        btnAvbryt.setText("Gå tillbaka");
         btnAvbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAvbrytActionPerformed(evt);
