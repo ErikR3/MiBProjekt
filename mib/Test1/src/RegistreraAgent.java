@@ -24,7 +24,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
 //    Fyller combobox med områden
     private void FyllPlats() {
     try {
-            String fraga ="select Benamning from plats";
+            String fraga ="select Benamning from omrade";
             ArrayList<String> namnLista = idb.fetchColumn(fraga);
             for (String namn :namnLista){
                 cbOmrade.addItem(namn);
@@ -168,8 +168,8 @@ public class RegistreraAgent extends javax.swing.JFrame {
         if (!Validering.agentEpostFinns(epost) && Validering.isDatum(datum)) {
         
         
-        String fragaPlats = "select Plats_ID from plats where benamning = '" + omrade + "'";
-        String omradeID = idb.fetchSingle(fragaPlats);
+        String fragaOmrade = "select Omrades_ID from omrade where benamning = '" + omrade + "'";
+        String omradeID = idb.fetchSingle(fragaOmrade);
         
         String fraga = "Insert into agent (Agent_ID,Namn,Telefon,Anstallningsdatum,Administrator,Epost,Losenord,Omrade) ";
         String values = "Values ("+id + ",'" + namn + "','" + telefon + "','" + datum + "','N','" + epost + "','" + losenord + "'," + omradeID + ")";
