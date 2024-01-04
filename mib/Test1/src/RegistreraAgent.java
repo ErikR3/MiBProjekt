@@ -152,9 +152,8 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private void btnRegistreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistreraActionPerformed
 //        Kontrollera så att inga rutor är toma
         if (Validering.textFaltHarVarde(txtNamn) && Validering.textFaltHarVarde(txtEpost) && Validering.textFaltHarVarde(txtTelefonnummer) && Validering.textFaltHarVarde(pfLosenord) && Validering.textFaltHarVarde(txtAnstallningsDatum)) {
+       
         
-       try {
-        String id = idb.getAutoIncrement("agent", "Agent_ID");
         String namn = txtNamn.getText();
         String telefon = txtTelefonnummer.getText();
         String datum = txtAnstallningsDatum.getText();
@@ -162,7 +161,10 @@ public class RegistreraAgent extends javax.swing.JFrame {
         char[] losenordChar = pfLosenord.getPassword();
         String losenord = new String (losenordChar);
         String omrade = cbOmrade.getSelectedItem().toString();
+            if (Validering.isNamnRattLangd(namn) && Validering.isTelefonRattLangd(telefon) && Validering.isEpostRattLangd(epost) && Validering.isLosenRattLangd(losenord)) {
+                try {
         
+        String id = idb.getAutoIncrement("agent", "Agent_ID");
         if (!Validering.agentEpostFinns(epost) && Validering.isDatum(datum)) {
         
         
@@ -175,12 +177,13 @@ public class RegistreraAgent extends javax.swing.JFrame {
         idb.insert (sql);
         JOptionPane.showMessageDialog(rootPane, "En ny agent har nu lagts till");
         }
+        
       }
         catch (InfException ex){
             Logger.getLogger(RegistreraAgent.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         }
-        
     }//GEN-LAST:event_btnRegistreraActionPerformed
 
 
