@@ -364,4 +364,20 @@ public class DataBasFragor {
             Logger.getLogger(DataBasFragor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public static void taBortUtrustningForEnAgent(String epost) {
+        try {
+            //hämta agentID
+            String agentID = idb.fetchSingle("select agent_id from agent where epost = '" + epost + "'");
+            
+            //Söker först igenom "innehar_utrustning" och tar sedan bort, om agenten finns där
+            ArrayList<String> utrustningAgentIDs = idb.fetchColumn("select agent_ID from innehar_utrustning");
+            for (String id : utrustningAgentIDs){
+                if (agentID.equals(id)) {
+                    idb.delete("delete from innehar_utrustning where agent_id ="+agentID); 
+                }
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(DataBasFragor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

@@ -157,8 +157,9 @@ public class TaBortAgent extends javax.swing.JFrame {
         String inloggadEpost = idb.fetchSingle("select epost from agent where agent_id ="+inloggatID);
         //Kontrollerar om agenten är någon form av chef eller det inloggade kontot
         if (!DataBasFragor.hittaChef(valdEpost) && !inloggadEpost.equals(valdEpost)) {
-        //Tar bort agenten från eventuell fältagentposition
+        //Tar bort agenten från eventuell fältagentposition och från listan med eventuell inhavd utrustning
         DataBasFragor.taBortFaltagent(valdEpost);
+        DataBasFragor.taBortUtrustningForEnAgent(valdEpost);
         //tar bort agenten
         idb.delete(fraga);
         JOptionPane.showMessageDialog(null, "Agenten har tagits bort.");
