@@ -90,7 +90,7 @@ public class HuvudMenyAlien extends javax.swing.JFrame {
         String mittOmrade = Validering.getOmrade();
         String minChef = DataBasFragor.getOmradesChefID(mittOmrade);
         
-        new TabellAgent(DataBasFragor.getAlltOmEnAgent(minChef)).setVisible(true);
+        new VisaTabellAgent(DataBasFragor.getAlltOmEnAgent(minChef)).setVisible(true);
     }//GEN-LAST:event_btnVisaMinChefActionPerformed
 
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed

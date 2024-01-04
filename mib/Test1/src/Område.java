@@ -138,7 +138,7 @@ public class Område extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(Validering.textFaltHarVarde(tfOmradeAgenter) && Validering.notOmrade(tfOmradeAgenter)){
         String omradeNamn = tfOmradeAgenter.getText();
-        Topp3Agent topp3agent = new Topp3Agent(DataBasFragor.getAntalAliens(omradeNamn));
+        VisaTopp3Agent topp3agent = new VisaTopp3Agent(DataBasFragor.getAntalAliens(omradeNamn));
         topp3agent.setVisible(true);
         }
     }//GEN-LAST:event_btnSeAgenterActionPerformed
@@ -166,7 +166,7 @@ public class Område extends javax.swing.JFrame {
         String omradesChef = DataBasFragor.getOmradesChefID(omrade);
         System.out.println(omradesChef);
         HashMap<String, String> HM = DataBasFragor.getAlltOmEnAgent(omradesChef);
-        new TabellAgent(HM).setVisible(true);
+        new VisaTabellAgent(HM).setVisible(true);
     }//GEN-LAST:event_btnSeChefActionPerformed
 
     /**
