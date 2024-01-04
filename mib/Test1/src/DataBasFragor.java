@@ -186,6 +186,7 @@ public class DataBasFragor {
         
         public static ArrayList<String> getAllaAliensPaEnPlats(String platsNamn){
              ArrayList<String> aliens = new ArrayList<>();
+             ArrayList<String> aliensNamn = new ArrayList<>();
              String platsID = null;
              
              
@@ -195,12 +196,11 @@ public class DataBasFragor {
                  e.printStackTrace();
              }
              try{
-                 aliens = idb.fetchColumn("select Alien_ID from alien where plats = '" + platsID + "'");
+                 aliens = idb.fetchColumn("select Namn from alien where plats = '" + platsID + "'");
              } catch (InfException ex){
                  ex.printStackTrace();
              }
              
-             System.out.println(aliens);
              return aliens;
         }
         
