@@ -40,10 +40,6 @@ public class BytLosenord extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        pfGamla.setText("jPasswordField1");
-
-        pfNya.setText("jPasswordField2");
-
         lblGamla.setText("Ditt gamla lösenord");
 
         lblNya.setText("Ditt nya lösenord");
@@ -61,12 +57,12 @@ public class BytLosenord extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(149, 149, 149)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBytLosen)
-                    .addComponent(lblNya)
-                    .addComponent(lblGamla)
-                    .addComponent(pfNya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pfGamla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblGamla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pfGamla)
+                    .addComponent(pfNya)
+                    .addComponent(btnBytLosen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,19 +88,23 @@ public class BytLosenord extends javax.swing.JFrame {
 ////    och updaterar databasen med dett nya lösenordet
             
     private void btnBytLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLosenActionPerformed
-       try {
+       try {    
+           //Kontroll på eventuellt tomma inmatningar
+        if (Validering.textFaltHarVarde(pfGamla) && Validering.textFaltHarVarde(pfNya)) {       
         char[] gamlaLosenChar = pfGamla.getPassword();
         String gamlaLosen = new String(gamlaLosenChar);
         char[] nyaLosenChar = pfNya.getPassword();
         String nyaLosen = new String(nyaLosenChar);
         String sqlHamta;
+        //Kontroll på längden av dde tnya lösenordet
+        if (Validering.isLosenRattLangd(nyaLosen)) {            
         if(!Validering.getAlienStatus()) {
             sqlHamta= idb.fetchSingle("select Losenord from agent where Agent_ID = " + Validering.getIDInloggning());
         } else {
             sqlHamta= idb.fetchSingle("select Losenord from alien where Alien_ID = " + Validering.getIDInloggning());
         }
         
-        if (gamlaLosen.equals(sqlHamta) && !Validering.getAlienStatus()){
+        if (!Validering.getAlienStatus() && gamlaLosen.equals(sqlHamta)){
             idb.update("update agent set Losenord = '" + nyaLosen + "' where Agent_ID = " + Validering.getIDInloggning());
             JOptionPane.showMessageDialog(rootPane, "Ditt lösenord är nu bytt!");
         } else if (gamlaLosen.equals(sqlHamta) && Validering.getAlienStatus()){
@@ -115,11 +115,11 @@ public class BytLosenord extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Lösenordet du angivit stämmer ej överens med ditt gamla");
         }
        }
+       }
+       }
        catch (InfException ex) {
            Logger.getLogger(BytLosenord.class.getName()).log(Level.SEVERE, null, ex);
-       }
-       
-       
+       }            
     }//GEN-LAST:event_btnBytLosenActionPerformed
 
     
