@@ -34,11 +34,70 @@ public class Validering {
     //Metod för att kontrollera om ett textfält är tomt
     public static boolean textFaltHarVarde(JTextField rutaAttKolla) {
         boolean resultat = true;
-
         if (rutaAttKolla.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Inmatningsrutan är tom!");
             resultat = false;
             rutaAttKolla.requestFocus();
+        }
+        return resultat;
+    }
+    
+    //Metod för att kontrolla att inmatat värde för namn inte är större än vad databasen tillåter
+    public static boolean isNamnRattLangd(String namn) {
+        boolean resultat = false;
+        if (namn.length()<=20) {
+        resultat = true;   
+        }  
+        else {
+          JOptionPane.showMessageDialog(null, "Ett namn får max bestå av 20 tecken.");  
+        }
+        return resultat;
+    }
+    
+    //Metod för att kontrolla att inmatat värde för epost inte är större än vad databasen tillåter
+    public static boolean isEpostRattLangd(String epost) {
+        boolean resultat = false;
+        if (epost.length()<=20) {
+        resultat = true;   
+        }  
+        else {
+          JOptionPane.showMessageDialog(null, "En Epost får max bestå av 20 tecken.");  
+        }
+        return resultat;
+    }
+    
+    //Metod för att kontrolla att inmatat värde för lösenord inte är större än vad databasen tillåter
+    public static boolean isLosenRattLangd(String losen) {
+        boolean resultat = false;
+        if (losen.length()<=6) {
+        resultat = true;   
+        }  
+        else {
+          JOptionPane.showMessageDialog(null, "Ett lösenord får max bestå av 6 tecken.");  
+        }
+        return resultat;
+    }
+    
+    //Metod för att kontrolla att inmatat värde för telefonnummer inte är större än vad databasen tillåter
+    public static boolean isTelefonRattLangd(String nummer) {
+        boolean resultat = false;
+        if (nummer.length()<=30) {
+        resultat = true;   
+        }  
+        else {
+          JOptionPane.showMessageDialog(null, "Ett telefonnummer får max bestå av 30 tecken.");  
+        }
+        return resultat;
+    }
+    
+    //Metod för att kontrolla att inmatat värde för kontorsbetäckning inte är större än vad databasen tillåter
+    public static boolean isKontorBetackningRattLangd(String namn) {
+        boolean resultat = false;
+        if (namn.length()<=25) {
+        resultat = true;   
+        }  
+        else {
+          JOptionPane.showMessageDialog(null, "Kontorsbetäckningen får max bestå av 25 tecken.");  
         }
         return resultat;
     }

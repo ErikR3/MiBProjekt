@@ -42,7 +42,7 @@ public class Inloggning extends javax.swing.JFrame {
         pfLosen = new javax.swing.JPasswordField();
         lblEpost = new javax.swing.JLabel();
         lblLosen = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        cbAlien = new javax.swing.JCheckBox();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -63,10 +63,10 @@ public class Inloggning extends javax.swing.JFrame {
 
         lblLosen.setText("Ange ditt lösenord:");
 
-        jToggleButton1.setText("Alien");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        cbAlien.setText("Jag är alien");
+        cbAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                cbAlienActionPerformed(evt);
             }
         });
 
@@ -80,13 +80,13 @@ public class Inloggning extends javax.swing.JFrame {
                     .addComponent(lblEpost)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnLoggaIn)
-                        .addGap(37, 37, 37)
-                        .addComponent(jToggleButton1))
+                        .addGap(18, 18, 18)
+                        .addComponent(cbAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(tfEpost, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(pfLosen, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblLosen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +102,7 @@ public class Inloggning extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLoggaIn)
-                    .addComponent(jToggleButton1))
+                    .addComponent(cbAlien))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
@@ -162,8 +162,10 @@ public class Inloggning extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnLoggaInActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void cbAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienActionPerformed
         // TODO add your handling code here:
+        if (cbAlien.isSelected()) {
+            
         if(!isAlien){
              isAlien = true;
         } else if (isAlien){
@@ -171,14 +173,14 @@ public class Inloggning extends javax.swing.JFrame {
         } else {
             isAlien = true;
         }
-
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+        }
+    }//GEN-LAST:event_cbAlienActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoggaIn;
+    private javax.swing.JCheckBox cbAlien;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblEpost;
     private javax.swing.JLabel lblLosen;
     private javax.swing.JPasswordField pfLosen;

@@ -47,17 +47,17 @@ public class AlienAlt extends javax.swing.JFrame {
         btnAndraRas = new javax.swing.JButton();
         btnTaBortAlien = new javax.swing.JButton();
         lblAdminFunktion = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblSeAliens = new javax.swing.JLabel();
         BtnAliensInomOmråde = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        tfSeAliensOmrade = new javax.swing.JTextField();
+        btnSeAliensAvRas = new javax.swing.JButton();
+        lblSeAliensAvRas = new javax.swing.JLabel();
+        tfSeAliensAvRas = new javax.swing.JTextField();
+        lblListaAliens = new javax.swing.JLabel();
+        tfDatum1 = new javax.swing.JTextField();
+        tfDatum2 = new javax.swing.JTextField();
+        lblStrack = new javax.swing.JLabel();
+        btnListaAliens = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,7 +95,7 @@ public class AlienAlt extends javax.swing.JFrame {
 
         lblAdminFunktion.setText("Administratörfunktion");
 
-        jLabel2.setText("Se alla aliens inom viss plats");
+        lblSeAliens.setText("Se alla aliens inom viss plats");
 
         BtnAliensInomOmråde.setText("Aliens inom denna plats");
         BtnAliensInomOmråde.addActionListener(new java.awt.event.ActionListener() {
@@ -104,36 +104,36 @@ public class AlienAlt extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("(skriv område här)");
+        tfSeAliensOmrade.setText("(skriv område här)");
 
-        jButton1.setText("Aliens av ras");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSeAliensAvRas.setText("Aliens av ras");
+        btnSeAliensAvRas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSeAliensAvRasActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Se aliens av ras");
+        lblSeAliensAvRas.setText("Se aliens av ras");
 
-        jTextField2.setText("(skriv ras här)");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfSeAliensAvRas.setText("(skriv ras här)");
+        tfSeAliensAvRas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfSeAliensAvRasActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Lista aliens registrerade mellan");
+        lblListaAliens.setText("Lista aliens registrerade mellan");
 
-        jTextField3.setText("(skriv datum här)");
+        tfDatum1.setText("(skriv datum här)");
 
-        jTextField4.setText("(skriv datum här)");
+        tfDatum2.setText("(skriv datum här)");
 
-        jLabel5.setText("-");
+        lblStrack.setText("-");
 
-        jButton2.setText("Visa");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnListaAliens.setText("Visa");
+        btnListaAliens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnListaAliensActionPerformed(evt);
             }
         });
 
@@ -151,28 +151,28 @@ public class AlienAlt extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
+                        .addComponent(lblSeAliens)
                         .addGap(388, 388, 388))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAndraRas)
-                            .addComponent(jLabel4)
+                            .addComponent(lblListaAliens)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnListaAliens, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfDatum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblStrack, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tfDatum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tfSeAliensOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(btnSeAliensAvRas)
                             .addComponent(BtnAliensInomOmråde)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(tfSeAliensAvRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSeAliensAvRas))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -196,28 +196,28 @@ public class AlienAlt extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAndraRas)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(lblListaAliens)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(tfDatum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfDatum2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStrack))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btnListaAliens)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(lblSeAliens)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfSeAliensOmrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BtnAliensInomOmråde)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
+                        .addComponent(lblSeAliensAvRas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfSeAliensAvRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(btnSeAliensAvRas))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblRegistreraAlien)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -263,7 +263,7 @@ public class AlienAlt extends javax.swing.JFrame {
 
     private void BtnAliensInomOmrådeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAliensInomOmrådeActionPerformed
         // TODO add your handling code here:
-        String plats = jTextField1.getText();
+        String plats = tfSeAliensOmrade.getText();
         ArrayList<String> aliens = new ArrayList<>();
         
         aliens = DataBasFragor.getAllaAliensPaEnPlats(plats);
@@ -271,24 +271,24 @@ public class AlienAlt extends javax.swing.JFrame {
         new ListaOverAliensPaAngivenPlats(aliens, plats).setVisible(true);
     }//GEN-LAST:event_BtnAliensInomOmrådeActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSeAliensAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeAliensAvRasActionPerformed
         // TODO add your handling code here:
-        String ras = jTextField2.getText();
+        String ras = tfSeAliensAvRas.getText();
         ArrayList<String> aliens = new ArrayList<>();
         
         aliens = DataBasFragor.getAllaAliensAvRas(ras);
         
         new AliensAvRas(aliens, ras).setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSeAliensAvRasActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfSeAliensAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSeAliensAvRasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfSeAliensAvRasActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnListaAliensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaAliensActionPerformed
         // TODO add your handling code here:
-        String startdatum = jTextField3.getText();
-        String slutdatum = jTextField4.getText();
+        String startdatum = tfDatum1.getText();
+        String slutdatum = tfDatum2.getText();
         System.out.println(startdatum + slutdatum);
         ArrayList<String> aliens = new ArrayList<>();
        
@@ -297,7 +297,7 @@ public class AlienAlt extends javax.swing.JFrame {
         
         new AliensMellanTvaDatum(aliens, startdatum, slutdatum).setVisible(true);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnListaAliensActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,21 +337,21 @@ public class AlienAlt extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAliensInomOmråde;
     private javax.swing.JButton btnAndraRas;
+    private javax.swing.JButton btnListaAliens;
     private javax.swing.JButton btnRegistreraAlien;
+    private javax.swing.JButton btnSeAliensAvRas;
     private javax.swing.JButton btnSokEnAlien;
     private javax.swing.JButton btnTaBortAlien;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblAdminFunktion;
+    private javax.swing.JLabel lblListaAliens;
     private javax.swing.JLabel lblRegistreraAlien;
+    private javax.swing.JLabel lblSeAliens;
+    private javax.swing.JLabel lblSeAliensAvRas;
+    private javax.swing.JLabel lblStrack;
+    private javax.swing.JTextField tfDatum1;
+    private javax.swing.JTextField tfDatum2;
+    private javax.swing.JTextField tfSeAliensAvRas;
+    private javax.swing.JTextField tfSeAliensOmrade;
     // End of variables declaration//GEN-END:variables
 }

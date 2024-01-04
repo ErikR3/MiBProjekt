@@ -226,8 +226,8 @@ public class RegistreraNyAlien extends javax.swing.JFrame {
             String plats = idb.fetchSingle(fragaPlats);
             String ansvarigAgent = idb.fetchSingle(fragaAgent);
             
-            //Kontrollera så emailen är unik samt kontrollera att datum är i rätt format.
-             if (!Validering.alienEpostFinns(epost) && Validering.isDatum(datum)) {          
+            //Kontrollerar så emailen är unik samt kontrollerar att datum är i rätt format och att alla andra rutor inte har för många tecken.
+             if (!Validering.alienEpostFinns(epost) && Validering.isDatum(datum) && Validering.isNamnRattLangd(namn) && Validering.isEpostRattLangd(epost) && Validering.isTelefonRattLangd(nummer) && Validering.isLosenRattLangd(losen)) {          
             //formatera en fråga
             String nyAlien = id+",'"+namn+"',"+"'"+epost+"',"+"'"+nummer+"',"+"'"+losen+"',"+"'"+datum+"',"+plats+","+ansvarigAgent;
             String nyAlienFraga = "insert into alien (Alien_ID, Namn, Epost, Telefon, Losenord, Registreringsdatum, Plats, Ansvarig_Agent) values("+nyAlien+")";

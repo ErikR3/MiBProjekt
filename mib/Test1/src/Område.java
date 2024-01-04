@@ -30,55 +30,55 @@ public class Område extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        lblOmradeChef = new javax.swing.JLabel();
+        btnSeChefOmrade = new javax.swing.JButton();
+        tfOmradeChef = new javax.swing.JTextField();
+        lblOmradeAgenter = new javax.swing.JLabel();
+        btnSeAgenter = new javax.swing.JButton();
+        tfOmradeAgenter = new javax.swing.JTextField();
+        lblMinChef = new javax.swing.JLabel();
+        btnSeChef = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Område chef");
+        lblOmradeChef.setText("Område chef");
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSeChefOmrade.setText("Se chef");
+        btnSeChefOmrade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSeChefOmradeActionPerformed(evt);
             }
         });
 
-        jTextField1.setText("(Område här)");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfOmradeChef.setText("(Område här)");
+        tfOmradeChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfOmradeChefActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Topp 3 agenter ansvariga för aliens på viss plats");
+        lblOmradeAgenter.setText("Topp 3 agenter ansvariga för aliens på viss plats");
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSeAgenter.setText("Se agenter");
+        btnSeAgenter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSeAgenterActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("(Område här)");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfOmradeAgenter.setText("(Område här)");
+        tfOmradeAgenter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfOmradeAgenterActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Min områdeschef");
+        lblMinChef.setText("Min områdeschef");
 
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnSeChef.setText("Se min områdeschef");
+        btnSeChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnSeChefActionPerformed(evt);
             }
         });
 
@@ -89,80 +89,85 @@ public class Område extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(99, 99, 99)
+                            .addComponent(lblOmradeAgenter)
+                            .addComponent(btnSeChefOmrade)
+                            .addComponent(tfOmradeAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSeAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(110, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
-                            .addComponent(jLabel3))))
-                .addContainerGap(102, Short.MAX_VALUE))
+                            .addComponent(lblOmradeChef)
+                            .addComponent(tfOmradeChef, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(lblMinChef))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSeChef)
+                                .addGap(71, 71, 71))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
+                    .addComponent(lblOmradeChef)
+                    .addComponent(lblMinChef))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(tfOmradeChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSeChef))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnSeChefOmrade)
                 .addGap(62, 62, 62)
-                .addComponent(jLabel2)
+                .addComponent(lblOmradeAgenter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfOmradeAgenter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
-                .addComponent(jButton2)
+                .addComponent(btnSeAgenter)
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnSeAgenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeAgenterActionPerformed
         // TODO add your handling code here:
-        if(Validering.textFaltHarVarde(jTextField2) && Validering.notOmrade(jTextField2)){
-        String omradeNamn = jTextField2.getText();
+        if(Validering.textFaltHarVarde(tfOmradeAgenter) && Validering.notOmrade(tfOmradeAgenter)){
+        String omradeNamn = tfOmradeAgenter.getText();
         Topp3Agent topp3agent = new Topp3Agent(DataBasFragor.getAntalAliens(omradeNamn));
         topp3agent.setVisible(true);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnSeAgenterActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfOmradeAgenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfOmradeAgenterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfOmradeAgenterActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfOmradeChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfOmradeChefActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfOmradeChefActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSeChefOmradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeChefOmradeActionPerformed
         // TODO add your handling code here:
-        if(Validering.textFaltHarVarde(jTextField1) && Validering.notOmrade(jTextField1)){
-        String omradeNamn = jTextField1.getText();
+        if(Validering.textFaltHarVarde(tfOmradeChef) && Validering.notOmrade(tfOmradeChef)){
+        String omradeNamn = tfOmradeChef.getText();
         String chef = DataBasFragor.getOmradesChefNamn(omradeNamn);
         JOptionPane.showMessageDialog(null, chef);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSeChefOmradeActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnSeChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeChefActionPerformed
         // TODO add your handling code here:
         String omrade = Validering.getOmrade();
         String omradesChef = DataBasFragor.getOmradesChefID(omrade);
         System.out.println(omradesChef);
         HashMap<String, String> HM = DataBasFragor.getAlltOmEnAgent(omradesChef);
         new TabellAgent(HM).setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnSeChefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,13 +175,13 @@ public class Område extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton btnSeAgenter;
+    private javax.swing.JButton btnSeChef;
+    private javax.swing.JButton btnSeChefOmrade;
+    private javax.swing.JLabel lblMinChef;
+    private javax.swing.JLabel lblOmradeAgenter;
+    private javax.swing.JLabel lblOmradeChef;
+    private javax.swing.JTextField tfOmradeAgenter;
+    private javax.swing.JTextField tfOmradeChef;
     // End of variables declaration//GEN-END:variables
 }

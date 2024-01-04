@@ -287,8 +287,8 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 String platsID = idb.fetchSingle("SELECT plats_ID FROM plats where benamning = '"+plats+"'");
                 String agentID = idb.fetchSingle("SELECT agent_ID FROM agent where agent.namn = '"+agent+"'");    
                 
-                //Kontroller så datum är i rätt format och eposten är unik
-                if (Validering.isDatum(datum)) {
+                //Kontrollerar att datum är i rätt format och att alla andra rutor inte har för många tecken.
+                if (Validering.isDatum(datum) && Validering.isNamnRattLangd(namn) && Validering.isTelefonRattLangd(nummer)) {
                     
                 //lagra ny info till databasen
                 idb.update("update alien set namn='"+namn+"' where epost='"+epost+"'");
