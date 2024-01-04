@@ -204,19 +204,21 @@ public class DataBasFragor {
         
         public static ArrayList<String> getAllaAliensAvRas(String rasNamn){
             ArrayList<String> aliens = new ArrayList<>();
+            aliens = null;
             try{
                 aliens = idb.fetchColumn("select Namn from alien where Alien_ID in (select Alien_ID from " + rasNamn + ")");
             } catch (InfException e){
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Inga Aliens av rasen");
             }
-            
+            System.out.println(aliens);
             return aliens;
         }
         
         public static ArrayList<String> getAllaAliensMellanDatum(String startdatum, String slutdatum){
             ArrayList<String> aliens = new ArrayList<>();
             try{
-                aliens = idb.fetchColumn("select Alien_ID from alien where Registreringsdatum between '" + startdatum + "' and '" + slutdatum + "'");
+                aliens = idb.fetchColumn("select Namn from alien where Registreringsdatum between '" + startdatum + "' and '" + slutdatum + "'");
             } catch (InfException e){
                 e.printStackTrace();
             }

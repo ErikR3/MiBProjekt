@@ -290,14 +290,13 @@ public class AlienAlt extends javax.swing.JFrame {
 
     private void btnSeAliensAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeAliensAvRasActionPerformed
         // TODO add your handling code here:
-        if(Validering.textFaltHarVarde(tfSeAliensAvRas)){
-        String ras = tfSeAliensAvRas.getText();
         ArrayList<String> aliens = new ArrayList<>();
+        String ras = tfSeAliensAvRas.getText(); 
+        if(Validering.textFaltHarVarde(tfSeAliensAvRas) && DataBasFragor.getAllaAliensAvRas(ras) != null){
+            aliens = DataBasFragor.getAllaAliensAvRas(ras);
+            new VisaAliensAvRas(aliens, ras).setVisible(true);
+        } 
         
-        aliens = DataBasFragor.getAllaAliensAvRas(ras);
-        
-        new VisaAliensAvRas(aliens, ras).setVisible(true);
-        }
     }//GEN-LAST:event_btnSeAliensAvRasActionPerformed
 
     private void tfSeAliensAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSeAliensAvRasActionPerformed
