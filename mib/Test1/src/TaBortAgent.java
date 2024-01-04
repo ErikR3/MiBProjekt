@@ -72,7 +72,7 @@ public class TaBortAgent extends javax.swing.JFrame {
             }
         });
 
-        btnAvbryt.setText("Avbryt");
+        btnAvbryt.setText("Gå tillbaka");
         btnAvbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAvbrytActionPerformed(evt);
@@ -121,7 +121,7 @@ public class TaBortAgent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvbryt)
                     .addComponent(btnTaBortAgent))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
