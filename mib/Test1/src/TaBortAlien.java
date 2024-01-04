@@ -69,7 +69,7 @@ public class TaBortAlien extends javax.swing.JFrame {
         taVarningsruta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(taVarningsruta);
 
-        btnAvbryt.setText("Avbryt");
+        btnAvbryt.setText("Gå tillbaka");
         btnAvbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAvbrytActionPerformed(evt);
