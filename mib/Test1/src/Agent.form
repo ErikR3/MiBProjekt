@@ -39,15 +39,15 @@
                           <Component id="btnSokAgent" min="-2" pref="84" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="48" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnAndraInfoAgent" min="-2" pref="133" max="-2" attributes="0"/>
-                          <Component id="btnChefAndra" min="-2" pref="133" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="lblAdminFunktioner" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAdminAndra" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
-                          <Component id="btnRegistrera" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
-                          <Component id="btnTabortAgent" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
+                          <Component id="btnAdminAndra" pref="150" max="32767" attributes="0"/>
+                          <Component id="btnChefAndra" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnRegistrera" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnTabortAgent" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnAndraInfoAgent" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="lblSokAgent" min="-2" max="-2" attributes="0"/>
