@@ -37,6 +37,7 @@ public class BytLosenord extends javax.swing.JFrame {
         lblGamla = new javax.swing.JLabel();
         lblNya = new javax.swing.JLabel();
         btnBytLosen = new javax.swing.JButton();
+        btnGaTillbaka = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -48,6 +49,13 @@ public class BytLosenord extends javax.swing.JFrame {
         btnBytLosen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBytLosenActionPerformed(evt);
+            }
+        });
+
+        btnGaTillbaka.setText("Gå tillbaka");
+        btnGaTillbaka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGaTillbakaActionPerformed(evt);
             }
         });
 
@@ -64,6 +72,10 @@ public class BytLosenord extends javax.swing.JFrame {
                     .addComponent(btnBytLosen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblNya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(146, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGaTillbaka)
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,9 +88,11 @@ public class BytLosenord extends javax.swing.JFrame {
                 .addComponent(lblNya)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pfNya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(26, 26, 26)
                 .addComponent(btnBytLosen)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGaTillbaka)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,9 +136,14 @@ public class BytLosenord extends javax.swing.JFrame {
        }            
     }//GEN-LAST:event_btnBytLosenActionPerformed
 
+    private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnGaTillbakaActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBytLosen;
+    private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JLabel lblGamla;
     private javax.swing.JLabel lblNya;
     private javax.swing.JPasswordField pfGamla;
