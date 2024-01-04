@@ -189,11 +189,11 @@ public class AndraInfoAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAndraInfoActionPerformed
 
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
-<<<<<<< Updated upstream
+
         dispose();
-=======
+
         // TODO add your handling code here:
->>>>>>> Stashed changes
+
     }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     
