@@ -207,7 +207,7 @@ public class DataBasFragor {
         public static ArrayList<String> getAllaAliensAvRas(String rasNamn){
             ArrayList<String> aliens = new ArrayList<>();
             try{
-                aliens = idb.fetchColumn("select Alien_ID from " + rasNamn);
+                aliens = idb.fetchColumn("select Namn from alien where Alien_ID in (select Alien_ID from " + rasNamn + ")");
             } catch (InfException e){
                 e.printStackTrace();
             }
