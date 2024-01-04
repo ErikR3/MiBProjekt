@@ -141,7 +141,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
 
     private void btnAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienActionPerformed
         // TODO add your handling code here:
-        new AlienAlt().setVisible(true);
+        new AlienAlt(idb).setVisible(true);
     }//GEN-LAST:event_btnAlienActionPerformed
 
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed
