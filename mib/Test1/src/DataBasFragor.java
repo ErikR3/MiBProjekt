@@ -380,4 +380,8 @@ public class DataBasFragor {
             Logger.getLogger(DataBasFragor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static InfDB getDB(){
+        return idb;
+    }
 }

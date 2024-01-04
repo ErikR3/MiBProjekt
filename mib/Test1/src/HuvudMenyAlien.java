@@ -1,3 +1,6 @@
+
+import oru.inf.InfDB;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -96,7 +99,7 @@ public class HuvudMenyAlien extends javax.swing.JFrame {
 
     private void btnBytLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBytLosenordActionPerformed
         // TODO add your handling code here:
-       // new BytLosenord(idb).setVisible(true);
+       new BytLosenord(DataBasFragor.getDB()).setVisible(true);
     }//GEN-LAST:event_btnBytLosenordActionPerformed
 
     /**

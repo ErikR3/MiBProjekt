@@ -167,7 +167,7 @@ public class Inloggning extends javax.swing.JFrame {
 
     private void cbAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlienActionPerformed
         // TODO add your handling code here:
-        if (cbAlien.isSelected()) {
+        
             
         if(!isAlien){
              isAlien = true;
@@ -176,7 +176,7 @@ public class Inloggning extends javax.swing.JFrame {
         } else {
             isAlien = true;
         }
-        }
+        
     }//GEN-LAST:event_cbAlienActionPerformed
 
 
