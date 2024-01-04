@@ -25,7 +25,7 @@ public class Validering {
     private static boolean adminStatus;
     private static InfDB idb;
     private static String mittOmrade;
-    private static boolean alienStatus;
+    private static boolean alienStatus = false;
     
     public Validering(InfDB idb){
         this.idb = idb;

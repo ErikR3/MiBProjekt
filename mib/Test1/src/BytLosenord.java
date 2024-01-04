@@ -104,9 +104,11 @@ public class BytLosenord extends javax.swing.JFrame {
             sqlHamta= idb.fetchSingle("select Losenord from alien where Alien_ID = " + Validering.getIDInloggning());
         }
         
-        if (gamlaLosen.equals(sqlHamta)){
+        if (gamlaLosen.equals(sqlHamta) && !Validering.getAlienStatus()){
             idb.update("update agent set Losenord = '" + nyaLosen + "' where Agent_ID = " + Validering.getIDInloggning());
             JOptionPane.showMessageDialog(rootPane, "Ditt lösenord är nu bytt!");
+        } else if (gamlaLosen.equals(sqlHamta) && Validering.getAlienStatus()){
+            idb.update("update alien set Losenord = '" + nyaLosen + "' where Alien_ID = " + Validering.getIDInloggning());
         }
         else {
             JOptionPane.showMessageDialog(rootPane, "Lösenordet du angivit stämmer ej överens med ditt gamla");
