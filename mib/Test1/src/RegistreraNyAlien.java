@@ -108,7 +108,7 @@ public class RegistreraNyAlien extends javax.swing.JFrame {
 
         lblPlats.setText("Plats:");
 
-        btnAvbryt.setText("Avbryt");
+        btnAvbryt.setText("Gå tillbaka");
         btnAvbryt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAvbrytActionPerformed(evt);
@@ -159,7 +159,7 @@ public class RegistreraNyAlien extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(106, 106, 106)
                                 .addComponent(btnAvbryt)))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
