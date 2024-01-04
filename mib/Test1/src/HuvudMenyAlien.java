@@ -73,11 +73,11 @@ public class HuvudMenyAlien extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(46, 46, 46)
                 .addComponent(btnVisaMinChef)
                 .addGap(18, 18, 18)
                 .addComponent(btnBytLosenord)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(btnLoggaUt)
                 .addGap(42, 42, 42))
         );
@@ -90,7 +90,7 @@ public class HuvudMenyAlien extends javax.swing.JFrame {
         String mittOmrade = Validering.getOmrade();
         String minChef = DataBasFragor.getOmradesChefID(mittOmrade);
         
-        new TabellAgent(DataBasFragor.getAlltOmEnAgent(minChef)).setVisible(true);
+        new VisaTabellAgent(DataBasFragor.getAlltOmEnAgent(minChef)).setVisible(true);
     }//GEN-LAST:event_btnVisaMinChefActionPerformed
 
     private void btnLoggaUtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoggaUtActionPerformed

@@ -1,7 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -11,31 +9,37 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author erikr
+ * @author Erik
  */
-public class TabellAgent extends javax.swing.JFrame {
+public class VisaAliensMellanTvaDatum extends javax.swing.JFrame {
+    
+    private DefaultTableModel tabellModell;
+    private ArrayList<String> aliens;
+    private String startdatum;
+    private String slutdatum;
 
-    private HashMap<String, String> HM;
     /**
-     * Creates new form TabellAgent
+     * Creates new form AliensMellanTvåDatum
      */
-    public TabellAgent(HashMap<String, String> HM) {
-        this.HM = HM;
+    public VisaAliensMellanTvaDatum(ArrayList<String> aliens, String startdatum, String slutdatum) {
+        this.aliens = aliens;
+        this.startdatum = startdatum;
+        this.slutdatum = slutdatum;
         initComponents();
     }
     
-    public DefaultTableModel sattTabellModell(HashMap<String, String> HM){
-        String[] kolumner = {"Namn", "Anställningsdatum", "Administratör", "Epost", "Omrade", "Telnummer", "Agent_ID"};
-               
-        Collection<String> info = HM.values();
-        ArrayList<String> infoAgent = new ArrayList<>(info);
+    public DefaultTableModel sattTabellModell(ArrayList<String> aliensLista, String datumstart, String datumslut){
+        Object[][] data = new Object[aliensLista.size()][1];
+        String[] kolumner = {"Aliens registrerade mellan " + datumstart + " - " + datumslut};
         
+        for(int i = 0; i < aliensLista.size(); i++){
+            String alienID = aliensLista.get(i);
             
-            Object[] rad = infoAgent.toArray();
-            Object[][] data = {rad};
+            Object[] rad = {alienID};
+            data[i] = rad;   
+        }
         
-        
-        return new DefaultTableModel(data, kolumner);    
+        return new DefaultTableModel(data, kolumner);
     }
 
     /**
@@ -48,22 +52,22 @@ public class TabellAgent extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        ID = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        ID.setModel(sattTabellModell(HM));
-        jScrollPane1.setViewportView(ID);
+        jTable1.setModel(sattTabellModell(aliens, startdatum, slutdatum));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -75,7 +79,7 @@ public class TabellAgent extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable ID;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

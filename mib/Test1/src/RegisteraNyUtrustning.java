@@ -98,7 +98,7 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             String utrustningNamn = txtLaggTill.getText();
             boolean finnsRedan = false;
             //Validering här är till för att kontrollera att textfältet inte är tomt. Finns inte denna validering kan användaren lägga in "ingeting" som utrustning. 
-            if(Validering.textFaltHarVarde(txtLaggTill)) {
+            if(Validering.textFaltHarVarde(txtLaggTill) && Validering.isNamnRattLangd(utrustningNamn)){
             
             ArrayList<String> utrustningsNamn = idb.fetchColumn("SELECT Benamning from Utrustning");
                  for (String namn : utrustningsNamn){

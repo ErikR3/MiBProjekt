@@ -11,28 +11,29 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Erik
  */
-public class AliensAvRas extends javax.swing.JFrame {
-
+public class VisaListaOverAliensPaAngivenPlats extends javax.swing.JFrame {
+    
     private DefaultTableModel tabellModell;
-    private ArrayList<String> avRas;
-    private String ras;
+    private ArrayList<String> AL;
+    private String omrade;
+
     /**
-     * Creates new form AliensAvRas
+     * Creates new form ListaÖverAliensPåAngivenPlats
      */
-    public AliensAvRas(ArrayList<String> avRas, String ras) {
-        this.ras = ras;
-        this.avRas = avRas;
+    public VisaListaOverAliensPaAngivenPlats(ArrayList<String> AL, String omrade) {
+        this.AL = AL;
+        this.omrade = omrade;
         initComponents();
     }
     
-    public DefaultTableModel sattTabellModell(ArrayList<String> aliensLista, String ras){
+    public static DefaultTableModel sattTabellModell(ArrayList<String> aliensLista, String omradeNamn){
         Object[][] data = new Object[aliensLista.size()][1];
-        String[] kolumner = {"Aliens med ras " + ras};
+        String[] kolumner ={"Aliens inom " + omradeNamn};
         
         for(int i = 0; i < aliensLista.size(); i++){
-            String AlienID = aliensLista.get(i);
+            String alienID = aliensLista.get(i);
             
-            Object[] rad = {AlienID};
+            Object[] rad = {alienID};
             data[i] = rad;
         }
         
@@ -53,18 +54,18 @@ public class AliensAvRas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(sattTabellModell(avRas, ras));
+        jTable1.setModel(sattTabellModell(AL, omrade));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
         );
 
         pack();

@@ -131,7 +131,9 @@ public class Utrustning extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    
     //Denna knapp visar aktiv utrustning som agenter har just nu.
     //VisaAktivUtrusning är kopplad till klassen VisaMinUtkvitteradeUtrisning som skickar
     //användaren vidare till klassen "VisaMinUtkvitteradeUtrustning. 
