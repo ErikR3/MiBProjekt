@@ -148,6 +148,12 @@ public class AndraInfoAgent extends javax.swing.JFrame {
 //        Uppdaterar databasen om ett fält är ifyllt med information och ignorerar 
 //          de toma fälten
     private void btnAndraInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraInfoActionPerformed
+       
+        String namn = txtNamn.getText();
+        String telefon = txtTelefon.getText();
+        String datum = txtDatum.getText();
+        
+        if (Validering.isNamnRattLangd(namn) && Validering.isTelefonRattLangd(telefon))
         try {
             String epost = txtAngeAgent.getText();
             String omrade = cbOmrade.getSelectedItem().toString();
@@ -156,17 +162,14 @@ public class AndraInfoAgent extends javax.swing.JFrame {
             if (Validering.agentEpostFinnsSok(txtAngeAgent)){
                 
                 if (Validering.textFaltHarVardeUtanMsg(txtNamn)){
-                    String namn = txtNamn.getText();
                     idb.update("Update agent set Namn = '" + namn + "' where Epost = '" + epost + "'");
                     index = 1;
                 }
                 if (Validering.textFaltHarVardeUtanMsg(txtTelefon)){
-                    String telefon = txtTelefon.getText();
                     idb.update("Update agent set Telefon = '" + telefon + "' where Epost = '" + epost + "'");
                     index = 1;
                 }
                 if (Validering.textFaltHarVardeUtanMsg(txtDatum) && Validering.isDatum(txtDatum.getText())){
-                    String datum = txtDatum.getText();
                     idb.update("Update agent set Anstallningsdatum = '" + datum + "' where Epost = '" + epost + "'");
                     index = 1;
                 }
@@ -186,7 +189,11 @@ public class AndraInfoAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAndraInfoActionPerformed
 
     private void btnGaTillbakaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGaTillbakaActionPerformed
+
         dispose();
+
+        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
     
