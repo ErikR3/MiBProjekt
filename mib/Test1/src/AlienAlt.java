@@ -21,14 +21,9 @@ public class AlienAlt extends javax.swing.JFrame {
     /**
      * Creates new form AlienAlt
      */
-    public AlienAlt() {
+    public AlienAlt(InfDB idb) {
         initComponents();
-        try {
-            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
-        } catch (InfException ex) {
-            Logger.getLogger(Inloggning.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        this.idb = idb;      
     }
 
     /**
