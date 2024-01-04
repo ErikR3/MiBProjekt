@@ -182,7 +182,6 @@ public class Område extends javax.swing.JFrame {
         // TODO add your handling code here:
         String omrade = Validering.getOmrade();
         String omradesChef = DataBasFragor.getOmradesChefID(omrade);
-        System.out.println(omradesChef);
         HashMap<String, String> HM = DataBasFragor.getAlltOmEnAgent(omradesChef);
         new VisaTabellAgent(HM).setVisible(true);
     }//GEN-LAST:event_btnSeChefActionPerformed

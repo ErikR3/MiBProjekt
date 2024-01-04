@@ -219,7 +219,6 @@ public class Validering {
     
     public static void setOmrade(String s){
         mittOmrade = s;
-        System.out.println(mittOmrade);
     }
     
     public static String getOmrade(){

@@ -2,10 +2,8 @@
 import oru.inf.InfDB;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import oru.inf.InfException;
 
@@ -139,8 +137,8 @@ public class DataBasFragor {
             } catch (InfException e){
                 e.printStackTrace();
             }
-            System.out.println(allaPlatser);
-            System.out.println(raknadeAliens);
+            
+            
                 
             return raknadeAliens;
         }
@@ -233,6 +231,9 @@ public class DataBasFragor {
                 ID = idb.fetchSingle("Select Agent_ID from agent where Namn like '" + index + "'");
             } catch (InfException e){
                 e.printStackTrace();
+            }
+            if(ID == null){
+                JOptionPane.showMessageDialog(null, "Ej någon agent med det namnet.");
             }
             return ID;
         }

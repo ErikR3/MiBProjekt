@@ -175,9 +175,12 @@ public class Agent extends javax.swing.JFrame {
 
     private void btnSokAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSokAgentActionPerformed
         // TODO add your handling code here:
+        if(DataBasFragor.getAgentID(txtSokAgent.getText()) != null){
         String id = DataBasFragor.getAgentID(txtSokAgent.getText());
         
+        
         new VisaTabellAgent(DataBasFragor.getAlltOmEnAgent(id)).setVisible(true);
+        }
     }//GEN-LAST:event_btnSokAgentActionPerformed
 
     private void btnChefAndraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChefAndraActionPerformed
