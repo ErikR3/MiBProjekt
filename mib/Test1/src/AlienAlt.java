@@ -282,10 +282,14 @@ public class AlienAlt extends javax.swing.JFrame {
         // TODO add your handling code here:
         String plats = tfSeAliensOmrade.getText();
         ArrayList<String> aliens = new ArrayList<>();
-        
         aliens = DataBasFragor.getAllaAliensPaEnPlats(plats);
-        
+        if(Validering.textFaltHarVarde(tfSeAliensOmrade) && !aliens.isEmpty()){
         new VisaListaOverAliensPaAngivenPlats(aliens, plats).setVisible(true);
+        } else if (aliens.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ange giltig plats");
+        }
+        
+         
     }//GEN-LAST:event_BtnAliensInomOmrådeActionPerformed
 
     private void btnSeAliensAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeAliensAvRasActionPerformed

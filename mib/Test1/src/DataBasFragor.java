@@ -184,8 +184,8 @@ public class DataBasFragor {
         
         public static ArrayList<String> getAllaAliensPaEnPlats(String platsNamn){
              ArrayList<String> aliens = new ArrayList<>();
-             ArrayList<String> aliensNamn = new ArrayList<>();
              String platsID = null;
+             aliens = null;
              
              
              try{
@@ -199,7 +199,9 @@ public class DataBasFragor {
                  ex.printStackTrace();
              }
              
+             
              return aliens;
+
         }
         
         public static ArrayList<String> getAllaAliensAvRas(String rasNamn){
@@ -211,7 +213,7 @@ public class DataBasFragor {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null, "Inga Aliens av rasen");
             }
-            System.out.println(aliens);
+            
             return aliens;
         }
         
