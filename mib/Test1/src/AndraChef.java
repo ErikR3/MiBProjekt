@@ -26,7 +26,7 @@ public class AndraChef extends javax.swing.JFrame {
         FyllOmrade();
         
     }
-
+//        fyller combobox med agentnamn
     private void FyllAgent() {
         try {
             String Fraga ="Select Namn from Agent";
@@ -41,7 +41,7 @@ public class AndraChef extends javax.swing.JFrame {
             Logger.getLogger(AndraChef.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+//    Fyller combobox med områden
     private void FyllOmrade() {
         try {
             String Fraga = "Select Benamning from Omrade";
@@ -184,7 +184,7 @@ public class AndraChef extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//        gör om den valda agenten till områdeschef i det valda området
     private void btnOmradeOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmradeOKActionPerformed
        try {
            
@@ -209,7 +209,7 @@ public class AndraChef extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(rootPane, "Något har gått fel!");
        }
     }//GEN-LAST:event_btnOmradeOKActionPerformed
-
+//        Gör om den valda agenten till kontorschef på örebrokontoret
     private void btnKontorChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKontorChefActionPerformed
         try {
             String Agent = cbKontorChef.getSelectedItem().toString();
