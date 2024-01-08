@@ -307,7 +307,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 tfNamn.setEditable(false);
                 tfNummer.setEditable(false);
                 tfDatum.setEditable(false);
-                tfEpost.setEnabled(true);
+                tfEpost.setEditable(true);
                 FyllPlatsForAlien(epost);
                 FyllAgentForAlien(epost);
             }
