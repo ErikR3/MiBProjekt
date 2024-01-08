@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -177,7 +178,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnAvbrytActionPerformed
            
-        //Fyller combobox med platser
+        //Fyller comboboxen plats med platser
     private void FyllPlats() {
         cbPlats.removeAllItems();
     try {
@@ -191,7 +192,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         }
     }
     
-         //Fyller combobox med en plats för en specifik alien
+         //Fyller comboboxen plats med en plats för en specifik alien
     private void FyllPlatsForAlien(String epost) {
             cbPlats.removeAllItems();
             try {
@@ -204,7 +205,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         }
     }
     
-         //Fyller combobox med agenter
+         //Fyller comboboxn nsvarig aagent med agenter
     private void FyllAgenter() {
         cbAnsvarigAgent.removeAllItems();
     try {
@@ -218,7 +219,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         }
     }
     
-         //Fyller combobox med en agent för en specifik alien
+         //Fyller comboboxen ansvarig agent med en agent för en specifik alien
     private void FyllAgentForAlien(String epost) {
             cbAnsvarigAgent.removeAllItems();
             try {
@@ -262,14 +263,18 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         String epost = tfEpost.getText();
         String knappText = btnAndraInfo.getText();
         String valdText = "Ändra information";
-        //Om man trycker på "Ändra information" sätter det rutorna till förändringsbara
-        if (knappText.equals(valdText)) {      
+        //Validering för att kontrollera att en alien är uppsökt
+        if (Validering.textFaltHarVardeUtanMsg(tfEpost) && Validering.textFaltHarVardeUtanMsg(tfNamn) && Validering.alienEpostFinnsSok(tfEpost)){          
+            //Om man trycker på "Ändra information" sätter det rutorna till förändringsbara
+            if (knappText.equals(valdText)) {               
             btnAndraInfo.setText("Spara ändringar");
             tfNamn.setEditable(true);
             tfNummer.setEditable(true);
-            tfDatum.setEditable(true);   
+            tfDatum.setEditable(true);
+            tfEpost.setEditable(false);
             FyllPlats();
             FyllAgenter();
+       
         }
         else {
             try {
@@ -302,6 +307,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 tfNamn.setEditable(false);
                 tfNummer.setEditable(false);
                 tfDatum.setEditable(false);
+                tfEpost.setEnabled(true);
                 FyllPlatsForAlien(epost);
                 FyllAgentForAlien(epost);
             }
@@ -310,6 +316,10 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
             }          
         }
+         }
+            else {
+                JOptionPane.showMessageDialog(null, "Du måste söka efter en alien först!");
+            }
     }//GEN-LAST:event_btnAndraInfoActionPerformed
 
 

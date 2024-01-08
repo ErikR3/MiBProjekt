@@ -136,7 +136,7 @@ public class HuvudMenyAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBytLosenActionPerformed
 
     private void btnOmrådePlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOmrådePlatsActionPerformed
-        new Område().setVisible(true);
+        new Omrade().setVisible(true);
     }//GEN-LAST:event_btnOmrådePlatsActionPerformed
 
     private void btnAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlienActionPerformed

@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author erikr
  */
-public class Område extends javax.swing.JFrame {
+public class Omrade extends javax.swing.JFrame {
 
     /**
      * Creates new form Område
      */
-    public Område() {
+    public Omrade() {
         initComponents();
         
     }
