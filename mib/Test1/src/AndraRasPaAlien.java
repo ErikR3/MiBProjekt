@@ -216,12 +216,14 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvbrytActionPerformed
 
     private void btnAndraInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndraInfoActionPerformed
-        // TODO add your handling code here:       
+        // TODO add your handling code here: 
+        
         // Lagra titlar
         String epost = tfEpost.getText();
         String knappText = btnAndraInfo.getText();
         String valdText = "Ändra ras";
         //Om man trycker på "ändra" sätter det rutorna till förändringsbara
+        if (Validering.textFaltHarVardeUtanMsg(tfRasAttribut)) {
         if (knappText.equals(valdText)) {      
             btnAndraInfo.setText("Spara ändringar");
             tfRasAttribut.setEditable(true);
@@ -258,16 +260,17 @@ public class AndraRasPaAlien extends javax.swing.JFrame {
                         break;
                     default:
                         break;
-                }               
-                //Ändra tillbaka till oförändringsbart och fyller boxarna med ett värde igen
-                btnAndraInfo.setText(valdText);
-                tfRasAttribut.setEditable(false);
-                tfEpost.setEditable(true);
-                kollaRas();                    
+                } 
+                //Stänger rutan
+                dispose();                 
                 
             } catch (InfException ex) {
                 Logger.getLogger(SokEfterEnAlien.class.getName()).log(Level.SEVERE, null, ex);
             }          
+        }
+    }
+        else {
+            JOptionPane.showMessageDialog(null, "Du måste söka efter en Alien först!");
         }
     }//GEN-LAST:event_btnAndraInfoActionPerformed
 

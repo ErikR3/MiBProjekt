@@ -419,6 +419,14 @@ public class DataBasFragor {
                     hittad = true;
                 }
             }
+            //Söker igenom kommunikation
+            ArrayList<String> kategoriIDKommunikation = idb.fetchColumn("select utrustnings_id from kommunikation");
+            for (String id : kategoriIDKommunikation){
+                if (utrustningsID.equals(id)) {
+                    kategori = "kommunikation";
+                    hittad = true;
+                }
+            }
             //Söker igenom vapen
             if (!hittad) {
                 ArrayList<String> kategoriIDVapen = idb.fetchColumn("select utrustnings_id from vapen");

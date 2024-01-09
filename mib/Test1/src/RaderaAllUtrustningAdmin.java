@@ -118,7 +118,7 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
                         //Finns den utrustningen admin vill ta bort i databsen?
                         //Tar först bort utrustning från tabellen "innehar_utrustning" ifall den finns där
                         DataBasFragor.taBortKvitteradUtrustning(utrustningNamn);
-                        //Tar sedan bort utrustning ur kategorierna ifall den finns där
+                        //Tar sedan bort utrustning ur sin kategori ifall den finns där
                         DataBasFragor.taBortUtrustningFranKategori(utrustningNamn);
                         //Tar sedan bort utrustning ur systemet
                         String raderaUtrustning = ("DELETE FROM Utrustning WHERE Benamning = '"+ utrustningNamn + "'");

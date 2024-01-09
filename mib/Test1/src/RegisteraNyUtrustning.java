@@ -24,6 +24,13 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     public RegisteraNyUtrustning(InfDB idb) {
         initComponents();
         this.idb = idb;
+        fyllKategorier();
+    }
+    
+    private void fyllKategorier(){
+        cbKategori.addItem("Vapen");
+        cbKategori.addItem("Teknik");
+        cbKategori.addItem("Kommunikation");
     }
 
     /**
@@ -39,6 +46,12 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
         txtLaggTill = new javax.swing.JTextField();
         btnLaggTill = new javax.swing.JButton();
         btnGaTillbaka = new javax.swing.JButton();
+        cbKategori = new javax.swing.JComboBox<>();
+        lblNamn = new javax.swing.JLabel();
+        lblKategori = new javax.swing.JLabel();
+        txtAttribut = new javax.swing.JTextField();
+        lblBeskrivning = new javax.swing.JLabel();
+        btnUppdatera = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -58,6 +71,19 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             }
         });
 
+        lblNamn.setText("Namn:");
+
+        lblKategori.setText("Kategori:");
+
+        lblBeskrivning.setText("Beskrivning:");
+
+        btnUppdatera.setText("Uppdatera");
+        btnUppdatera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUppdateraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,26 +91,51 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLaggTill))
-                .addContainerGap(221, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGaTillbaka)
-                .addGap(49, 49, 49))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblBeskrivning)
+                            .addComponent(txtAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                        .addComponent(btnGaTillbaka)
+                        .addGap(49, 49, 49))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnUppdatera))
+                            .addComponent(lblLaggTill)
+                            .addComponent(lblKategori)
+                            .addComponent(txtLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNamn))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(lblLaggTill)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(24, 24, 24)
+                .addComponent(lblNamn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtLaggTill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(lblKategori)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUppdatera))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLaggTill)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                .addComponent(btnGaTillbaka)
+                .addComponent(lblBeskrivning)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAttribut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGaTillbaka)
+                    .addComponent(btnLaggTill))
                 .addGap(25, 25, 25))
         );
 
@@ -96,30 +147,55 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
 
         try {
             String utrustningNamn = txtLaggTill.getText();
+            String kategori = cbKategori.getSelectedItem().toString();
             boolean finnsRedan = false;
             //Validering här är till för att kontrollera att textfältet inte är tomt. Finns inte denna validering kan användaren lägga in "ingeting" som utrustning. 
-            if(Validering.textFaltHarVarde(txtLaggTill) && Validering.isNamnRattLangd(utrustningNamn)){
-            
+            if(Validering.textFaltHarVarde(txtLaggTill) && Validering.textFaltHarVarde(txtAttribut)){
+            if (Validering.isNamnRattLangd(utrustningNamn)) {
             ArrayList<String> utrustningsNamn = idb.fetchColumn("SELECT Benamning from Utrustning");
                  for (String namn : utrustningsNamn){
                      if(namn.equals(utrustningNamn)){
                          finnsRedan = true;
-                     }
-                         
-                     
-                 }
-             
+                     }           
+                 }             
             //Här kontrollerar vi mot databsen ifall utrustningen redan finns i databasen eller inte. 
             //Om utrustningen redan finns i databasen kommer användaren få upp en dialogruta då samma utrustning inte går att lägga till två gånger. 
             //Finns utrustningen så kommer användaren få upp en dialogruta som anses som ett godkännande att utrustningen nu är inlagd i systemet. 
             if (!finnsRedan){
                 String id = idb.getAutoIncrement("utrustning", "Utrustnings_ID");
+                String attribut = txtAttribut.getText();
                 String nyUtrustning = id+",'"+utrustningNamn+"'";
-                String LaggTillFraga = "insert into utrustning (Utrustnings_ID, Benamning) values ("+nyUtrustning+")";
-                idb.insert(LaggTillFraga);
-                JOptionPane.showMessageDialog(null,"Ny utrustning har lagts till");
-            } else {
+                String nyUtrustningKategori = id+",'"+attribut+"'";
+                
+                switch (kategori) {
+                    case "Vapen" :
+                        if (Validering.isHeltal(txtAttribut)) {
+                            idb.insert("insert into utrustning (Utrustnings_ID, Benamning) values ("+nyUtrustning+")");
+                            idb.insert("insert into vapen (Utrustnings_ID, Kaliber) values ("+nyUtrustningKategori+")");
+                            JOptionPane.showMessageDialog(null,"Ny utrustning har lagts till");
+                        }
+                        break;
+                    case "Teknik" :
+                        if (Validering.isNamnRattLangd(attribut)) {
+                            idb.insert("insert into utrustning (Utrustnings_ID, Benamning) values ("+nyUtrustning+")");
+                            idb.insert("insert into teknik (Utrustnings_ID, Kraftkalla) values ("+nyUtrustningKategori+")");
+                            JOptionPane.showMessageDialog(null,"Ny utrustning har lagts till");
+                        }
+                        break;
+                    case "Kommunikation" :
+                        if (Validering.isNamnRattLangd(attribut)) {
+                            idb.insert("insert into utrustning (Utrustnings_ID, Benamning) values ("+nyUtrustning+")");
+                            idb.insert("insert into kommunikation (Utrustnings_ID, Overforingsteknik) values ("+nyUtrustningKategori+")");
+                            JOptionPane.showMessageDialog(null,"Ny utrustning har lagts till");
+                        }
+                        break;
+                    default:
+                     break;
+                }
+            } 
+            else {
                 JOptionPane.showMessageDialog(null,"Utrustningen finns redan i systemet");    
+            }
             }
             }
         } catch (InfException ex) {
@@ -138,6 +214,24 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnGaTillbakaActionPerformed
 
+    private void btnUppdateraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUppdateraActionPerformed
+        // TODO add your handling code here:       
+         String kategori = cbKategori.getSelectedItem().toString();      
+            switch (kategori) {
+                    case "Teknik":
+                        lblBeskrivning.setText("Typ av kraftkälla:");
+                        break;
+                    case "Vapen":
+                        lblBeskrivning.setText("Antal kaliber:");
+                        break;
+                    case "Kommunikation":
+                        lblBeskrivning.setText("Typ av överföringsteknik:");
+                        break;
+                    default:
+                        break;
+            }  
+    }//GEN-LAST:event_btnUppdateraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -146,7 +240,13 @@ public class RegisteraNyUtrustning extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGaTillbaka;
     private javax.swing.JButton btnLaggTill;
+    private javax.swing.JButton btnUppdatera;
+    private javax.swing.JComboBox<String> cbKategori;
+    private javax.swing.JLabel lblBeskrivning;
+    private javax.swing.JLabel lblKategori;
     private javax.swing.JLabel lblLaggTill;
+    private javax.swing.JLabel lblNamn;
+    private javax.swing.JTextField txtAttribut;
     private javax.swing.JTextField txtLaggTill;
     // End of variables declaration//GEN-END:variables
 
