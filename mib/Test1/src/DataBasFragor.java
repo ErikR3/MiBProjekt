@@ -310,6 +310,7 @@ public class DataBasFragor {
         //Returnerar den hittade rasen, om ingen ras hittad är grundvärdet en tom sträng
         return ras;
     }
+     
     
     public static void taBortRas(String epost) {
         try {
@@ -385,6 +386,66 @@ public class DataBasFragor {
         } catch (InfException ex) {
             Logger.getLogger(DataBasFragor.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void taBortKvitteradUtrustning(String namn) {
+        try {
+            //hämta utrustningsID
+            String utrustningsID = idb.fetchSingle("select utrustnings_ID from utrustning where benamning = '" + namn + "'");
+
+            //Söker först igenom "innehar_utrustning" och tar sedan bort, om utrustningen finns där
+            ArrayList<String> utrustningIDs = idb.fetchColumn("select utrustnings_ID from innehar_utrustning");
+            for (String id : utrustningIDs){
+                if (id.equals(utrustningsID)) {
+                    idb.delete("delete from innehar_utrustning where utrustnings_ID ="+utrustningsID); 
+                }
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(DataBasFragor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static String hittaKategori (String utrustningsID) {
+        //Metod för att hitta kategorin som en utrutning tillhör
+        String kategori = "";
+        try {
+            Boolean hittad = false;
+            
+            //Söker förts igenom kategorin teknik, ifall hittad söker den inte igenom fler, annars fortsätter den söka i nästa
+            ArrayList<String> kategoriIDTeknik = idb.fetchColumn("select utrustnings_id from teknik");
+            for (String id : kategoriIDTeknik){
+                if (utrustningsID.equals(id)) {
+                    kategori = "teknik";
+                    hittad = true;
+                }
+            }
+            //Söker igenom vapen
+            if (!hittad) {
+                ArrayList<String> kategoriIDVapen = idb.fetchColumn("select utrustnings_id from vapen");
+                for (String id : kategoriIDVapen){
+                    if (utrustningsID.equals(id)) {
+                        kategori = "vapen";
+                    }
+                }
+            }
+            
+        } catch (InfException ex) {
+            Logger.getLogger(AndraRasPaAlien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Returnerar den hittade rasen, om ingen ras hittad är grundvärdet en tom sträng
+        return kategori;
+    }
+    
+    public static void taBortUtrustningFranKategori(String namn) {
+        try {
+        String utrustningsID = idb.fetchSingle("select utrustnings_ID from utrustning where benamning = '" + namn + "'");
+        //Hämtar den tillhörande kategorin, finns det en så tas den bort ur systemet.
+        if (!hittaKategori(utrustningsID).isEmpty()){
+          idb.delete("delete from "+hittaKategori(utrustningsID)+" where utrustnings_ID = "+utrustningsID);
+        }
+        } catch (InfException ex) {
+            Logger.getLogger(DataBasFragor.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     
     public static InfDB getDB(){

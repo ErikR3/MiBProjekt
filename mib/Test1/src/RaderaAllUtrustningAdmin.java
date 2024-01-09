@@ -100,6 +100,7 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
             // Om användaren inte är administratör, se kommentrar längre ner. 
             if(Validering.getAdminStatus()){
             String utrustningNamn = txtRaderaUtrustning.getText();
+            
             boolean hittad = false;
             try{
                 ArrayList<String> utrustning = idb.fetchColumn("SELECT Benamning FROM Utrustning");
@@ -110,12 +111,16 @@ public class RaderaAllUtrustningAdmin extends javax.swing.JFrame {
                     for (String namn : utrustning) {      
                         if (utrustningNamn.equals(namn)) {
                             hittad = true;
-                        }
-                            
+                        }               
                     }   
                     //Denna if-sats kontrollerar följande:
                     if (hittad) {
                         //Finns den utrustningen admin vill ta bort i databsen?
+                        //Tar först bort utrustning från tabellen "innehar_utrustning" ifall den finns där
+                        DataBasFragor.taBortKvitteradUtrustning(utrustningNamn);
+                        //Tar sedan bort utrustning ur kategorierna ifall den finns där
+                        DataBasFragor.taBortUtrustningFranKategori(utrustningNamn);
+                        //Tar sedan bort utrustning ur systemet
                         String raderaUtrustning = ("DELETE FROM Utrustning WHERE Benamning = '"+ utrustningNamn + "'");
                     idb.delete(raderaUtrustning);
                     // Om utrustningen finns i Databasen får man upp en dialogruta som svar:

@@ -264,7 +264,7 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
         String knappText = btnAndraInfo.getText();
         String valdText = "Ändra information";
         //Validering för att kontrollera att en alien är uppsökt
-        if (Validering.textFaltHarVardeUtanMsg(tfEpost) && Validering.textFaltHarVardeUtanMsg(tfNamn) && Validering.alienEpostFinnsSok(tfEpost)){          
+        if (Validering.textFaltHarVardeUtanMsg(tfNamn)){          
             //Om man trycker på "Ändra information" sätter det rutorna till förändringsbara
             if (knappText.equals(valdText)) {               
             btnAndraInfo.setText("Spara ändringar");
@@ -273,12 +273,11 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
             tfDatum.setEditable(true);
             tfEpost.setEditable(false);
             FyllPlats();
-            FyllAgenter();
-       
+            FyllAgenter();       
         }
         else {
             try {
-                //Kontrollera så ingen ruta är tom
+                //Kontrollerar så ingen ruta är tom
                 if (Validering.textFaltHarVarde(tfNamn) && Validering.textFaltHarVarde(tfNummer) && Validering.textFaltHarVarde(tfDatum)) {
                     
                 //hämta ny info
@@ -302,14 +301,8 @@ public class SokEfterEnAlien extends javax.swing.JFrame {
                 idb.update("update alien set Plats = "+platsID+" where epost='"+epost+"'");
                 idb.update("update alien set Ansvarig_Agent = "+agentID+" where epost='"+epost+"'");
                 
-                //Ändra tillbaka till oförändringsbart och fyller boxarna med ett värde igen
-                btnAndraInfo.setText(valdText);
-                tfNamn.setEditable(false);
-                tfNummer.setEditable(false);
-                tfDatum.setEditable(false);
-                tfEpost.setEditable(true);
-                FyllPlatsForAlien(epost);
-                FyllAgentForAlien(epost);
+                //stänger ner rutan
+                dispose();
             }
             }
             } catch (InfException ex) {
