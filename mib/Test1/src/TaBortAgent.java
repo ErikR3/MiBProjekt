@@ -169,7 +169,7 @@ public class TaBortAgent extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Agenten har tagits bort.");
         }
         }
-        else {
+        else if (inloggadEpost.equals(valdEpost)){
             JOptionPane.showMessageDialog(null, "Du kan inte ta bort dig själv!");
         }
         } catch(InfException ex){
