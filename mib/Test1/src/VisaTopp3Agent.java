@@ -13,10 +13,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author erikr
  */
+
 public class VisaTopp3Agent extends javax.swing.JFrame {
     /**
      * Creates new form VisaTopp3Agent
      */
+    
+    //konstruktorns parameter är viktig.
+    //Den tar emot en arraylist av hashmaps som kommer vara viktiga senare.
     private ArrayList<HashMap<String, String>> AL;
     
     public VisaTopp3Agent(ArrayList<HashMap<String, String>> AL) {
@@ -25,27 +29,39 @@ public class VisaTopp3Agent extends javax.swing.JFrame {
     }
     
     public DefaultTableModel sattTabellModell(ArrayList<HashMap<String, String>> rader){
+        //För att tabellen ska bli högst 3 rader lång finns denna variabel.
+        //Ifall det är färre rader så får e samma värde som radantalets storlek.
         Integer e = 0;
         if(rader.size() > 3){
             e = 3;
         } else {
             e = rader.size();
         }
+        
+        //Här instansieras ett 2 dimensionellt objekt där e är antalet rader
+        //och 2 antalets kolumner
         Object[][] data = new Object[e][2];
+        //Kolumnnamn
         String[] kolumner ={"Agent ID", "Antal Aliens"};
         
         
-        
+        //En traditionell for-loop som endast itererar när i är under e:s värde
         for (int i = 0; i < e; i++){
+            //Hämtar hashmap från nuvarande index ur arraylist
             HashMap<String, String> HM = rader.get(i);
+            //Hämtar agentid från nyckeln
             String agentID = HM.get("Ansvarig_Agent");
+            //Hämtar aliens från radantal
             String antalAliens = HM.get("row_count");
             
-            
+            //Ett till objekt instansieras innehållande värdena från agentid och antalaliens
             Object[] rad = {agentID, antalAliens};
+            //Objektet som nyss instansierats lägg till i arrayen rad
             data[i] = rad;
         }
         
+        //Här returneras en tabellmodell av data och kolumner
+        //I initComponents() funktionen så kallar setmodel() funktionen på denna funktion
         return new DefaultTableModel(data, kolumner);
         }
 
